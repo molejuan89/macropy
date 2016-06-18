@@ -34,7 +34,7 @@
             &nbsp;
         </div>
         <div class="container">
-            <h2>Perfiles</h2>
+            <h2>Profile</h2><br>
             <table class="table table-hover">
                 <thead>
                     <tr>
