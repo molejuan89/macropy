@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mcpy.dao;
+package com.mcpy.profile.dao;
 
 import com.mcpy.control.database.Database;
 import com.mcpy.control.util;
-import com.mcpy.core.rol.Grantee;
-import com.mcpy.core.rol.Revoke;
+import com.mcpy.profile.core.Grantee;
+import com.mcpy.profile.core.Revoke;
 import com.mcpy.control.SQLStrings;
-import com.mcpy.model.objects.Objeto;
-import com.mcpy.model.rol.Perfil;
-import com.mcpy.model.rol.Perfil_objeto;
+import com.mcpy.profile.objects.model.Objeto;
+import com.mcpy.profile.model.Perfil;
+import com.mcpy.profile.model.Perfil_objeto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;

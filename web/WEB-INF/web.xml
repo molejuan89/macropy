@@ -6,11 +6,11 @@
     </servlet>
     <servlet>
         <servlet-name>PerfilDAO</servlet-name>
-        <servlet-class>com.mcpy.dao.Perfil_objeto_DAO</servlet-class>
+        <servlet-class>com.mcpy.profile.dao.Perfil_objeto_DAO</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Perfil_DAO</servlet-name>
-        <servlet-class>com.mcpy.dao.Perfil_DAO</servlet-class>
+        <servlet-class>com.mcpy.profile.dao.Perfil_DAO</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>

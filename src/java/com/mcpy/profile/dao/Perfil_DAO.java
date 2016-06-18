@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mcpy.dao;
+package com.mcpy.profile.dao;
 
+import com.mcpy.profile.model.Perfil;
 import com.mcpy.control.database.*;
-import com.mcpy.model.rol.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
@@ -37,7 +37,7 @@ public class Perfil_DAO extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
-        Perfil perfil = (com.mcpy.model.rol.Perfil) request.getAttribute("perfil");
+        Perfil perfil = (com.mcpy.profile.model.Perfil) request.getAttribute("perfil");
         String action = request.getParameter("action");;
         Database conn = (Database) request.getSession().getAttribute("conexion");
 

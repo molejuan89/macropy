@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mcpy.core.rol;
+package com.mcpy.profile.core;
 
-import com.mcpy.model.rol.Perfil_objeto;
-import com.mcpy.model.objects.Objeto;
+import com.mcpy.profile.model.Perfil_objeto;
+import com.mcpy.profile.objects.model.Objeto;
 import com.mcpy.control.database.Database;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -23,7 +23,7 @@ public class Revoke {
         PreparedStatement pstm;
         Iterator<Objeto> itr = perfil_objeto.getObjetos().iterator();
         while (itr.hasNext()) {
-            com.mcpy.model.objects.Objeto obj = itr.next();
+            com.mcpy.profile.objects.model.Objeto obj = itr.next();
             pstm = conn.getConexion().prepareStatement(obj.revoke() + " " + perfil_objeto.toRevoke());
             pstm.execute();
         }

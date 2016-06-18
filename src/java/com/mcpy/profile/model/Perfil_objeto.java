@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mcpy.model.rol;
+package com.mcpy.profile.model;
 
-import com.mcpy.model.objects.Objeto;
+import com.mcpy.profile.objects.model.Objeto;
 import java.util.ArrayList;
 import java.util.Iterator;
 
