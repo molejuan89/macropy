@@ -9,8 +9,7 @@ import java.sql.*;
 public final class Database {
 
     protected Connection conexion;
-    protected String strConexionFinal;
-    protected String classForName, strConexion, server, port, database, user, password;
+    protected String strConexionFinal, classForName, strConexion, server, port, database, user, password;
 
     public Database(String classForName, String strConexion, String server, String port, String database, String user, String password) throws Exception, SQLException {
         this.classForName = classForName;
