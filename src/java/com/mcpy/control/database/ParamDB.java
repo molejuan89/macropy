@@ -11,7 +11,7 @@ package com.mcpy.control.database;
  */
 public final class ParamDB {
 
-    public static String SERVER = "postgresql.me";
+    public static String SERVER = "postgresql.mcpy";
     public static String DATABASE = "macropy";
     public static String USER = "postgres";
     public static String PASSWORD = "postgres";
