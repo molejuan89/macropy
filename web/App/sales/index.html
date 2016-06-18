@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Proyecto - Gestion de la Venta</title>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--JQuery v1.12.2 -->
+        <script src="libs/com.jquery.code/1.12.2/jquery.min.js"></script> 
+        <!--Bootstrap v3.3.6 -->
+        <link rel="stylesheet" href="libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!--Bootstrap-datepicker https://github.com/eternicode/bootstrap-datepicker -->        
+        <link rel="stylesheet" href="libs/com.github/eternicode/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
+        <script src="libs/com.github/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <!-- Campos de fecha -->
+        <script src="js/date-fields.js"></script> 
+        <script src="js/div-contenidos.js"></script> 
+    </head>
+    <body><br>
+                <div class="container">  
+                     <img src="image/LogoRealt.png"   width="200" height="75" align="left">         
+                 </div>
+            <br>
+            <div class="col-xs-1"></div>
+            <div class="col-xs-3">
+                            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h4 class="panel-title" >
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"  style="color: red"><strong>Comprobante de Ingreso</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="InformacionPersonal" method="post"  action="#">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <a href="javascript:contenido('Comprobante_Ingreso');" >Crear</a><br>
+                                    Consultar<br>
+                                    Desactivar<br>
+                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h4 class="panel-title" >
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"  style="color: red"><strong>Comprobante de Egreso</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="InformacionPersonal" method="post"  action="#">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <a href="javascript:contenido('crear');" >Crear</a><br>
+                                    Consultar<br>
+                                    Desactivar<br>
+                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>                            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h4 class="panel-title" >
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"  style="color: red"><strong>Informes</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="InformacionPersonal" method="post"  action="#">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <a href="javascript:contenido('crear');" >Crear</a><br>
+                                    Consultar<br>
+                                    Desactivar<br>
+                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h4 class="panel-title" >
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"  style="color: red"><strong>Maestro de Terceros</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="InformacionPersonal" method="post"  action="#">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <a href="javascript:contenido('tercero');" >Crear</a><br>
+                                    Control Consecutivos<br>
+                                    Formas de Pago<br>
+                                    Tipo de Tercero<br>
+                                    Tipo de Documento<br>
+                                    PUC<br>
+                                    Departamento/Ciudad<br>
+                                    Pais<br>
+                                    Codigo Dian<br>
+                                    Codigo Ica<br>
+                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h4 class="panel-title" >
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"  style="color: red"><strong>Parametros</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="InformacionPersonal" method="post"  action="#">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <a href="javascript:contenido('tercero');" >Crear</a><br>
+                                    Control Consecutivos<br>
+                                    Formas de Pago<br>
+                                    Tipo de Tercero<br>
+                                    Tipo de Documento<br>
+                                    PUC<br>
+                                    Departamento/Ciudad<br>
+                                    Pais<br>
+                                    Codigo Dian<br>
+                                    Codigo Ica<br>
+                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h4 class="panel-title" >
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"  style="color: red"><strong>Acerca de</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="InformacionPersonal" method="post"  action="#">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <a href="javascript:contenido('crear');" >Crear</a><br>
+                                    Consultar<br>
+                                    Desactivar<br>
+                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            <div class="col-xs-7" id="contenido">
+
+            </div>
+    </body>
+   </html>
+
+
+
+
+<!--
+
+<div class="container">
+        <!--background="fondo.png"-->
+   <!--     <div class="container">  
+            <img src="image/logo.png"   width="200" height="75" align="left">         
+            <img src="image/basc.png"   width="40" height="35"  align="right">       
+            <img src="image/iqnet.jpg"  width="40" height="35"  align="right"> 
+        </div>-->
+  <!--      <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h4 class="panel-title" >
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"  style="color: red"><strong>Comprobante de Ingreso</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <form id="InformacionPersonal" method="post"  action="#">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <label for="txt_LugarExpedicion">Ciudad</label>
+                                        <input class="form-control" id ="txt_LugarExpedicion"  name ="txt_LugarExpedicion"   type ="text" placeholder="EJ: CALI">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <label for="txt_FechaExpedicion">Fecha</label>
+                                        <input class="form-control" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: 1993-12-22">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <label for="txt_LugarNacimiento">Recibido de</label>
+                                        <input class="form-control" id ="txt_LugarNacimiento" name ="txt_LugarNacimiento"   type ="text" placeholder="EJ: CALI">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <label for="txt_FechaNacimiento">Direccion</label>
+                                        <input class="form-control" id="txt_FechaNacimiento" name="txt_FechaNacimiento" type="text" placeholder="EJ: 1993-12-22">
+                                    </div>
+                                </div>&nbsp;
+                                <div class="row">
+                                        <div class="col-xs-2">
+                                                <label for="txt_FechaNacimiento">Suma en Numeros</label>
+                                                <input class="form-control" id="txt_FechaNacimiento" name="txt_FechaNacimiento" type="text" placeholder="EJ: 1993-12-22">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label for="txt_FechaNacimiento">Suma en Letras</label>
+                                            <input class="form-control" id="txt_FechaNacimiento" name="txt_FechaNacimiento" type="text" placeholder="EJ: 1993-12-22">
+                                        </div>
+                                    <div class="col-xs-3">
+                                        <label for="txt_FechaNacimiento">Por Concepto de</label>
+                                        <input class="form-control" id="txt_FechaNacimiento" name="txt_FechaNacimiento" type="text" placeholder="EJ: 1993-12-22">
+                                    </div>
+                                    <div class="col-xs-3">
+                                    <form role="form">
+                                         <label for="txt_FactorRH">Tipo de Pago</label><br>
+                                         <input type="radio" id="ra_FactorPositivo"  name="optradio">Cheque &nbsp;
+                                         <input type="radio" id="ra_FactorNegativo" name="optradio">Efectivo &nbsp; 
+                                    </form>
+                                    </div> 
+                                </div>&nbsp;
+                                <div class="row">
+                                    <div class="col-xs-12" style="background-color: #d4d4d4; text-align: center;">
+                                        Datos cuenta
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label for="txt_LugarResidencia">Codigo PUC</label>
+                                            <input class="form-control" id ="txt_lugarResidencia"   name ="txt_LugarResidencia"   type ="text"  placeholder="EJ: CALI">
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label for="txt_DireccionResidencia">Cuenta</label>
+                                            <input class="form-control" id ="txt_DireccionResidencia"   name ="txt_DireccionResidencia"   type ="text"  placeholder="EJ: CALLE 73I # 4N53">
+                                        </div> 
+                                        <div class="col-xs-3">
+                                            <label for="txt_BarrioResidencia">Debitos</label>
+                                            <select class="form-control" id ="cbo_BarrioResidencia"    name ="cbo_BarrioResidencia">
+                                                <option value ="">Seleccione..</option>	
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label for="txt_OtroBarrioResidencia">Creditos</label>
+                                            <input class="form-control" id ="txt_OtroBarrioResidencia"   name ="txt_OtroBarrioResidencia"   type ="text"  placeholder="EJ: PRADOS DE EL NORTE">
+                                        </div>
+                                    </div>&nbsp;
+                                <div class="row">
+                                    <div class="col-xs-4 "></div>
+                                    <div class="col-xs-4">
+                                        <div class="container">
+                                            <button id="GuardarInfoPersonal" type="submit" class="btn-default">Guardar</button>   
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" style ='color: "#cc0000"'>
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" style="color: green"> <strong>Comprobante de Egreso</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="DatosBasicos" method="post"  action="#">
+                            <div class="container-fluid">
+                                                                 <div class="row">
+                                    <div class="col-xs-3">
+                                        <label for="txt_LugarExpedicion">Ciudad</label>
+                                        <input class="form-control" id ="txt_LugarExpedicion"  name ="txt_LugarExpedicion"   type ="text" placeholder="EJ: CALI">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <label for="txt_FechaExpedicion">Fecha</label>
+                                        <input class="form-control" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: 1993-12-22">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <label for="txt_LugarNacimiento">Pagado a</label>
+                                        <input class="form-control" id ="txt_LugarNacimiento" name ="txt_LugarNacimiento"   type ="text" placeholder="EJ: CALI">
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <label for="txt_FechaNacimiento">Direccion</label>
+                                        <input class="form-control" id="txt_FechaNacimiento" name="txt_FechaNacimiento" type="text" placeholder="EJ: 1993-12-22">
+                                    </div>
+                                </div>&nbsp;
+                                <div class="row">
+                                        <div class="col-xs-2">
+                                                <label for="txt_FechaNacimiento">Suma en Numeros</label>
+                                                <input class="form-control" id="txt_FechaNacimiento" name="txt_FechaNacimiento" type="text" placeholder="EJ: 1993-12-22">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <label for="txt_FechaNacimiento">Suma en Letras</label>
+                                            <input class="form-control" id="txt_FechaNacimiento" name="txt_FechaNacimiento" type="text" placeholder="EJ: 1993-12-22">
+                                        </div>
+                                    <div class="col-xs-3">
+                                        <label for="txt_FechaNacimiento">Por Concepto de</label>
+                                        <input class="form-control" id="txt_FechaNacimiento" name="txt_FechaNacimiento" type="text" placeholder="EJ: 1993-12-22">
+                                    </div>
+                                    <div class="col-xs-3">
+                                    <form role="form">
+                                         <label for="txt_FactorRH">Tipo de Pago</label><br>
+                                         <input type="radio" id="ra_FactorPositivo"  name="optradio">Cheque &nbsp;
+                                         <input type="radio" id="ra_FactorNegativo" name="optradio">Efectivo &nbsp; 
+                                    </form>
+                                    </div> 
+                                </div>&nbsp;
+                                <div class="row">
+                                    <div class="col-xs-12" style="background-color: #d4d4d4; text-align: center;">
+                                        Datos cuenta
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <label for="txt_LugarResidencia">Codigo PUC</label>
+                                            <input class="form-control" id ="txt_lugarResidencia"   name ="txt_LugarResidencia"   type ="text"  placeholder="EJ: CALI">
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label for="txt_DireccionResidencia">Cuenta</label>
+                                            <input class="form-control" id ="txt_DireccionResidencia"   name ="txt_DireccionResidencia"   type ="text"  placeholder="EJ: CALLE 73I # 4N53">
+                                        </div> 
+                                        <div class="col-xs-3">
+                                            <label for="txt_BarrioResidencia">Debitos</label>
+                                            <select class="form-control" id ="cbo_BarrioResidencia"    name ="cbo_BarrioResidencia">
+                                                <option value ="">Seleccione..</option>	
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <label for="txt_OtroBarrioResidencia">Creditos</label>
+                                            <input class="form-control" id ="txt_OtroBarrioResidencia"   name ="txt_OtroBarrioResidencia"   type ="text"  placeholder="EJ: PRADOS DE EL NORTE">
+                                        </div>
+                                    </div>&nbsp;
+
+                                <div class="row show-grid">
+                                    <div class="col-xs-6 col-md-4"></div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="container">
+                                            <button id="GuardarDatosBasicos" type="submit" class="btn btn-success">Guardar</button>   
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" style ='color: "#cc0000"'>
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" style="color: green"> <strong>Informes</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="DatosContactoEmergencia" method="post"  action="#">
+                            <div class="container-fluid">
+                                 <div class="row">
+                                    <div class="col-xs-4">
+                                        <label for="txt_NombreEmergencia">Nombre</label><br>
+                                            <input  id="txt_NombreEmergencia" class="form-control" name ="txt_NombreEmergencia" type ="text" placeholder="EJ: CARLOS JIMENEZ">                                    </div>
+                                    <div class="col-xs-4">
+                                        <label for="txt_DireccionEmergencia">Direccion</label><br>
+                                            <input  type="text" id ="txt_DireccionEmergencia" class="form-control" name ="txt_DireccionEmergencia" placeholder="EJ: CALLE 41 # 4N56"/>           
+                                    </div>
+                                      <div class="col-xs-4">
+                                        <label for="txt_TelefonoEmergencia">Telefono</label><br>
+                                            <input  type="text" id ="txt_TelefonoEmergencia"  class="form-control" name ="txt_TelefonoEmergencia" placeholder="EJ: 4058197"/>           
+                                    </div> 
+                                    
+                                </div>&nbsp;
+                                <div class="row show-grid">
+                                    <div class="col-xs-6 col-md-4"></div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <div class="container">
+                                            <button id="GuardarDatosEmergencia" type="submit" class="btn btn-success">Guardar</button>   
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" style ='color: "#cc0000"'>
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" style="color: green"><strong>Parametros</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4">
+                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Añadir Estudio</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <div class="col-xs-4"></div>
+                        </div>&nbsp;&nbsp;
+                         <div class="row">
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4">
+                                 <div class="checkbox-inline">
+                                        <input id="txt_NotengoEstudio" type="checkbox">No tengo Estudios
+                                    </div>
+                            </div>
+                            <div class="col-xs-4"></div>
+                        </div>
+                                <div class="modal fade" id="myModal" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Datos de Estudio</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                        <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-4">
+                                                                                <label for="txt_LugarEstudio">Lugar de Estudio</label><br>
+                                                                                <input id ="txt_LugarEstudio"  class="form-control" name ="txt_LugarEstudio" type="text" placeholder="EJ: CALI">
+                                                                        </div>
+                                                                        <div class="col-xs-4">
+                                                                                <label for="txt_NivelAcademico">Nivel Académico</label><br>
+                                                                                <input id ="txt_NivelAcademico"  class="form-control" name ="txt_NivelAcademico" type="text" placeholder="EJ: BACHILLER">
+                                                                        </div>
+                                                                        <div class="col-xs-4">
+                                                                                <label for="txt_NombreInstitucion">Nombre de Institución</label><br>
+                                                                                <select id ="cbo_NombreInstitucion"  class="form-control" name ="cbo_NombreInstitucion" class="chosenbig">
+                                                                                    <option value ="">Seleccione..</option>
+                                                                                </select>                                                           
+                                                                        </div>
+                                                                    </div>&nbsp;
+                                                                    <div class="row">
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_AñoIngreso">Año de Ingreso</label><br>
+                                                                                <input id ="txt_AñoIngreso"  class="form-control" name ="txt_AñoIngreso" type="text" placeholder="EJ: 2009">
+                                                                        </div>
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_AñoSalida">Año de Salida</label><br>
+                                                                                <input id ="txt_AñoSalida" class="form-control"  name="txt_AñoSalida" type="text" placeholder="EJ: 2014">
+                                                                        </div>
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_AñosCursados">Años Cursados</label><br>
+                                                                                <input id ="txt_AñosCursados"  class="form-control" name="txt_AñosCursados" type="text" placeholder="EJ: 5">                                                         
+                                                                        </div>
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_AñoGrado">Año de Grado</label><br>
+                                                                                <input id ="txt_AñoGrado"  class="form-control"   name="txt_AñoGrado" type="text" placeholder="EJ: 2015">                                                         
+                                                                        </div>
+                                                                    </div>&nbsp;
+                                                                     <div class="row">
+                                                                        <div class="col-xs-12">
+                                                                                <label for="txt_TituloObtenido">Título Obtenido</label><br>
+                                                                                <select id ="cbo_TituloObtenido"  class="form-control" name ="cbo_TituloObtenido" class="chosenbig">
+                                                                                        <option value ="">Seleccione..</option>
+                                                                                </select>
+                                                                        </div>
+                                                                     </div>&nbsp;
+                                                            <div class="row show-grid">
+                                                                <div class="col-xs-6 col-md-4"></div>
+                                                                <div class="col-xs-6 col-md-4">
+                                                                    <div class="container">
+                                                                        <button id="GuardarEstudio" type="submit" class="btn btn-success">Guardar</button>   
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-6 col-md-4"></div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" style ='color: "#cc0000"'>
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5" style="color: green"><strong>Experiencia Laboral</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse5" class="panel-collapse collapse">
+                    <div class="panel-body">
+                         <div class="row">
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4">
+                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalExperiencia">Acerca de</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <div class="col-xs-4"></div>
+                        </div>&nbsp;&nbsp;
+                         <div class="row">
+                            <div class="col-xs-4"></div>
+                            <div class="col-xs-4">
+                                 <div class="checkbox-inline">
+                                        <input type="checkbox" value="">No tengo Experiencia
+                                    </div>
+                            </div>
+                            <div class="col-xs-4"></div>
+                        </div>
+                                <div class="modal fade" id="ModalExperiencia" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Datos de Experiencia Laboral</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                        <div class="container-fluid">
+                                                                    <div class="row">
+                                                                        <div class="col-xs-4">
+                                                                                <label for="txt_NombreEmpresa">Empresa</label><br>
+                                                                                <input id="txt_NombreEmpresa"  class="form-control" name="txt_NombreEmpresa" type="text"  placeholder="EJ: PROSERVIS GENERALES"/>
+                                                                        </div>
+                                                                        <div class="col-xs-4">
+                                                                                <label for="txt_LugarEmpresa">Lugar</label><br>
+                                                                                <input id="txt_LugarEmpresa"  class="form-control" name ="txt_LugarEmpresa" type ="text" placeholder="EJ: 1000000"/>
+                                                                        </div>
+                                                                        <div class="col-xs-4">
+                                                                                <label for="txt_DireccionEmpresa">Direccion</label><br>
+                                                                                <input id ="txt_DireccionEmpresa"  class="form-control" name ="txt_DireccionEmpresa" type="text" placeholder="EJ: CALLE 38N # 3CN92"/>                                                         
+                                                                        </div>
+                                                                    </div>&nbsp;
+                                                                    <div class="row">
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_TelefonoEmpresa">Telefono</label><br>
+                                                                                <input id ="txt_TelefonoEmpresa"  class="form-control" name ="txt_TelefonoEmpresa" type="text" placeholder="EJ: 4861717"/>
+                                                                        </div>
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_Cargo">Cargo</label><br>
+                                                                                <input id ="txt_Cargo"  class="form-control" name ="txt_Cargo" type="text" placeholder="EJ: OPERARIO"/>
+                                                                        </div>
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_FechaIngreso">Fecha Ingreso</label><br>
+                                                                                <input id ="txt_FechaIngreso"  class="form-control" name="txt_FechaIngreso" type="text" placeholder="EJ: 5">                                                         
+                                                                        </div>
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_FechaRetiro">Fecha Retiro</label><br>
+                                                                                <input id ="txt_FechaRetiro"  class="form-control"  name="txt_FechaRetiro" type="text" placeholder="EJ: 2015">                                                         
+                                                                        </div>
+                                                                    </div>&nbsp;
+                                                                     <div class="row">
+                                                                        <div class="col-xs-3">
+                                                                                <label for="txt_UltimoSalario">Ultimo Salario</label><br>
+                                                                                <input id="txt_UltimoSalario"  class="form-control" name ="txt_UltimoSalario" type ="text" placeholder="EJ: 1000000"/>
+                                                                        </div>
+                                                                         <div class="col-xs-3">
+                                                                                <label for="txt_JefeInmediato">Jefe Inmediato</label><br>
+                                                                                <input id ="txt_JefeInmediato"  class="form-control" name ="txt_JefeInmediato" type="text" placeholder="EJ: JUAN PEREZ">
+                                                                         </div>                                                         
+                                                                        
+                                                                         <div class="col-xs-3">
+                                                                                <label for="txt_MotivoRetiro">Motivo Retiro</label><br>
+                                                                                <select id ="cbo_MotivoRetiro"   class="form-control"  name ="cbo_MotivoRetiro" class="chosen" >
+                                                                                    <option value="">Seleccione..</option>
+                                                                                </select>                                                         
+                                                                         </div>
+                                                                         </div>&nbsp;
+                                                             
+                                                            <div class="row show-grid">
+                                                                <div class="col-xs-6 col-md-4"></div>
+                                                                <div class="col-xs-6 col-md-4">
+                                                                    <div class="container">
+                                                                        <button id="GuardarDatosExperiencia" type="submit" class="btn btn-success">Guardar</button>   
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-6 col-md-4"></div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
+        </div>
+-->
