@@ -4,21 +4,27 @@
         <title>Proyecto - Gestion de la Venta</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
         <!--JQuery v1.12.2 -->
-        <script src="libs/com.jquery.code/1.12.2/jquery.min.js"></script> 
+        <script src="../../libs/com.jquery.code/1.12.2/jquery.min.js"></script>
+        
         <!--Bootstrap v3.3.6 -->
-        <link rel="stylesheet" href="libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../../libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="../../libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
         <!--Bootstrap-datepicker https://github.com/eternicode/bootstrap-datepicker -->        
-        <link rel="stylesheet" href="libs/com.github/eternicode/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
-        <script src="libs/com.github/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="../../libs/com.github/eternicode/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
+        <script src="../../libs/com.github/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        
         <!-- Campos de fecha -->
         <script src="js/date-fields.js"></script> 
-        <script src="js/div-contenidos.js"></script> 
+        <script src="js/div-contenidos.js"></script>
+        <script src="js/Fecha.js"></script> 
+        
     </head>
     <body><br>
                 <div class="container">  
-                     <img src="image/LogoRealt.png"   width="200" height="75" align="left">         
+                     <img src="images/LogoRealt.png"   width="200" height="75" align="left">
                  </div>
             <br>
             <div class="col-xs-1"></div>
@@ -38,7 +44,7 @@
                                     <a href="javascript:contenido('Comprobante_Ingreso');" >Crear</a><br>
                                     Consultar<br>
                                     Desactivar<br>
-                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                    Actutalizar<br>
                                 </div>
                             </div>
                         </form>
@@ -58,10 +64,10 @@
                         <form id="InformacionPersonal" method="post"  action="#">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <a href="javascript:contenido('crear');" >Crear</a><br>
+                                    Crear<br>
                                     Consultar<br>
                                     Desactivar<br>
-                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                    Actutalizar<br>
                                 </div>
                             </div>
                         </form>
@@ -80,10 +86,8 @@
                         <form id="InformacionPersonal" method="post"  action="#">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <a href="javascript:contenido('crear');" >Crear</a><br>
-                                    Consultar<br>
-                                    Desactivar<br>
-                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                    Comprobante Diario Parcial<br>
+                                    Comprobante Diario Final<br>
                                 </div>
                             </div>
                         </form>
@@ -104,16 +108,9 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <a href="javascript:contenido('tercero');" >Crear</a><br>
-                                    Control Consecutivos<br>
-                                    Formas de Pago<br>
-                                    Tipo de Tercero<br>
-                                    Tipo de Documento<br>
-                                    PUC<br>
-                                    Departamento/Ciudad<br>
-                                    Pais<br>
-                                    Codigo Dian<br>
-                                    Codigo Ica<br>
-                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                    Consultar<br>
+                                    Desactivar<br>
+                                    Actutalizar<br>
                                 </div>
                             </div>
                         </form>
@@ -125,37 +122,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading"  >
                     <h4 class="panel-title" >
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4"  style="color: red"><strong>Parametros</strong></a>
-                    </h4>
-                </div>
-                <div id="collapse4" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <form id="InformacionPersonal" method="post"  action="#">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <a href="javascript:contenido('tercero');" >Crear</a><br>
-                                    Control Consecutivos<br>
-                                    Formas de Pago<br>
-                                    Tipo de Tercero<br>
-                                    Tipo de Documento<br>
-                                    PUC<br>
-                                    Departamento/Ciudad<br>
-                                    Pais<br>
-                                    Codigo Dian<br>
-                                    Codigo Ica<br>
-                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-                <div class="panel-heading"  >
-                    <h4 class="panel-title" >
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"  style="color: red"><strong>Acerca de</strong></a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5"  style="color: red"><strong>Parametros</strong></a>
                     </h4>
                 </div>
                 <div id="collapse5" class="panel-collapse collapse">
@@ -163,10 +130,34 @@
                         <form id="InformacionPersonal" method="post"  action="#">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <a href="javascript:contenido('crear');" >Crear</a><br>
-                                    Consultar<br>
-                                    Desactivar<br>
-                                    <a href="javascript:contenido('actualizar');" >Actutalizar</a><br>
+                                    <a href="javascript:contenido('Control_Consecutivos');" >Control Consecutivos</a><br>
+                                     <a href="javascript:contenido('Forma_Pago');" >Formas de Pago</a><br>
+                                    <a href="javascript:contenido('Tipo_Tercero');" >Tipo Tercero</a><br>
+                                    <a href="javascript:contenido('Tipo_Documento');" >Tipo Documento</a><br>
+                                    <a href="javascript:contenido('PUC');" >PUC</a><br>
+                                    <a href="javascript:contenido('Departamento/Ciudad');" >Departamento/Ciudad</a><br>
+                                    <a href="javascript:contenido('Pais');" >Pais</a><br>
+                                    <a href="javascript:contenido('CodigoDian');" >Codigo DIAN</a><br>
+                                    <a href="javascript:contenido('CodigoIca');" >Codigo ICA</a><br>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h4 class="panel-title" >
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6"  style="color: red"><strong>Acerca de</strong></a>
+                    </h4>
+                </div>
+                <div id="collapse6" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <form id="InformacionPersonal" method="post"  action="#">
+                            <div class="container-fluid">
+                                <div class="row">
                                 </div>
                             </div>
                         </form>
@@ -179,7 +170,7 @@
 
             </div>
     </body>
-   </html>
+</html>
 
 
 
