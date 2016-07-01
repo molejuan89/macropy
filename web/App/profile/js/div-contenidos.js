@@ -5,10 +5,10 @@
 
 function contenido(action) {
     var htmlcontent = "";
- if (action == "Control_Consecutivos") {
+ if (action == "Crear_Usuario") {
         htmlcontent = "<div class=\"container-fluid well\">\n\
                             <h4>\n\
-                                <a><strong>Control de Consecutivos</strong></a>\n\
+                                <a><strong>Create User</strong></a>\n\
                             </h4>\n\
                             <div class=\"row\">\n\
                                 <div class=\"col-xs-6\">\n\

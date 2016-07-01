@@ -1,0 +1,25 @@
+
+
+
+Forma Login
+
+txt_EmailLogin
+txt_contrasenaLogin
+btn_Login
+
+Forma Registro Usuario
+
+txt_Nombres
+txt_Apellido1
+txt_Apellido2
+txt_User
+cbx_TipoID
+txt_NumeroId
+txt_FechaExpiracion
+txt_FechaSistema
+txt_Email
+txt_Email2
+txt_contrasenaReg
+txt_contrasenaReg2
+btn_Registrarse
+
