@@ -5,8 +5,6 @@
  */
 package com.mcpy.control;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.sql.*;
 
 /**
@@ -189,7 +187,6 @@ public class util {
         return let;
     }
 
-
     public static String StringBetweenCharacters(String cadena, String desde, String hasta) {
         try {
             //System.out.println("cadena recibida: " + cadena);
@@ -205,5 +202,27 @@ public class util {
         return cadena;
     }
 
-    
+    public static String SearchMariz(String[][] a, String tittleColumn) {
+        String valor = "";
+        for (int i = 0; i < a[0].length; i++) {
+            if (tittleColumn.equals(a[0][i])) {
+                valor = a[1][i];
+                break;
+            }
+        }
+        return valor;
+    }
+
+    public static String SearchMariz(String[][] a, String tittleColumn, int filaTittles, int rowResult) {
+        String valor = "";
+        for (int i = 0; i < a[filaTittles].length; i++) {
+            if (tittleColumn.equals(a[filaTittles][i])) {
+                valor = a[rowResult][i];
+                break;
+            }
+        }
+        return valor;
+
+    }
+
 }

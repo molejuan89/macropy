@@ -68,7 +68,6 @@ public final class Database {
             strConexionFinal = strConexionFinal.replace("<SERVER>", server);
             strConexionFinal = strConexionFinal.replace("<PORT>", port);
             strConexionFinal = strConexionFinal.replace("<DATABASE>", database);
-            System.out.println(strConexionFinal);
             conexion = DriverManager.getConnection(strConexionFinal, user, password);
             estado = true;
         } catch (SQLException e) {
@@ -80,7 +79,6 @@ public final class Database {
     }
 
     public ResultSet consultar(String sql) throws SQLException {
-        //System.out.println(sql + "\n");
         ResultSet resultado = null;
         try {
             Statement sentencia;
