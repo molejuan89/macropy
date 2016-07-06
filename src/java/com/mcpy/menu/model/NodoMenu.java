@@ -34,7 +34,6 @@ public class NodoMenu {
         this.message = message;
         this.url = url;
         this.son = new ArrayList<>();
-        System.out.println("nuevo nodo:" + code);
     }
 
     public String getCode() {
