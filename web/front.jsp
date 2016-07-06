@@ -14,9 +14,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Bootstrap Case</title>
+        <title>RealT</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="./js/front.js"></script>
+
         <!--JQuery v1.12.2 -->
         <script src="libs/com.jquery.code/1.12.2/jquery.min.js"></script>
 
@@ -50,51 +53,52 @@
 
         </style>
 
+        <style>
+            .embed-container {
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+            }
+            .embed-container iframe {
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
     </head>
     <body>
-
-        <nav class="navbar navbar-inverse navbar-static-top marginBottom-0" role="navigation">
-            <!--
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#" target="_blank">NewWindow</a>
-            </div>
-            -->
-            <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                <ul class="nav navbar-nav">
-
-                    <!-- Inicio menu dinamico-->
-                    <%=menu.writeMenuHtml()%>
-                    <!-- fin menu dinamico-->
-
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </nav>
-
-        <div class="jumbotron">
-            <h1 class="page-header">Bootstrap 3.0.3<br>
-                <small>Navbar - Click Dropdown - Sub - Sub - Sub - Sub ...</small></h1>
-        </div>
-
         <div class="container">
-
-            <div class="row">
-                <h1>You Like It ?</h1>
-                <br>
+            <div class="masthead">
+                <div class="container">  
+                    <img src="images/LogoRealt.png" width="70" height="26" align="left">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><%=conex.getUser() + "@" + conex.getDatabase()%></li>
+                    </ul>
+                </div>
+                <nav class="navbar navbar-inverse navbar-static-top marginBottom-0" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <!-- Inicio menu dinamico-->
+                        <%=menu.writeMenuHtmlDashboard()%>
+                        <!-- fin menu dinamico-->
+                    </ul>
+                </nav>
             </div>
 
+            <div class="jumbotron">
+                <!--<div class="embed-container">
+                    <iframe width="560" height="315" src="" frameborder="0" id="optionApp" name="optionApp" allowfullscreen ></iframe>
+                </div>-->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="..." id="optionApp" name="optionApp"></iframe>
+                </div>
+            </div>
         </div>
-
-        <div class="container">
-            <h3>Navbar With Dropdown</h3>
+        <div class="container center-block">
             <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
         </div>
-
     </body>
 </html>
 
