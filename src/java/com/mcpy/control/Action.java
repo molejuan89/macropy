@@ -22,7 +22,7 @@ public class Action extends Controller {
     protected void processRequest(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 
-        String form = request.getParameter("form");
+        String form = request.getParameter("action");
         System.out.println("form:" + form);
 
         if (form == null) {

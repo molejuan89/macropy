@@ -51,7 +51,7 @@ public class login extends HttpServlet {
 //                pstm.executeUpdate();
                 
                 RequestDispatcher dispatcher
-                        = getServletContext().getRequestDispatcher("/Action?form=front");
+                        = getServletContext().getRequestDispatcher("/Action?action=front");
                 dispatcher.forward(request, response);
                 //response.sendRedirect("front.jsp");
 
