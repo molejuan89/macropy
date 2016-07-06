@@ -22,22 +22,24 @@ public class Action extends Controller {
     protected void processRequest(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 
-        String form = request.getParameter("action");
-        System.out.println("form:" + form);
+        String action = request.getParameter("action");
+        System.out.println("action:" + action);
 
-        if (form == null) {
+        if (action == null) {
             gotoURL(errorForm, request, response);
-        } else if (form.equals("errorForm")) {
+        } else if (action.equals("errorForm")) {
             gotoNamedResource(errorForm, request, response);
-        } else if (form.equals("front")) {
+        } else if (action.equals("front")) {
+            System.out.println("antes del reenvio");
             gotoURL(front, request, response);
-        } else if (form.equals("UserActivation")) {
+            System.out.println("despues del reenvio");
+        } else if (action.equals("UserActivation")) {
             gotoNamedResource(activate, request, response);
-        } else if (form.equals("updateServlet")) {
+        } else if (action.equals("updateServlet")) {
             gotoNamedResource(update, request, response);
-        } else if (form.equals("deleteServlet")) {
+        } else if (action.equals("deleteServlet")) {
             gotoNamedResource(delete, request, response);
-        } else if (form.equals("readServlet")) {
+        } else if (action.equals("readServlet")) {
             gotoNamedResource(read, request, response);
         } else {
             gotoURL(errorForm, request, response);

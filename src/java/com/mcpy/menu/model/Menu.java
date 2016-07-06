@@ -110,7 +110,7 @@ public final class Menu {
             html += "</li> \n";
         }
 
-        System.out.println(" \n" + writeMenuJson());
+        //System.out.println(" \n" + writeMenuJson());
         return html;
     }
 
