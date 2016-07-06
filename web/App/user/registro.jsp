@@ -86,17 +86,6 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="cbx_TipoID" class="cols-xs-2 control-label">Tipo de Identificación:</label>	
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <select class="form-control" id ="cbx_TipoID"    name ="cbx_TipoID"  >
-                                            <option value ="">Seleccione..</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="form-group">
                                     <label for="txt_NumeroId" class="cols-xs-2 control-label">Número de Identificación:</label>	
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -112,15 +101,6 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                                         <input type="text" class="form-control datepicker" name="txt_FechaExpiracion" id="txt_FechaExpiracion"  placeholder="1999-01-01" onkeyup="validacion('txt_FechaExpedicion');">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <label for="txt_FechaSistema" class="cols-xs-2 control-label">Fecha del Sistema:</label>	
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control datepicker" name="txt_FechaSistema" id="txt_FechaSistema"  placeholder="1999-01-01" onkeyup="validacion('txt_FechaSistema');">
                                     </div>
                                 </div>
                             </div>
