@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head> 
-        <title>Portal Hojas de Vida - Proservis</title>
+        <title>Registro - MCPY</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,8 +15,7 @@
         <script src="../../libs/com.jquery.code/1.12.2/jquery.min.js"></script>
 
         <!-- Validar antes de Activar Boton Registro-->
-        <script src="js/validaciones.js"></script>  
-
+        <script src="js/validate.js"></script>  
 
         <!--Bootstrap v3.3.6 -->
         <link rel="stylesheet" href="../../libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -33,18 +32,17 @@
         <!-- Font style -->
         <link rel="stylesheet" href="../../libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">
 
-        <!-- Cargar Listas de valores-->
-        <script src="js/load-list.js"></script>
 
     </head>
     <body>
+        <form id="login" name="login" role="form" method="post" onsubmit="return validarFormRegistro()">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
         <div class="row">
-            <div class="col-xs-2"></div>
-            <div class="col-xs-7">
                 <div class="container-fluid well">
-                    <form id="login" name="login" role="form" method="post">
+                    
                         <div class="row">
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <div class="form-group">
                                     <label for="txt_Nombres" class="cols-xs-6 control-label">Nombres:</label>
                                     <div class="input-group" >
@@ -53,7 +51,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <div class="form-group">
                                     <label for="txt_Apellido1" class="cols-xs-2 control-label">Apellido No. 1:</label>
                                     <div class="input-group">
@@ -62,9 +60,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>&nbsp;
-                        <div class="row">
-                            <div class="col-xs-6">
+            
+
+                            <div class="col-xs-4">
                                 <div class="form-group">
                                     <label for="txt_Apellido2" class="cols-xs-2 control-label">Apellido No. 2:</label>
                                     <div class="input-group">
@@ -73,7 +71,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
+                            </div>&nbsp;
+                            <div class="row">
+                            <div class="col-xs-4">
                                 <div class="form-group">
                                     <label for="txt_User" class="cols-xs-2 control-label">User-Name:</label>	
                                     <div class="input-group">
@@ -82,14 +82,21 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>&nbsp;
-                        <div class="row">
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <div class="form-group">
                                     <label for="txt_NumeroId" class="cols-xs-2 control-label">Número de Identificación:</label>	
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control" name="txt_NumeroId" id="txt_NumeroId"  placeholder="EJ: 1144148015" onkeyup="validacion('txt_NumeroId')">
+                                        <input type="text" class="form-control solo-numero" name="txt_NumeroId" id="txt_NumeroId"  placeholder="EJ: 1144148015" onkeyup="validacion('txt_NumeroId')">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label for="txt_FechaExpiracion" class="cols-xs-2 control-label">Fecha de Expiracion:</label>	
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control datepicker" name="txt_FechaExpiracion" id="txt_FechaExpiracion"  placeholder="1999-01-01" onkeyup="validacion('txt_FechaExpiracion');">
                                     </div>
                                 </div>
                             </div>
@@ -97,30 +104,19 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_FechaExpiracion" class="cols-xs-2 control-label">Fecha de Expiracion:</label>	
+                                    <label for="txt_telefono" class="cols-xs-2 control-label">Teléfono:</label>	
                                     <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control datepicker" name="txt_FechaExpiracion" id="txt_FechaExpiracion"  placeholder="1999-01-01" onkeyup="validacion('txt_FechaExpedicion');">
-                                    </div>
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control solo-numero" name="txt_telefono" id="txt_telefono"  placeholder="Ej: 380 86 66" onkeyup="validacion('txt_telefono')" >
+                                    </div>   
                                 </div>
                             </div>
-                        </div>&nbsp;
-                        <div class="row">
                             <div class="col-xs-6">
                                 <div class="form-group">
                                     <label for="txt_Email" class="cols-xs-2 control-label">Correo Electrónico:</label>	
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                                         <input type="email" class="form-control" name="txt_Email" id="txt_Email"  placeholder="Ej: andres@hotmail.com" onkeyup="validacion('txt_Email')">
-                                    </div>   
-                                </div>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="form-group">
-                                    <label for="txt_Email2" class="cols-xs-2 control-label">Confirmar Correo Electrónico:</label>	
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                        <input type="email" class="form-control" name="txt_Email2" id="txt_Email2"  placeholder="Ej: andres@hotmail.com" onkeyup="validacion('txt_Email2')"> 
                                     </div>   
                                 </div>
                             </div>
@@ -131,24 +127,25 @@
                                     <label for="txt_contrasenaReg" class="cols-xs-2 control-label">Contraseña:</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="txt_contrasenaReg" id="txt_contrasenaReg"  placeholder="***********" onkeyup="validacion('txt_contrasenaReg')">
+                                        <input type="password" class="form-control" name="txt_contrasena" id="txt_contrasena"  placeholder="***********" onkeyup="validacion('txt_contrasena')">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_contrasenaReg2" class="cols-xs-2 control-label">Confirmar Contraseña:</label>
+                                    <label for="txt_contrasena2" class="cols-xs-2 control-label">Confirmar Contraseña:</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="txt_contrasenaReg2" id="txt_contrasenaReg2"  placeholder="***********" onkeyup="validacion('txt_contrasenaReg2')">
+                                        <input type="password" class="form-control" name="txt_contrasena2" id="txt_contrasena2"  placeholder="***********" onkeyup="validacion('txt_contrasena2')">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-default center-block" id="btn_Registrarse" name="btn_Registrarse">Registrarse</button>
-                    </form>
                 </div>
             </div>
-            <div class="col-xs-3"></div>
+        </div>
+        <div class="col-xs-2"></div>
+        </form>
     </body>
 </html>
