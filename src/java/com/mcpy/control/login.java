@@ -49,9 +49,9 @@ public class login extends HttpServlet {
 //                PreparedStatement pstm = conex.getConexion().prepareStatement("INSERT INTO TQXC_SESION_LOG (USERNAME, FECHA_SISTEMA, IP_CLIENTE) VALUES ( USER,SYSDATE,? )");
 //                pstm.setString(1, ipAddress);
 //                pstm.executeUpdate();
-
+                
                 RequestDispatcher dispatcher
-                        = getServletContext().getRequestDispatcher("/front.jsp");
+                        = getServletContext().getRequestDispatcher("/Action?form=front");
                 dispatcher.forward(request, response);
                 //response.sendRedirect("front.jsp");
 

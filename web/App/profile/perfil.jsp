@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head> 
-        <title>Portal Hojas de Vida - Proservis</title>
+        <title>Perfil - MCPY</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,8 +16,7 @@
         <script src="../../libs/com.jquery.code/1.12.2/jquery.min.js"></script>
 
         <!-- Validar antes de Activar Boton Registro-->
-        <script src="js/validaciones.js"></script>  
-
+        <script src="js/validate.js"></script>  
 
         <!--Bootstrap v3.3.6 -->
         <link rel="stylesheet" href="../../libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -33,36 +32,42 @@
 
         <!-- Font style -->
         <link rel="stylesheet" href="../../libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">
-
-        <!-- Cargar Listas de valores-->
-        <script src="js/load-list.js"></script>
-
     </head>
     <body>
+        <div class="row">
+            <div class="col-xs-4">&nbsp;</div>
+            <div class="col-xs-4">&nbsp;</div>
+            <div class="col-xs-4">&nbsp;</div>
+        </div>
+                <div class="row">
+            <div class="col-xs-4">&nbsp;</div>
+            <div class="col-xs-4">&nbsp;</div>
+            <div class="col-xs-4">&nbsp;</div>
+        </div>
+        <form id="login" name="login" role="form" method="post" action="login" onsubmit="return validarFormPerfil()">
         <div class="row">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="container-fluid well">
-                    <form id="login" name="login" role="form" method="post" action="login">
                         <div class="form-group">
-                            <label for="txt_user" class="control-label">Codigo:</label>
+                            <label for="txt_codigo" class="control-label">Codigo:</label>
                             <div class="input-group" >
-                                <span class="input-group-addon"><i class="glyphicon " aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" id="txt_user" name="txt_user" onkeyup="validacion('txt_EmailLogin')">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" id="txt_codigo" name="txt_codigo" onkeyup="validacion('txt_codigo')">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="txt_database"  class="control-label">Descripción:</label>
+                            <label for="txt_descripcion"  class="control-label">Descripción:</label>
                             <div class="input-group" >
-                                <span class="input-group-addon"><i class=" " aria-hidden="true"></i></span>
-                                <input type="text" name="txt_database" class="form-control" id="txt_database" placeholder="Ingrese Base de datos" onkeyup="validacion('txt_contrasenaLogin');" >
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i></span>
+                                <input type="text" name="txt_descripcion" class="form-control" id="txt_descripcion" onkeyup="validacion('txt_descripcion')">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-default center-block" id="btn_login" name="btn_login">Aceptar</button>
-                    </form>
+                        <button type="submit" class="btn btn-default center-block" id="btn_crearPerfil" name="btn_crearPerfil">Aceptar</button>
                 </div>
             </div>
             <div class="col-xs-4"></div>
         </div>
+        </form>
     </body>
 </html>

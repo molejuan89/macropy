@@ -56,9 +56,6 @@
                                 <input type="text" name="txt_database" class="form-control" id="txt_database" placeholder="Ingrese Base de datos" onkeyup="validacion('txt_contrasenaLogin');" >
                             </div>
                         </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox">Recordarme</label>
-                        </div>
                         <button type="submit" class="btn btn-default center-block" id="btn_login" name="btn_login">Ingresar</button>
                     </form>
                 </div>

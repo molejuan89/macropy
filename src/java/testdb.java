@@ -38,7 +38,7 @@ public class testdb extends HttpServlet {
         Menu menu_app = new Menu(a, "RAIZ");
 
         //menu_app.writeMenu();
-        menu_app.writeMenuHtml();
+        menu_app.writeMenuHtmlDashboard();
         
     }
 

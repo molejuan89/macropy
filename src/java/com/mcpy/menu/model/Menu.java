@@ -55,34 +55,43 @@ public final class Menu {
         }
     }
 
-    public String writeMenuHtml() {
+    public String writeMenuHtmlDashboard() {
         String html = "";
+
+        //Se agregan los hijos de primer nivel en el menú.
         for (int i = 0; i < menu.getSon().size(); i++) {
 
-            html += "<li class=\"dropdown\"><a href=\"" + menu.getSon().get(i).getUrl() + "\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + menu.getSon().get(i).getMessage();
+            html += "<li class=\"dropdown\"><a href=\"" + menu.getSon().get(i).getUrl() + "\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"> <b>" + menu.getSon().get(i).getMessage() + "</b>";
+
+            // Si es menu de primer nivel, se agrega la clase caret para que muestre la flecha hacia abajo.
             if (menu.getSon().get(i).getHierarchy() == 1) {
                 html += " <b class=\"caret\"></b>";
             }
+
             html += "</a> \n";
 
+            //Si el menu de primer nivel tiene hijos, se crea una lista dentro de él <UL> para añadir nivel 2.
             if (menu.getSon().get(i).getSon().size() > 0) {
                 html += "<ul class=\"dropdown-menu\"> \n";
             }
+
+            //Se agregan los hijos de segundo nivel en el menú.
             for (int j = 0; j < menu.getSon().get(i).getSon().size(); j++) {
 
-                //menu.getSon().get(i).getSon().get(j).writeme();
-                if (menu.getSon().get(i).getSon().size() > 0) {
+                //Si el menu de segundo nivel tiene hijos, se agrega la clase <dropdown> y <dropdown-submenu> para mostrar flecha hacia la derecha.
+                if (menu.getSon().get(i).getSon().get(j).getSon().size() > 0) {
                     html += "<li class=\"dropdown dropdown-submenu\"><a href=\"" + menu.getSon().get(i).getSon().get(j).getUrl() + "\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + menu.getSon().get(i).getSon().get(j).getMessage() + "</a> \n";
                 } else {
                     html += "<li><a href=\"" + menu.getSon().get(i).getSon().get(j).getUrl() + "\">" + menu.getSon().get(i).getSon().get(j).getMessage() + "</a></li> \n";
                 }
 
+                //Si el menu de segundo nivel tiene hijos, se crea una lista dentro de él <UL> para añadir nivel 3.
                 if (menu.getSon().get(i).getSon().get(j).getSon().size() > 0) {
                     html += "<ul class=\"dropdown-menu\"> \n";
                 }
 
+                //Se agregan los hijos de tercer nivel en el menú.
                 for (int k = 0; k < menu.getSon().get(i).getSon().get(j).getSon().size(); k++) {
-                    menu.getSon().get(i).getSon().get(j).getSon().get(k).writeme();
                     html += "<li><a href=\"" + menu.getSon().get(i).getSon().get(j).getSon().get(k).getUrl() + "\">" + menu.getSon().get(i).getSon().get(j).getSon().get(k).getMessage() + "</a></li> \n";
                 }
 
@@ -100,6 +109,69 @@ public final class Menu {
 
             html += "</li> \n";
         }
+
+        System.out.println(" \n" + writeMenuJson());
+        return html;
+    }
+
+    public String writeMenuJson() {
+
+        String html = "[";
+
+        //Se agregan los hijos de primer nivel en el menú.
+        for (int i = 0; i < menu.getSon().size(); i++) {
+            html += "{\"text\":\"" + menu.getSon().get(i).getMessage() + "\",\"href\":\"" + menu.getSon().get(i).getUrl() + "\", \n";
+            //html += "<li class=\"dropdown\"><a href=\"" + menu.getSon().get(i).getUrl() + "\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"> <b>" + menu.getSon().get(i).getMessage() + "</b>";
+
+            // Si es menu de primer nivel, se agrega la clase caret para que muestre la flecha hacia abajo.
+//            if (menu.getSon().get(i).getHierarchy() == 1) {
+//                html += " <b class=\"caret\"></b>";
+//            }
+//            html += "</a> \n";
+            //Si el menu de primer nivel tiene hijos, se crea una lista dentro de él <UL> para añadir nivel 2.
+            if (menu.getSon().get(i).getSon().size() > 0) {
+                //html += "<ul class=\"dropdown-menu\"> \n";
+                html += "\"nodes\":[";
+            }
+
+            //Se agregan los hijos de segundo nivel en el menú.
+            for (int j = 0; j < menu.getSon().get(i).getSon().size(); j++) {
+
+                //Si el menu de segundo nivel tiene hijos, se agrega la clase <dropdown> y <dropdown-submenu> para mostrar flecha hacia la derecha.
+//                if (menu.getSon().get(i).getSon().get(j).getSon().size() > 0) {
+//                    html += "<li class=\"dropdown dropdown-submenu\"><a href=\"" + menu.getSon().get(i).getSon().get(j).getUrl() + "\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">" + menu.getSon().get(i).getSon().get(j).getMessage() + "</a> \n";
+//                } else {
+//                    html += "<li><a href=\"" + menu.getSon().get(i).getSon().get(j).getUrl() + "\">" + menu.getSon().get(i).getSon().get(j).getMessage() + "</a></li> \n";
+//                }
+                html += "{\"text\":\"" + menu.getSon().get(i).getSon().get(j).getMessage() + "\",\"href\":\"" + menu.getSon().get(i).getSon().get(j).getUrl() + "\", \n";
+                //Si el menu de segundo nivel tiene hijos, se crea una lista dentro de él <UL> para añadir nivel 3.
+                if (menu.getSon().get(i).getSon().get(j).getSon().size() > 0) {
+                    html += "\"nodes\":[";
+                }
+
+                //Se agregan los hijos de tercer nivel en el menú.
+                for (int k = 0; k < menu.getSon().get(i).getSon().get(j).getSon().size(); k++) {
+                    //html += "<li><a href=\"" + menu.getSon().get(i).getSon().get(j).getSon().get(k).getUrl() + "\">" + menu.getSon().get(i).getSon().get(j).getSon().get(k).getMessage() + "</a></li> \n";
+                    html += "{\"text\":\"" + menu.getSon().get(i).getSon().get(j).getSon().get(k).getMessage() + "\",\"href\":\"" + menu.getSon().get(i).getSon().get(j).getSon().get(k).getUrl() + "\", \n";
+                }
+
+                if (menu.getSon().get(i).getSon().get(j).getSon().size() > 0) {
+                    html += "}]";
+                }
+
+                html += "} \n";
+
+            }
+
+            if (menu.getSon().get(i).getSon().size() > 0) {
+                //html += "</ul> \n";
+                html += "]";
+            }
+            html += "} \n";
+            //html += "</li> \n";
+        }
+
+        html += "]";
 
         return html;
     }
