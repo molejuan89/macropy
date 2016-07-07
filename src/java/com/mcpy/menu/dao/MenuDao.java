@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 public class MenuDao {
 
-    public static Menu MenuDao(Database conex) throws SQLException {
+    public static Menu MenuUserDao(Database conex) throws SQLException {
         Menu menu = null;
         String SQL_MENU = "select * \n"
                 + "from {schema}.nodos n\n"
@@ -30,6 +30,25 @@ public class MenuDao {
                 + "		and up.tipo='O' \n"
                 + "		and n.codigo=pf.nodo_cod\n"
                 + "		)"
+                + "order by gerarquia,orden";
+
+        String SQL_MENU_FINAL = SQL_MENU.replace("{schema}", ParamDB.SCHEMA);
+        String[][] a = null;
+        try (PreparedStatement pstm = conex.getConexion().prepareStatement(SQL_MENU_FINAL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            a = util.toMatriz(pstm.executeQuery());
+        }
+
+        if (a != null) {
+            menu = new Menu(a, "RAIZ");
+        }
+
+        return menu;
+    }
+
+    public static Menu MenuAppDao(Database conex) throws SQLException {
+        Menu menu = null;
+        String SQL_MENU = "select * \n"
+                + "from {schema}.nodos n\n"
                 + "order by gerarquia,orden";
 
         String SQL_MENU_FINAL = SQL_MENU.replace("{schema}", ParamDB.SCHEMA);

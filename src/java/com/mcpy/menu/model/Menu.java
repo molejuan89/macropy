@@ -1,5 +1,7 @@
 package com.mcpy.menu.model;
 
+import com.google.gson.Gson;
+
 public final class Menu {
 
     private NodoMenu menu = new NodoMenu();
@@ -10,7 +12,7 @@ public final class Menu {
     public Menu(String[][] m, String mRaiz) {
         for (String[] m1 : m) {
             NodoMenu nodoAdd;
-            nodoAdd = new NodoMenu(m1[0], Integer.parseInt(m1[1]), m1[2], Integer.parseInt(m1[3]), m1[4], m1[5]);
+            nodoAdd = new NodoMenu(m1[0], Integer.parseInt(m1[1]), m1[2], Integer.parseInt(m1[3]), m1[4], m1[5], m1[6]);
             if (nodoAdd.getFather().equals(mRaiz)) {
                 menu = nodoAdd;
             } else {
@@ -111,6 +113,7 @@ public final class Menu {
         }
 
         //System.out.println(" \n" + writeMenuJson());
+        System.out.println(escribirJson());
         return html;
     }
 
@@ -174,6 +177,26 @@ public final class Menu {
         html += "]";
 
         return html;
+    }
+
+    public String escribirJson() {
+        String json = "";
+        json += "[" + new Gson().toJson(menu) + "]";
+        return json;
+    }
+
+    public String escribirJson(String x, String y) {
+        String json = escribirJson();
+        json = json.replace(x, y);
+        return json;
+    }
+
+    public String escribirJson(String[] x) {
+        String json = escribirJson();
+        for (int i = 0; i < x.length; i += 2) {
+            json = json.replace(x[i], x[i + 1]);
+        }
+        return json;
     }
 
 }

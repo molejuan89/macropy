@@ -10,29 +10,32 @@ public class NodoMenu {
     private int order;
     private String message;
     private String url;
+    private String tipo;
     private ArrayList<NodoMenu> son;
 
     public NodoMenu() {
 
     }
 
-    public NodoMenu(String code, int hierarchy, String father, int order, String message, String url, ArrayList<NodoMenu> son) {
+    public NodoMenu(String code, int hierarchy, String father, int order, String message, String url, String tipo, ArrayList<NodoMenu> son) {
         this.code = code;
         this.hierarchy = hierarchy;
         this.father = father;
         this.order = order;
         this.message = message;
         this.url = url;
+        this.tipo = tipo;
         this.son = son;
     }
 
-    public NodoMenu(String code, int hierarchy, String father, int order, String message, String url) {
+    public NodoMenu(String code, int hierarchy, String father, int order, String message, String url, String tipo) {
         this.code = code;
         this.hierarchy = hierarchy;
         this.father = father;
         this.order = order;
         this.message = message;
         this.url = url;
+        this.tipo = tipo;
         this.son = new ArrayList<>();
     }
 
@@ -94,6 +97,14 @@ public class NodoMenu {
 
     public void addSon(NodoMenu a) {
         son.add(a);
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public void writeme() {

@@ -9,13 +9,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     Database conex = (Database) request.getSession().getAttribute("conex");
-    Menu menu = MenuDao.MenuDao(conex);
+    Menu menu = MenuDao.MenuUserDao(conex);
 %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <title>RealT</title>
-        <meta charset="utf-8"> 
+        <meta charset="UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script src="./js/front.js"></script>
