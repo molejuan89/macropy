@@ -26,15 +26,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Controller", urlPatterns = {"/Controller"})
 public abstract class Controller extends HttpServlet {
 
+    protected String initForm = null;
     protected String errorForm = null;
-    protected String displayForm = null;
     protected String successForm = null;
-    protected String front = null;
-    protected String create = null;
-    protected String activate = null;
-    protected String delete = null;
-    protected String update = null;
-    protected String read = null;
+
+    protected String access = null;
+    protected String dashboard = null;
+
+    protected String menuAdd = null;
 
     protected abstract void processRequest(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException, SQLException, MessagingException;
@@ -50,6 +49,7 @@ public abstract class Controller extends HttpServlet {
     protected void gotoURL(String address, HttpServletRequest request,
             HttpServletResponse response) throws ServletException,
             IOException {
+        System.out.println("gotoURL:" + address);
         RequestDispatcher dispatcher
                 = getServletContext().getRequestDispatcher(address);
         dispatcher.forward(request, response);
@@ -59,15 +59,15 @@ public abstract class Controller extends HttpServlet {
     public void init() {
         ServletConfig config = getServletConfig();
         ServletContext context = config.getServletContext();
-        displayForm = context.getInitParameter("displayForm");
+
+        initForm = "/index.jsp";
         errorForm = "/message.jsp";
         successForm = "/message.jsp";
-        front = "/front.jsp";
-        create = "/hdv/hojadevida.jsp";
-        activate = "HdvActivate";
-        delete = context.getInitParameter("deleteServlet");
-        read = context.getInitParameter("readServlet");
-        update = context.getInitParameter("updateServlet");
+
+        access = "/Access";
+        dashboard = "/dashboard.jsp";
+        menuAdd = "/App/user/registro.jsp";
+
     }
 
     @Override

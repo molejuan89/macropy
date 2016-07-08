@@ -3,6 +3,16 @@
     Created on : 7/07/2016, 09:52:41 PM
     Author     : Andres
 --%>
+<%
+    String action = request.getParameter("action");
+    String mensaje = request.getParameter("mensaje");
+    String codigo = request.getParameter("codigo");
+    String padre = request.getParameter("padre");
+    String tipo = request.getParameter("tipo");
+    String link = request.getParameter("link");
+    String orden = request.getParameter("orden");
+    String nivel = request.getParameter("nivel");
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,26 +22,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!--JQuery v1.12.2 -->
-        <script src="../../libs/com.jquery.code/1.12.2/jquery.min.js"></script>
+        <script src="<%=request.getContextPath()%>/libs/com.jquery.code/1.12.2/jquery.min.js"></script>
 
         <!-- Validar antes de Activar Boton Registro-->
         <script src="js/validate.js"></script>  
 
         <!--Bootstrap v3.3.6 -->
-        <link rel="stylesheet" href="../../libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
-        <script src="../../libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
         <!--Bootstrap-datepicker https://github.com/eternicode/bootstrap-datepicker -->        
-        <link rel="stylesheet" href="../../libs/com.github/eternicode/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
-        <script src="../../libs/com.github/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.github/eternicode/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
+        <script src="<%=request.getContextPath()%>/libs/com.github/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
         <!-- Campos de fecha -->
         <script src="js/date-fields.js"></script> 
 
         <!-- Font style -->
-        <link rel="stylesheet" href="../../libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">
     </head>
+
     <body>
         <div class="row">
             <div class="col-xs-4">&nbsp;</div>
@@ -43,7 +54,8 @@
             <div class="col-xs-4">&nbsp;</div>
             <div class="col-xs-4">&nbsp;</div>
         </div>
-        <form id="login" name="login" role="form" method="post" action="login" onsubmit="return validarFormPerfil()">
+        <form id="login" name="login" role="form" method="post" action="<%=request.getContextPath()+ "/process"%>" onsubmit="return validarFormPerfil()">
+            <input type="text" name="action" id="action" value="<%=action%>" hidden>
             <div class="row">
                 <div class="col-xs-3"></div>
                 <div class="col-xs-6">

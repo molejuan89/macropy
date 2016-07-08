@@ -34,7 +34,8 @@
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="container-fluid well">
-                    <form id="login" name="login" role="form" method="post" action="login">
+                    <form id="login" name="login" role="form" method="post" action="process">
+                        <input type="text" name="action" id="action" value="access" hidden>
                         <div class="form-group">
                             <label for="txt_user" class="control-label">Username:</label>
                             <div class="input-group" >

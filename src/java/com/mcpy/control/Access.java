@@ -22,8 +22,8 @@ import javax.servlet.annotation.WebServlet;
  *
  * @author AGiraldo
  */
-@WebServlet(urlPatterns = {"/login"})
-public class login extends HttpServlet {
+@WebServlet(urlPatterns = {"/Access"})
+public class Access extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
@@ -49,9 +49,9 @@ public class login extends HttpServlet {
 //                PreparedStatement pstm = conex.getConexion().prepareStatement("INSERT INTO TQXC_SESION_LOG (USERNAME, FECHA_SISTEMA, IP_CLIENTE) VALUES ( USER,SYSDATE,? )");
 //                pstm.setString(1, ipAddress);
 //                pstm.executeUpdate();
-                
+
                 RequestDispatcher dispatcher
-                        = getServletContext().getRequestDispatcher("/Action?action=front");
+                        = getServletContext().getRequestDispatcher("/process?action=dashboard");
                 dispatcher.forward(request, response);
                 //response.sendRedirect("front.jsp");
 
@@ -73,7 +73,7 @@ public class login extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Access.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -15,32 +15,26 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AGiraldo
  */
-@WebServlet(name = "Action", urlPatterns = {"/Action"})
-public class Action extends Controller {
+@WebServlet(name = "process", urlPatterns = {"/process"})
+public class Process extends Controller {
 
     @Override
     protected void processRequest(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        System.out.println("action:" + action);
+        System.out.println("proxy-action:" + action);
 
         if (action == null) {
-            gotoURL(errorForm, request, response);
+            gotoURL(initForm, request, response);
         } else if (action.equals("errorForm")) {
             gotoNamedResource(errorForm, request, response);
-        } else if (action.equals("front")) {
-            System.out.println("antes del reenvio");
-            gotoURL(front, request, response);
-            System.out.println("despues del reenvio");
-        } else if (action.equals("UserActivation")) {
-            gotoNamedResource(activate, request, response);
-        } else if (action.equals("updateServlet")) {
-            gotoNamedResource(update, request, response);
-        } else if (action.equals("deleteServlet")) {
-            gotoNamedResource(delete, request, response);
-        } else if (action.equals("readServlet")) {
-            gotoNamedResource(read, request, response);
+        } else if (action.equals("access")) {
+            gotoURL(access, request, response);
+        } else if (action.equals("dashboard")) {
+            gotoURL(dashboard, request, response);
+        } else if (action.equals("menu-add")) {
+            gotoURL(menuAdd, request, response);
         } else {
             gotoURL(errorForm, request, response);
         }
