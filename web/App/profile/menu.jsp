@@ -29,53 +29,60 @@
     </head>
     <body>
         <div class="center-block">
-            <table>
-                <tr>
-                    <td width="100%" align="center">
-                        <div style="margin:20px 0;"></div>
-                        <div style="margin:20px 0;">
-                            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="collapseAll()">CollapseAll</a>
-                            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="expandAll()">ExpandAll</a>
-                        </div>
-                        <table id="tg" title="Menú de la Aplicación" class="easyui-treegrid" style="width:800px;height:200px"
-                               data-options="
-                               iconCls: 'icon-ok',
-                               rownumbers: true,
-                               collapsible: true,
-                               fitColumns: true,
-                               url: '/macropy/MenuApp',
-                               method: 'get',
-                               lines: 'true',
-                               idField: 'id',
-                               treeField: 'message',
-                               onContextMenu: onContextMenu
-                               ">
-                            <thead>
-                                <tr>
-                                    <th data-options="field:'message'" width="150" align="left">Mensaje</th>
-                                    <th data-options="field:'id'" width="100">Codigo</th>
-                                    <th data-options="field:'tipo'" width="30">Tipo</th> 
-                                    <th data-options="field:'url'" width="250">Link</th> 
-                                    <th data-options="field:'hierarchy'" width="30">Nivel</th> 
-                                </tr>
-                            </thead>
-                        </table>
-                        <div id="mm" class="easyui-menu" style="width:120px;">
-                            <div onclick="append()" data-options="iconCls:'icon-add'">Add</div>
-                            <div onclick="removeIt()" data-options="iconCls:'icon-remove'">Delete</div>
-                            <div onclick="editIt()" data-options="iconCls:'icon-edit'">Edit</div>
-                            <div class="menu-sep"></div>
-                            <div onclick="viewRep()" data-options="iconCls:'icon-searh'">View Report</div>
-                            <div class="menu-sep"></div>
-                            <div onclick="collapse()">Collapse</div>
-                            <div onclick="expand()">Expand</div>
-                        </div>
-                        <div id="alerta-no" class="easyui-window" title="Error agregando ítem" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
-                            No puede agregar hijos aquí. El ítem no es un nodo de menú.
-                        </div> 
-                    </td>
-                </tr>
-            </table>
+            <div class="center-block">
+                <table>
+                    <tr>
+                        <td width="100%" align="center">
+                            <div style="margin:20px 0;"></div>
+                            <div style="margin:20px 0;">
+                                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="collapseAll()">CollapseAll</a>
+                                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="expandAll()">ExpandAll</a>
+                            </div>
+                            <table id="tg" title="Menú de la Aplicación" class="easyui-treegrid" style="width:800px;height:200px"
+                                   data-options="
+                                   iconCls: 'icon-ok',
+                                   rownumbers: true,
+                                   collapsible: true,
+                                   fitColumns: true,
+                                   url: '/macropy/MenuApp',
+                                   method: 'get',
+                                   lines: 'true',
+                                   idField: 'id',
+                                   treeField: 'message',
+                                   onContextMenu: onContextMenu
+                                   ">
+                                <thead>
+                                    <tr>
+                                        <th data-options="field:'message'" width="150" align="left">Mensaje</th>
+                                        <th data-options="field:'id'" width="100">Codigo</th>
+                                        <th data-options="field:'tipo'" width="30">Tipo</th> 
+                                        <th data-options="field:'url'" width="250">Link</th> 
+                                        <th data-options="field:'level'" width="30">Nivel</th> 
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div id="mm" class="easyui-menu" style="width:120px;">
+                                <div onclick="append()" data-options="iconCls:'icon-add'">Add</div>
+                                <div onclick="removeIt()" data-options="iconCls:'icon-remove'">Delete</div>
+                                <div onclick="editIt()" data-options="iconCls:'icon-edit'">Edit</div>
+                                <div class="menu-sep"></div>
+                                <div onclick="viewRep()" data-options="iconCls:'icon-searh'">View Report</div>
+                                <div class="menu-sep"></div>
+                                <div onclick="collapse()">Collapse</div>
+                                <div onclick="expand()">Expand</div>
+                            </div>
+                            <div id="alerta-no" class="easyui-window" title="Error agregando ítem" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
+                                No puede agregar hijos aquí. El ítem no es un nodo de menú.
+                            </div> 
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe  src="..." id="actionMenu" name="actionMenu"></iframe>
+                </div>
+            </div>
         </div>
     </body>
 </html>

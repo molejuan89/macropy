@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class NodoMenu {
 
     private String code;
-    int hierarchy;
+    int level;
     private String father;
     private int order;
     private String message;
@@ -17,9 +17,9 @@ public class NodoMenu {
 
     }
 
-    public NodoMenu(String code, int hierarchy, String father, int order, String message, String url, String tipo, ArrayList<NodoMenu> son) {
+    public NodoMenu(String code, int level, String father, int order, String message, String url, String tipo, ArrayList<NodoMenu> son) {
         this.code = code;
-        this.hierarchy = hierarchy;
+        this.level = level;
         this.father = father;
         this.order = order;
         this.message = message;
@@ -30,7 +30,7 @@ public class NodoMenu {
 
     public NodoMenu(String code, int hierarchy, String father, int order, String message, String url, String tipo) {
         this.code = code;
-        this.hierarchy = hierarchy;
+        this.level = hierarchy;
         this.father = father;
         this.order = order;
         this.message = message;
@@ -87,12 +87,12 @@ public class NodoMenu {
         this.son = son;
     }
 
-    public int getHierarchy() {
-        return hierarchy;
+    public int getLevel() {
+        return level;
     }
 
-    public void setHierarchy(int hierarchy) {
-        this.hierarchy = hierarchy;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public void addSon(NodoMenu a) {
@@ -109,7 +109,7 @@ public class NodoMenu {
 
     public void writeme() {
         String a = "";
-        for (int i = 0; i <= hierarchy; i++) {
+        for (int i = 0; i <= level; i++) {
             a += ".";
         }
         a += message;

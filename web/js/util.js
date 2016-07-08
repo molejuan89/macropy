@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-function modiframe(destino)
-{
-    document.getElementById('optionApp').src = destino
+function modiframe(frame, destino) {
+    document.getElementById(frame).src = destino;
 }

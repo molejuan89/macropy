@@ -11,7 +11,7 @@ package com.mcpy.control;
  */
 public class StringsSql {
 
-    protected static String SCHEMA = com.mcpy.control.database.ParamDB.SCHEMA;
+    public static String SCHEMA = com.mcpy.control.database.ParamDB.SCHEMA;
 
     public static String SqlMenu(String searchSql) {
         String tmpSql = "";
@@ -48,7 +48,6 @@ public class StringsSql {
         }
 
         OutSql = tmpSql.replace("{schema}", SCHEMA);
-        System.out.println(OutSql);
         return OutSql;
     }
 

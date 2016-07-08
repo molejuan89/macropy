@@ -23,15 +23,15 @@ public final class Menu {
 
     public void addNodo(NodoMenu a) {
 
-        if (a.getHierarchy() == menu.getHierarchy() + 1) { //hijos de primer nivel
+        if (a.getLevel() == menu.getLevel() + 1) { //hijos de primer nivel
             menu.getSon().add(a);
-        } else if (a.getHierarchy() == menu.getHierarchy() + 2) { // hijos de segundo nivel
+        } else if (a.getLevel() == menu.getLevel() + 2) { // hijos de segundo nivel
             for (int i = 0; i < menu.getSon().size(); i++) {
                 if (a.getFather().equals(menu.getSon().get(i).getCode())) {
                     menu.getSon().get(i).addSon(a);
                 }
             }
-        } else if (a.getHierarchy() == menu.getHierarchy() + 3) { // hijos de tercer nivel
+        } else if (a.getLevel() == menu.getLevel() + 3) { // hijos de tercer nivel
 
             for (int i = 0; i < menu.getSon().size(); i++) {
                 for (int j = 0; j < menu.getSon().get(i).getSon().size(); j++) {
@@ -66,7 +66,7 @@ public final class Menu {
             html += "<li class=\"dropdown\"><a href=\"" + menu.getSon().get(i).getUrl() + "\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"> <b>" + menu.getSon().get(i).getMessage() + "</b>";
 
             // Si es menu de primer nivel, se agrega la clase caret para que muestre la flecha hacia abajo.
-            if (menu.getSon().get(i).getHierarchy() == 1) {
+            if (menu.getSon().get(i).getLevel() == 1) {
                 html += " <b class=\"caret\"></b>";
             }
 
@@ -113,7 +113,7 @@ public final class Menu {
         }
 
         //System.out.println(" \n" + writeMenuJson());
-        System.out.println(escribirJson());
+        //System.out.println(escribirJson());
         return html;
     }
 
@@ -127,7 +127,7 @@ public final class Menu {
             //html += "<li class=\"dropdown\"><a href=\"" + menu.getSon().get(i).getUrl() + "\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"> <b>" + menu.getSon().get(i).getMessage() + "</b>";
 
             // Si es menu de primer nivel, se agrega la clase caret para que muestre la flecha hacia abajo.
-//            if (menu.getSon().get(i).getHierarchy() == 1) {
+//            if (menu.getSon().get(i).getLevel() == 1) {
 //                html += " <b class=\"caret\"></b>";
 //            }
 //            html += "</a> \n";

@@ -12,13 +12,13 @@
     Menu menu = MenuDao.MenuUserDao(conex);
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <title>RealT</title>
         <meta charset="UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="./js/front.js"></script>
+        <script src="./js/util.js"></script>
 
         <!--JQuery v1.12.2 -->
         <script src="libs/com.jquery.code/1.12.2/jquery.min.js"></script>
@@ -72,18 +72,18 @@
     <body style="background: #cccccc">
         <div class="container panel">
 
-            <div class="masthead" >
+            <div >
                 <div class="container">  
                     <img src="images/LogoRealt.png" width="70" height="26" align="left">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><%=conex.getUser() + "@" + conex.getDatabase()%></li>
+                        <li><%=conex.getUser() + " " + conex.getDatabase()%></li>
                     </ul>
                 </div>
                 <div style="background: #cccccc">
                     <nav class="navbar navbar-static-top marginBottom-0" role="navigation">
                         <ul class="nav navbar-nav">
                             <!-- Inicio menu dinamico-->
-                            <%=menu.writeMenuHtmlDashboard()%>
+                             <%=menu.writeMenuHtmlDashboard()%>
                             <!-- fin menu dinamico-->
                         </ul>
                     </nav>
@@ -100,4 +100,3 @@
         </div>
     </body>
 </html>
-

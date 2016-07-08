@@ -22,7 +22,7 @@ public class MenuDao {
     public static Menu MenuUserDao(Database conex) throws SQLException {
         Menu menu = null;
 
-        System.out.println(StringsSql.SqlMenu("menu-user"));
+        //System.out.println(StringsSql.SqlMenu("menu-user"));
         String[][] a = null;
         try (PreparedStatement pstm = conex.getConexion().prepareStatement(StringsSql.SqlMenu("menu-user"), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
             a = util.toMatriz(pstm.executeQuery());
