@@ -5,8 +5,6 @@
  */
 package com.mcpy.control;
 
-import com.mcpy.control.database.ParamDB;
-
 /**
  *
  * @author AGiraldo
