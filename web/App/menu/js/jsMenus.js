@@ -37,8 +37,8 @@ function append() {
         } else if (node.hierarchy > maxGerarquia) {
             $('#alerta-no').window('open');
         } else {
-            var url = 'create.jsp?nodoPadre=' + node.id;
-            window.open(url);
+            var url = 'maintenance.jsp';
+            modiframe('actionMenu', url);
         }
     }
 }

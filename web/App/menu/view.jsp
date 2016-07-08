@@ -20,12 +20,15 @@
         <link rel="stylesheet" href="/macropy/libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">
 
         <!-- Funcionalidad jeasyui table-->
-        <script type="text/javascript" src="/macropy/App/profile/js/jsMenus.js"></script> 
+        <script type="text/javascript" src="/macropy/App/menu/js/jsMenus.js"></script> 
         <link rel="stylesheet" type="text/css" href="/macropy/libs/com.jeasyui/themes/default/easyui.css">
         <link rel="stylesheet" type="text/css" href="/macropy/libs/com.jeasyui/themes/icon.css">
         <link rel="stylesheet" type="text/css" href="/macropy/libs/com.jeasyui/demo/demo.css">
         <!--<script type="text/javascript" src="/macropy/libs/com.jeasyui/jquery.min.js"></script>-->
         <script type="text/javascript" src="/macropy/libs/com.jeasyui/jquery.easyui.min.js"></script>
+        
+        <script src="../../js/util.js"></script>
+        
     </head>
     <body>
         <div align='center'>
