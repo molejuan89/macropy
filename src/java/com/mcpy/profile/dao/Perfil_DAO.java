@@ -5,6 +5,7 @@
  */
 package com.mcpy.profile.dao;
 
+import com.mcpy.control.StringsSql;
 import com.mcpy.profile.model.Perfil;
 import com.mcpy.control.database.*;
 import java.io.IOException;
@@ -42,19 +43,19 @@ public class Perfil_DAO extends HttpServlet {
         Database conn = (Database) request.getSession().getAttribute("conexion");
 
         if (action.equalsIgnoreCase("create")) {
-            PreparedStatement pstm = conn.getConexion().prepareStatement(com.mcpy.control.SQLStrings.CREATE_PERFIL);
+            PreparedStatement pstm = conn.getConexion().prepareStatement(StringsSql.CREATE_PERFIL);
             pstm.setInt(1, perfil.getCodigo());
             pstm.setString(2, perfil.getDescripcion());
             pstm.setString(3, perfil.getAdmin());
             pstm.execute();
         } else if (action.equalsIgnoreCase("update")) {
-            PreparedStatement pstm = conn.getConexion().prepareStatement(com.mcpy.control.SQLStrings.UPDATE_PERFIL);
+            PreparedStatement pstm = conn.getConexion().prepareStatement(StringsSql.UPDATE_PERFIL);
             pstm.setString(1, perfil.getDescripcion());
             pstm.setString(2, perfil.getAdmin());
             pstm.setInt(3, perfil.getCodigo());
             pstm.execute();
         } else if (action.equalsIgnoreCase("delete")) {
-            PreparedStatement pstm = conn.getConexion().prepareStatement(com.mcpy.control.SQLStrings.DELETE_PERFIL);
+            PreparedStatement pstm = conn.getConexion().prepareStatement(StringsSql.DELETE_PERFIL);
             pstm.setString(1, perfil.getDescripcion());
             pstm.execute();
         }

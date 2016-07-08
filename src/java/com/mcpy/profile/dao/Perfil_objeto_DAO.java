@@ -9,12 +9,10 @@ import com.mcpy.control.database.Database;
 import com.mcpy.control.util;
 import com.mcpy.profile.core.Grantee;
 import com.mcpy.profile.core.Revoke;
-import com.mcpy.control.SQLStrings;
+import com.mcpy.control.StringsSql;
 import com.mcpy.profile.objects.model.Objeto;
-import com.mcpy.profile.model.Perfil;
 import com.mcpy.profile.model.Perfil_objeto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,7 +38,7 @@ public class Perfil_objeto_DAO extends HttpServlet {
 
         Database conn = (Database) request.getSession().getAttribute("conn");
 
-        PreparedStatement pstm = conn.getConexion().prepareStatement(SQLStrings.SELECT_PERFIL_X, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        PreparedStatement pstm = conn.getConexion().prepareStatement(StringsSql.SELECT_PERFIL_X, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         pstm.setInt(1, p);
         String[] a = util.toArray(pstm.executeQuery());
         pstm.close();
@@ -49,7 +47,7 @@ public class Perfil_objeto_DAO extends HttpServlet {
         perfil.getPerfil().setDescripcion(a[1]);
         perfil.getPerfil().builNameRol();
 
-        pstm = conn.getConexion().prepareStatement(SQLStrings.OBJETOS_PERFIL_X, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        pstm = conn.getConexion().prepareStatement(StringsSql.OBJETOS_PERFIL_X, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         pstm.setInt(1, p);
         String[][] b = util.toMatriz(pstm.executeQuery());
         pstm.close();

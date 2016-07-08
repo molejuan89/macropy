@@ -5,8 +5,8 @@
  */
 package com.mcpy.menu.dao;
 
+import com.mcpy.control.StringsSql;
 import com.mcpy.control.database.Database;
-import com.mcpy.control.database.ParamDB;
 import com.mcpy.control.util;
 import com.mcpy.menu.model.Menu;
 import java.io.IOException;
@@ -36,12 +36,7 @@ public class MenuApp extends HttpServlet {
         String[][] a = null;
 
         try {
-            String SQL_MENU = "select * \n"
-                    + "from {schema}.nodos n\n"
-                    + "order by gerarquia,orden";
-
-            String SQL_MENU_FINAL = SQL_MENU.replace("{schema}", ParamDB.SCHEMA);
-            try (PreparedStatement pstm = conex.getConexion().prepareStatement(SQL_MENU_FINAL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            try (PreparedStatement pstm = conex.getConexion().prepareStatement(StringsSql.SqlMenu("menu-app"), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
                 a = util.toMatriz(pstm.executeQuery());
             }
 
@@ -53,7 +48,7 @@ public class MenuApp extends HttpServlet {
             Logger.getLogger(MenuApp.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        String[] x = {"code", "id","son","children"};
+        String[] x = {"code", "id", "son", "children"};
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(menu.escribirJson(x));

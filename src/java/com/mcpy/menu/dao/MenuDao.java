@@ -5,8 +5,8 @@
  */
 package com.mcpy.menu.dao;
 
+import com.mcpy.control.StringsSql;
 import com.mcpy.control.database.Database;
-import com.mcpy.control.database.ParamDB;
 import com.mcpy.control.util;
 import com.mcpy.menu.model.Menu;
 import java.sql.PreparedStatement;
@@ -21,20 +21,10 @@ public class MenuDao {
 
     public static Menu MenuUserDao(Database conex) throws SQLException {
         Menu menu = null;
-        String SQL_MENU = "select * \n"
-                + "from {schema}.nodos n\n"
-                + "where exists(select 1\n"
-                + "		from {schema}.perfil_nodos pf, {schema}.usuario_perfiles up\n"
-                + "		where pf.perfil=up.perfil\n"
-                + "		and up.username=user\n"
-                + "		and up.tipo='O' \n"
-                + "		and n.codigo=pf.nodo_cod\n"
-                + "		)"
-                + "order by gerarquia,orden,mensaje";
 
-        String SQL_MENU_FINAL = SQL_MENU.replace("{schema}", ParamDB.SCHEMA);
+        System.out.println(StringsSql.SqlMenu("menu-user"));
         String[][] a = null;
-        try (PreparedStatement pstm = conex.getConexion().prepareStatement(SQL_MENU_FINAL, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+        try (PreparedStatement pstm = conex.getConexion().prepareStatement(StringsSql.SqlMenu("menu-user"), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
             a = util.toMatriz(pstm.executeQuery());
         }
 
