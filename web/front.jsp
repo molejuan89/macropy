@@ -69,25 +69,27 @@
             }
         </style>
     </head>
-    <body>
-        <div class="container">
-            <div class="masthead">
+    <body style="background: #cccccc">
+        <div class="container panel">
+
+            <div class="masthead" >
                 <div class="container">  
                     <img src="images/LogoRealt.png" width="70" height="26" align="left">
                     <ul class="nav navbar-nav navbar-right">
                         <li><%=conex.getUser() + "@" + conex.getDatabase()%></li>
                     </ul>
                 </div>
-                <nav class="navbar navbar-inverse navbar-static-top marginBottom-0" role="navigation">
-                    <ul class="nav navbar-nav">
-                        <!-- Inicio menu dinamico-->
-                        <%=menu.writeMenuHtmlDashboard()%>
-                        <!-- fin menu dinamico-->
-                    </ul>
-                </nav>
+                <div style="background: #cccccc">
+                    <nav class="navbar navbar-static-top marginBottom-0" role="navigation">
+                        <ul class="nav navbar-nav">
+                            <!-- Inicio menu dinamico-->
+                            <%=menu.writeMenuHtmlDashboard()%>
+                            <!-- fin menu dinamico-->
+                        </ul>
+                    </nav>
+                </div>
             </div>
-
-            <div class="jumbotron">
+            <div>
                 <!--<div class="embed-container">
                     <iframe width="560" height="315" src="" frameborder="0" id="optionApp" name="optionApp" allowfullscreen ></iframe>
                 </div>-->
@@ -95,9 +97,6 @@
                     <iframe class="embed-responsive-item" src="..." id="optionApp" name="optionApp"></iframe>
                 </div>
             </div>
-        </div>
-        <div class="container center-block">
-            <p>This example adds a dropdown menu for the "Page 1" button in the navigation bar.</p>
         </div>
     </body>
 </html>
