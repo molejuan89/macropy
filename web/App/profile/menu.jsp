@@ -28,8 +28,8 @@
         <script type="text/javascript" src="/macropy/libs/com.jeasyui/jquery.easyui.min.js"></script>
     </head>
     <body>
-        <div class="center-block">
-            <div class="center-block">
+        <div align='center'>
+            <div align='center' style="border: 10px;">
                 <table>
                     <tr>
                         <td width="100%" align="center">
