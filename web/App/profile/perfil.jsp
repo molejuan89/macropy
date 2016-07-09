@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head> 
         <title>Perfil - MCPY</title>
         <meta charset="utf-8"> 
@@ -44,18 +44,13 @@
             <div class="col-xs-4">&nbsp;</div>
             <div class="col-xs-4">&nbsp;</div>
         </div>
-        <form id="login" name="login" role="form" method="post" action="login" onsubmit="return validarFormPerfil()">
-        <div class="row">
+        <form id="login" name="login" role="form" method="post" action="login" onsubmit="">
+                    <div class="row">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
+            <div class="row">
                 <div class="container-fluid well">
-                        <div class="form-group">
-                            <label for="txt_codigo" class="control-label">Codigo:</label>
-                            <div class="input-group" >
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" id="txt_codigo" name="txt_codigo" onkeyup="validacion('txt_codigo')">
-                            </div>
-                        </div>
+                                     <div class="col-xs-8">
                         <div class="form-group">
                             <label for="txt_descripcion"  class="control-label">Descripción:</label>
                             <div class="input-group" >
@@ -63,11 +58,28 @@
                                 <input type="text" name="txt_descripcion" class="form-control" id="txt_descripcion" onkeyup="validacion('txt_descripcion')">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-default center-block" id="btn_crearPerfil" name="btn_crearPerfil">Aceptar</button>
+                                     </div>
+                                     <div class="col-xs-4">
+                        <div class="form-group">
+                        <label for="Admin">Admin:</label>
+                            <div class="form-group">
+                             <input id="Admin" type="checkbox" value="A1" data-toggle="tooltip" data-placement="top" title="Motocicletas hasta 125 c.c.">
+                            </div>
+                        </div>
+                                     </div>
+                    <div class="row">
+                        <div class="cols-xs-4"></div>
+                        <div class="cols-xs-4">
+                    <button id="GuardarDatosBasicos" type="submit" class="btn btn-default ">Guardar</button>
+                        </div>
+                        <div class="cols-xs-4"></div>
+            </div>
                 </div>
             </div>
+                   
+            </div>
             <div class="col-xs-4"></div>
-        </div>
+                    </div>
         </form>
     </body>
 </html>
