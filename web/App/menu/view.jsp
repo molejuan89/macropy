@@ -61,6 +61,7 @@
                                         <th data-options="field:'tipo'" width="30">Tipo</th> 
                                         <th data-options="field:'url'" width="250">Link</th> 
                                         <th data-options="field:'level'" width="30">Nivel</th> 
+                                        <th data-options="field:'order'" width="30">Orden</th>
                                     </tr>
                                 </thead>
                             </table>

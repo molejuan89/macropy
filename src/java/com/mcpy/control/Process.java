@@ -34,7 +34,11 @@ public class Process extends Controller {
         } else if (action.equals("dashboard")) {
             gotoURL(dashboard, request, response);
         } else if (action.equals("menu-add")) {
-            gotoURL(menuAdd, request, response);
+            gotoURL(menuAction, request, response);
+        } else if (action.equals("menu-del")) {
+            gotoURL(menuAction, request, response);
+        } else if (action.equals("menu-upd")) {
+            gotoURL(menuAction, request, response);
         } else {
             gotoURL(errorForm, request, response);
         }

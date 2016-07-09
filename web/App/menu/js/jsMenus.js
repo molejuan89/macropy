@@ -1,20 +1,3 @@
-function desactivarRep() {
-    try {
-        $("#reporte option[value='0']").attr('selected', 'selected');
-        document.getElementById('reporte').disabled = true;
-        //document.getElementById('reporte').setAttribute('selectedIndex','0');
-
-    } catch (e) {
-        alert(e);
-    }
-
-}
-
-function activarRep() {
-    document.getElementById('reporte').disabled = false;
-}
-
-
 /*de aquí en adelanta funciones para jeasyui */
 function onContextMenu(e, row) {
     if (row) {
@@ -37,35 +20,60 @@ function append() {
         } else if (node.hierarchy > maxGerarquia) {
             $('#alerta-no').window('open');
         } else {
-            var url = 'maintenance.jsp?action=menu-add';
-            modiframe('actionMenu', url);
+            var uri = 'maintenance.jsp'
+                    + '?action=menu-add'
+                    + '&message=' + node.message
+                    + '&code=' + node.id
+                    + '&father=' + node.father
+                    + '&type=' + node.tipo
+                    + '&order=' + node.order
+                    + '&level=' + node.level
+                    + '&link=' + node.url
+                    ;
+
+            uri = encodeURI(uri);
+            console.log(uri);
+            modiframe('actionMenu', uri);
         }
     }
 }
 function removeIt() {
     var node = $('#tg').treegrid('getSelected');
     if (node) {
-        var url = 'delete.jsp?nodoPadre=' + node.nodo_padre + '&nodoCod=' + node.id;
-        window.open(url);
+        var uri = 'maintenance.jsp'
+                + '?action=menu-del'
+                + '&message=' + node.message
+                + '&code=' + node.id
+                + '&father=' + node.father
+                + '&type=' + node.tipo
+                + '&order=' + node.order
+                + '&level=' + node.level
+                + '&link=' + node.url
+                ;
+
+        uri = encodeURI(uri);
+        console.log(uri);
+        modiframe('actionMenu', uri);
     }
 }
 
 function editIt() {
     var node = $('#tg').treegrid('getSelected');
     if (node) {
-        var url = 'modify.jsp?nodoPadre=' + node.nodo_padre + '&nodoCod=' + node.id;
-        window.open(url);
-    }
-}
+        var uri = 'maintenance.jsp'
+                + '?action=menu-upd'
+                + '&message=' + node.message
+                + '&code=' + node.id
+                + '&father=' + node.father
+                + '&type=' + node.tipo
+                + '&order=' + node.order
+                + '&level=' + node.level
+                + '&link=' + node.url
+                ;
 
-function viewRep() {
-    var node = $('#tg').treegrid('getSelected');
-    if (node) {
-        var rep = node.reporte_cod;
-        if (!(rep == 0)) {
-            var url = '../rep/view.jsp?repCod=' + rep;
-            window.open(url);
-        }
+        uri = encodeURI(uri);
+        console.log(uri);
+        modiframe('actionMenu', uri);
     }
 }
 
@@ -89,5 +97,3 @@ function collapseAll() {
 function expandAll() {
     $('#tg').treegrid('expandAll');
 }
-
-collapseAll();

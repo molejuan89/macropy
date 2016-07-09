@@ -28,9 +28,9 @@ public class NodoMenu {
         this.son = son;
     }
 
-    public NodoMenu(String code, int hierarchy, String father, int order, String message, String url, String tipo) {
+    public NodoMenu(String code, int level, String father, int order, String message, String url, String tipo) {
         this.code = code;
-        this.level = hierarchy;
+        this.level = level;
         this.father = father;
         this.order = order;
         this.message = message;

@@ -35,6 +35,12 @@ public class StringsSql {
                 + "from {schema}.nodos n\n"
                 + "order by gerarquia,orden,mensaje";
 
+        String SQL_MENU_ADD = "INSERT INTO mcpy.nodos (codigo, gerarquia, nodo_padre, orden, mensaje, url,tipo) VALUES (?,?,?,?,?,?,?);";
+
+        String SQL_MENU_DEL = "delete from mcpy.nodos where codigo=?";
+
+        String SQL_MENU_UPD = "update mcpy.nodos set gerarquia=?, nodo_padre=?, orden=?, mensaje=?, url=?,tipo=? where codigo=?";
+
         /*############################################
          # Aquí todos las acciones para buscar SQL's
          #############################################*/
@@ -44,6 +50,15 @@ public class StringsSql {
                 break;
             case "menu-app":
                 tmpSql = SQL_MENU_APP;
+                break;
+            case "menu-add":
+                tmpSql = SQL_MENU_ADD;
+                break;
+            case "menu-del":
+                tmpSql = SQL_MENU_DEL;
+                break;
+            case "menu-upd":
+                tmpSql = SQL_MENU_UPD;
                 break;
         }
 
