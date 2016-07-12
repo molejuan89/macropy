@@ -47,7 +47,7 @@
         nLevel = nivel;
         nStateCode = "readonly";
     } else if (action.equals("menu-upd")) {
-        nTitle = "Acutalizar Nodo";
+        nTitle = "Actualizar Nodo";
         nMessage = mensaje;
         nId = codigo;
         nFather = padre;
