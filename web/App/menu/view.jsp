@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="refresh" content="45">
         <!--JQuery v1.12.2 -->
         <script src="<%=request.getContextPath()%>/libs/com.jquery.code/1.12.2/jquery.min.js"></script>
 
@@ -77,7 +78,6 @@
                                 <div onclick="removeIt()" data-options="iconCls:'icon-remove'">Delete</div>
                                 <div onclick="editIt()" data-options="iconCls:'icon-edit'">Edit</div>
                                 <div class="menu-sep"></div>
-                                <div onclick="viewRep()" data-options="iconCls:'icon-searh'">View Report</div>
                                 <div class="menu-sep"></div>
                                 <div onclick="collapse()">Collapse</div>
                                 <div onclick="expand()">Expand</div>
