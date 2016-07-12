@@ -5,30 +5,39 @@
  */
 package com.mcpy.profile.model;
 
+import com.mcpy.control.util;
+
 /**
  *
  * @author AGiraldo
  */
-public class Perfil {
+public final class Profile {
 
     int codigo;
     String descripcion;
     String admin;
     String name_rol;
 
-    public Perfil() {
+    public Profile() {
     }
 
-    public Perfil(int codigo, String descripcion, String admin) {
+    public void Perfil(int codigo, String descripcion, String admin) {
         this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.admin = admin;
+        this.descripcion = util.capitalizeString(descripcion);
+        this.admin = admin.toUpperCase();
+        builNameRol();
     }
 
-    public Perfil(int codigo, String descripcion) {
-        this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.admin = "N";
+    public Profile(String[] a) {
+        Perfil(Integer.parseInt(a[0]), a[1], a[2]);
+    }
+
+    public Profile(int codigo, String descripcion) {
+        Perfil(codigo, descripcion, "N");
+    }
+
+    public Profile(int codigo, String descripcion, String admin) {
+        Perfil(codigo, descripcion, admin);
     }
 
     public int getCodigo() {
@@ -66,5 +75,18 @@ public class Perfil {
     public void builNameRol() {
         this.name_rol = "rol_" + String.format("%04d", Integer.parseInt("" + codigo));
     }
-   
+
+    public String href(String iframe, String page) {
+        String param
+                = "?codigo=" + codigo
+                + "&descripcion=" + descripcion
+                + "&admin=" + admin
+                + "&rol=" + name_rol;
+
+        String ref = "<a href=\"javascript:modiframe('" + iframe + "','" + page + ".jsp<param>');void 0\">" + codigo + ". " + descripcion + "</a><br>";
+
+        String href = ref.replace("<param>", param);
+        System.out.println("href:" + href);
+        return href;
+    }
 }

@@ -3,11 +3,21 @@
     Created on : 5/07/2016, 11:41:28 PM
     Author     : Andres
 --%>
+<%
+    String action = request.getParameter("action");
+    String codigo = request.getParameter("codigo");
+    String descripcion = request.getParameter("descripcion");
+    String admin = request.getParameter("admin");
+    String nTitle = "";    
 
+    if (action.equals("profile-add")) {
+        nTitle = "Agregar perfil";
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
-<head> 
+    <head> 
         <title>Create Profile - MCPY</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,50 +49,56 @@
             <div class="col-xs-4">&nbsp;</div>
             <div class="col-xs-4">&nbsp;</div>
         </div>
-                <div class="row">
+        <div class="row">
             <div class="col-xs-4">&nbsp;</div>
             <div class="col-xs-4">&nbsp;</div>
             <div class="col-xs-4">&nbsp;</div>
         </div>
-        <form id="login" name="login" role="form" method="post" action="login" onsubmit="">
+        <form id="menu" name="menu" role="form" method="post" action="<%=request.getContextPath() + "/process"%>" onsubmit="return validarFormPerfil()">
+            <input type="text" name="action" id="action" value="<%=action%>" hidden>
+            <input type="text" name="codigo" id="codigo" value="<%=codigo%>" hidden>
             <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-3">
-                    <div><h1>Create Profile</h1></div>
-                </div>
-                <div class="col-xs-8"></div>
-            </div>
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
                     <div class="row">
-                    <div class="col-xs-4"></div>
-                    <div class="col-xs-4">
-                        <div class="container-fluid well">
+                        <div class="h5 col-xs-12" align='center'><%=nTitle%></div>
+                    </div>
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-4">
+                    <div class="container-fluid well">
                         <div class="row">
-                                <div class="col-xs-8">
-                                    <div class="form-group">
-                                        <label for="txt_descripcion"  class="control-label">Descripción:</label>
-                                        <div class="input-group" >
-                                            <span class="input-group-addon"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i></span>
-                                            <input type="text" name="txt_descripcion" class="form-control" id="txt_descripcion" onkeyup="validacion('txt_descripcion')">
-                                        </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label for="descripcion"  class="control-label">Descripción:</label>
+                                    <div class="input-group" >
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i></span>
+                                        <input type="text" name="descripcion" class="form-control" id="descripcion" onkeyup="validacion('txt_descripcion')">
                                     </div>
                                 </div>
-                                <div class="col-xs-4">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
                                     <div class="form-group">
-                                        <label for="Admin">Admin Option:</label>
-                                        <div class="form-group">
-                                            <div class="input-group-group">
-                                        <input type="radio"  name="Admin" id="Admin" value="M">&nbsp;Si &nbsp;&nbsp;
-                                        <input type="radio" name="Admin" id="Admin" value="V">&nbsp;No 
-                                    </div>
+                                        <label for="admin">Admin Option:</label>
+                                        <div class="input-group-group">
+                                            <input type="radio"  name="admin" id="admin" value="Y">&nbsp;Si &nbsp;&nbsp;
+                                            <input type="radio" name="admin" id="admin" value="N" checked>&nbsp;No 
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button id="btn_CrearPerfil" type="submit" class="btn btn-default center-block ">Guardar</button>
                         </div>
+                        <button id="btn_CrearPerfil" type="submit" class="btn btn-default center-block ">Aceptar</button>
                     </div>
-                    <div class="col-xs-4"></div>
-                    </div>&nbsp;
+                </div>
+                <div class="col-xs-4"></div>
+            </div>&nbsp;
             <div class="row">
                 <div class="col-xs-4"></div>
                 <div class="col-xs-4">

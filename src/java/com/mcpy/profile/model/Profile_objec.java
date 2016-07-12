@@ -13,26 +13,26 @@ import java.util.Iterator;
  *
  * @author AGiraldo
  */
-public class Perfil_objeto {
+public class Profile_objec {
 
-    Perfil perfil;
+    Profile perfil;
     ArrayList<Objeto> objetos;
 
-    public Perfil_objeto() {
-        this.perfil = new Perfil();
+    public Profile_objec() {
+        this.perfil = new Profile();
         ArrayList<Objeto> objetos = new ArrayList<Objeto>();
     }
 
-    public Perfil_objeto(Perfil perfil, ArrayList<Objeto> objetos) {
+    public Profile_objec(Profile perfil, ArrayList<Objeto> objetos) {
         this.perfil = perfil;
         this.objetos = objetos;
     }
 
-    public Perfil getPerfil() {
+    public Profile getPerfil() {
         return perfil;
     }
 
-    public void setPerfil(Perfil perfil) {
+    public void setPerfil(Profile perfil) {
         this.perfil = perfil;
     }
 

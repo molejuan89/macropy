@@ -5,7 +5,7 @@
  */
 package com.mcpy.profile.core;
 
-import com.mcpy.profile.model.Perfil_objeto;
+import com.mcpy.profile.model.Profile_objec;
 import com.mcpy.profile.objects.model.Objeto;
 import com.mcpy.control.database.Database;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ import java.util.Iterator;
  */
 public class Grantee {
 
-    public static void Grantee(Perfil_objeto perfil_objeto, Database conn) throws SQLException {
+    public static void Grantee(Profile_objec perfil_objeto, Database conn) throws SQLException {
 
         PreparedStatement pstm;
         Iterator<Objeto> itr = perfil_objeto.getObjetos().iterator();

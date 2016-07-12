@@ -91,7 +91,7 @@
             <div class="col-xs-4">&nbsp;</div>
             <div class="col-xs-4">&nbsp;</div>
         </div>
-        <form id="login" name="login" role="form" method="post" action="<%=request.getContextPath() + "/process"%>" onsubmit="return validarFormPerfil()">
+        <form id="menu" name="menu" role="form" method="post" action="<%=request.getContextPath() + "/process"%>" onsubmit="return validarFormPerfil()">
             <input type="text" name="action" id="action" value="<%=action%>" hidden>
             <input type="text" name="father" id="father" value="<%=nFather%>" hidden>
             <input type="text" name="level" id="level" value="<%=nLevel%>" hidden>
