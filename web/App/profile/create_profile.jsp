@@ -71,14 +71,14 @@
                                         <label for="Admin">Admin Option:</label>
                                         <div class="form-group">
                                             <div class="input-group-group">
-                                        <input type="radio"  name="Tipo" id="Tipo" value="M">&nbsp;Si &nbsp;&nbsp;
-                                        <input type="radio" name="Tipo" id="Tipo" value="V">&nbsp;No 
+                                        <input type="radio"  name="Admin" id="Admin" value="M">&nbsp;Si &nbsp;&nbsp;
+                                        <input type="radio" name="Admin" id="Admin" value="V">&nbsp;No 
                                     </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button id="GuardarDatosBasicos" type="submit" class="btn btn-default center-block ">Guardar</button>
+                            <button id="btn_CrearPerfil" type="submit" class="btn btn-default center-block ">Guardar</button>
                         </div>
                     </div>
                     <div class="col-xs-4"></div>

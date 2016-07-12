@@ -31,6 +31,13 @@
         
     </head>
     <body>
+        <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-3">
+                    <div><h1>Menú</h1></div>
+                </div>
+                <div class="col-xs-8"></div>
+            </div>
         <div align='center'>
             <div align='center' style="border: 10px;">
                 <table>

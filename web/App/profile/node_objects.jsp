@@ -58,7 +58,7 @@
                                             <td>APL</td>
                                             <td>
                                                 <td>
-                                                    <input id="Admin" type="checkbox" value="S">
+                                                    <input id="NodoCheck" type="checkbox" value="S">
                                                 </td>
                                             </td>
                                         </tr>
@@ -74,7 +74,7 @@
                  <div class="container-fluid ">
                      <div class="row">
                             <div class="col-xs-1"></div>
-                            <div class="col-xs-9">
+                            <div class="col-xs-10">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -93,28 +93,28 @@
                                                 <td></td>
                                                 <td>Ciudad</td>
                                                 <td class="center">
-                                                    <input id="Admin" type="checkbox" value="S">
+                                                    <input id="objetoscheck" type="checkbox" value="S">
                                                 </td>
                                                 <td>
-                                                    <input id="Admin" type="checkbox" value="I">
+                                                    <input id="objetoscheck" type="checkbox" value="I">
                                                 </td>
                                                 <td>
-                                                    <input id="Admin" type="checkbox" value="D">
+                                                    <input id="objetoscheck" type="checkbox" value="D">
                                                 </td>
                                                 <td>
-                                                    <input id="Admin" type="checkbox" value="U">
+                                                    <input id="objetoscheck" type="checkbox" value="U">
                                                 </td>
                                                 <td>
-                                                    <input id="Admin" type="checkbox" value="E">
+                                                    <input id="objetoscheck" type="checkbox" value="E">
                                                 </td>
                                                 <td>
-                                                    <input id="Admin" type="checkbox" value="AP">
+                                                    <input id="objetoscheck" type="checkbox" value="AP">
                                                 </td>
                                             </tr>
                                         </tbody>
                                 </table>
                             </div>
-                            <div class="col-xs-2"></div>
+                            <div class="col-xs-1"></div>
                         </div>
                         
                 </div>  

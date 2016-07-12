@@ -13,7 +13,7 @@
 %>
 <html lang="es">
     <head> 
-        <title>Portal Hojas de Vida - Proservis</title>
+        <title>Message - MCPY</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,15 +38,6 @@
     <body>
         <br><br><br><br>
         <div class="row">
-            <div class="col-xs-5"></div>
-            <div class="col-xs-2">
-                <div class="container"> 
-                    <img src="http://www.proservis.com.co/images/logo_proservis.png"   width="200" height="75">         
-                </div>
-            </div>
-            <div class="col-xs-2"></div>
-        </div>
-        <div class="row">
             <div class="col-xs-4"></div>
             <div class="col-xs-4">
                 <div class="container-fluid well">
@@ -64,15 +55,6 @@
                 </div>
             </div>
             <div class="col-xs-4" ></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4"></div>
-            <div class="col-xs-4">
-                <h6>
-                    <span class="label label-success" style="font-size: 15"> Portal Hojas de Vida | Queryx – Copyright ©2016 Proservis  Desarrollado por: <strong>Innovacion y Desarrollo</strong></span>
-                </h6>
-            </div>
-            <div class="col-xs-4"></div>
         </div>
     </body>
 </html>

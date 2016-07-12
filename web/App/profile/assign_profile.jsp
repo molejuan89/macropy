@@ -66,7 +66,7 @@
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe  src="<%=request.getContextPath()%>/App/profile/node_objects.jsp" id="actionMenu" name="actionMenu"></iframe>
                 </div>
-                <div class="row">
+                    <div class="row">
                         <div class="container-fluid">
                         <div class="col-xs-3"></div>
                         <div class="col-xs-3">

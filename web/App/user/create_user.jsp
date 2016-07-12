@@ -35,6 +35,13 @@
 
     </head>
     <body>
+        <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-3">
+                    <div><h1>Create User</h1></div>
+                </div>
+                <div class="col-xs-8"></div>
+            </div>
         <form id="login" name="login" role="form" method="post" onsubmit="return validarFormRegistro()">
         <div class="col-xs-2"></div>
         <div class="col-xs-8">

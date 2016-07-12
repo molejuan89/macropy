@@ -71,13 +71,21 @@
     </head>
     <body style="background: #cccccc">
         <div class="container panel">
-
-            <div >
-                <div class="container">  
-                    <img src="images/LogoRealt.png" width="70" height="26" align="left">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><%=conex.getUser() + " " + conex.getDatabase()%></li>
-                    </ul>
+            <div>
+                    <div class="row">
+                        <div class="container-fluid">
+                        <div class="col-xs-4">
+                            <img src="images/LogoRealt.png" width="150" height="50" align="left">
+                        </div>
+                        <div class="col-xs-4">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><%=conex.getUser() + "@" + conex.getDatabase()%></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-4">
+                            <img src="images/logo_uniajc1.jpg" width="150" height="50" align="right">
+                        </div>
+                    </div>
                 </div>
                 <div style="background: #cccccc">
                     <nav class="navbar navbar-static-top marginBottom-0" role="navigation">
@@ -90,17 +98,14 @@
                 </div>
             </div>
             <div align='center'>
-                <!--<div class="embed-container">
-                    <iframe width="560" height="315" src="" frameborder="0" id="optionApp" name="optionApp" allowfullscreen ></iframe>
-                </div>-->
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="..." id="optionApp" name="optionApp"></iframe>
                 </div>
             </div>
-        </div>
-        <div class="container" align='center'>
-            <span class="label label-success" style="font-size: 15" > ©2016 RealT | Desarrollado por: <strong>Andres Giraldo - Andres Lopez - Juan Guerrero - Karen Ramirez</strong></span>
-        </div>
+    </div>
+            <div class="container" align='center'>
+                <span class="label label-default" style="font-size: 15" > ©2016 RealT | Desarrollado por: <strong>Andres Giraldo - Andres Lopez - Juan Guerrero - Karen Ramirez</strong></span>
+            </div>
         <br>
     </body>
 </html>

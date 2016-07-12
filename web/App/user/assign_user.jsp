@@ -35,16 +35,23 @@
     </head>
    <body><br>
             <br>
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-3">
+                    <div><h1>Assign User</h1></div>
+                </div>
+                <div class="col-xs-8"></div>
+            </div>
             <div class="col-xs-1"></div>
             <div class="col-xs-3">
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading"  >
                             <h4 class="panel-title" >
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"  style="color: blue"><strong>Perfiles</strong></a>
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"  style="color: blue"><strong>Usuarios</strong></a>
                             </h4>
                         </div>
-                        <div id="collapse1" class="panel-collapse collapse">
+                        <div id="collapse1" class="panel-collapse collapse collapse in">
                             <div class="panel-body">
                                 <form id="InformacionPersonal" method="post"  action="#">
                                     <div class="container-fluid">
@@ -64,6 +71,18 @@
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe  src="<%=request.getContextPath()%>/App/user/access_menu.jsp" id="actionMenu" name="actionMenu"></iframe>
                 </div>
+                <div class="row">
+                        <div class="container-fluid">
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-3">
+                            <button type="submit" class="btn btn-default center-block" id="btn_Asignar" name="btn_AsignarNodo">Asignar</button>
+                        </div>
+                        <div class="col-xs-3">
+                            <button type="submit" class="btn btn-default center-block" id="btn_Desasignar" name="btn_DesasignarNodo">Desasignar</button>
+                        </div>
+                        <div class="col-xs-3"></div>
+                        </div>
+                    </div>
             </div>
             </div>
     </body>

@@ -63,18 +63,6 @@
                             <div class="col-xs-4"></div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="container-fluid">
-                        <div class="col-xs-3"></div>
-                        <div class="col-xs-3">
-                            <button type="submit" class="btn btn-default center-block" id="btn_Asignar" name="btn_AsignarMenu">Asignar</button>
-                        </div>
-                        <div class="col-xs-3">
-                            <button type="submit" class="btn btn-default center-block" id="btn_Desasignar" name="btn_DesasignarMenu">Desasignar</button>
-                        </div>
-                        <div class="col-xs-3"></div>
-                        </div>
-                    </div> 
                 </div>
                 <div id="Acceso" class="tab-pane fade">
                  <div class="container-fluid ">
@@ -97,18 +85,6 @@
                                 </table>
                             </div>
                             <div class="col-xs-4"></div>
-                        </div>
-                        <div class="row">
-                            <div class="container-fluid">
-                            <div class="col-xs-3"></div>
-                            <div class="col-xs-3">
-                                <button type="submit" class="btn btn-default center-block" id="btn_CrearNodo" name="btn_AsignarAcceso">Asignar</button>
-                            </div>
-                            <div class="col-xs-3">
-                                <button type="submit" class="btn btn-default center-block" id="btn_CrearNodo" name="btn_DesasignarAcceso">Desasignar</button>
-                            </div>
-                            <div class="col-xs-3"></div>
-                            </div>
                         </div>
                 </div>  
                 </div>

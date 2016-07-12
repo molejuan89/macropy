@@ -23,3 +23,51 @@ txt_contrasenaReg
 txt_contrasenaReg2
 btn_Registrarse
 
+    Menu:
+        - maintenance
+
+            mensaje
+            code
+            Tipo
+            M (Menu)
+            V (Vista)
+            order
+            link
+            btn_crearPerfil
+
+        -view
+
+    Profile
+
+        -Assign profile
+            collapse1
+            btn_Asignar
+            btn_Desasignar
+            iframe (actionMenu)
+
+        -Create Profile
+
+            txt_descripcion
+            Admin
+            M
+            V
+            btn_CrearPerfil
+                
+        -Node Objects
+
+            table  -   Nodos
+                NodoCheck S
+
+            table  -   Objetos
+                objetoscheck
+                S , I , D , U , E , AP
+
+    user
+
+        
+
+
+
+
+
+
