@@ -23,12 +23,12 @@ $(document).ready(function() {
 
 });
 
-function validarFormPerfil() {
-    validacion("txt_codigo");
+function ValidacionPerfil() {
     validacion("txt_descripcion");
+    validacion("Admin");
     if (
-            validacion("txt_codigo") &&
-            validacion("txt_descripcion")) {
+            validacion("txt_descripcion") &&
+            validacion("Admin")) {
         return true;
     } else {
         return false;
@@ -40,10 +40,10 @@ function validacion(campo) {
     /*
      * Validaciones Forma perfil
      */
-
-    if (campo === 'txt_codigo') {
+    
+    if (campo === 'txt_descripcion') {
         var valor = $('#' + campo).val();
-        if (valor !== null && valor.length >= 1 && valor.length < 40 && !(/^\s+$/.test(valor))) {
+        if (valor !== null && valor.length > 4 && valor.length < 40 && !(/^\s+$/.test(valor))) {
             $("#glypcn" + campo).remove();
             $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
             $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
@@ -56,12 +56,11 @@ function validacion(campo) {
         }
     }
     
-    if (campo === 'txt_descripcion') {
-        var valor = $('#' + campo).val();
-        if (valor !== null && valor.length > 4 && valor.length < 40 && !(/^\s+$/.test(valor))) {
+       if (campo === 'Admin') {
+        if ($('input[name="' + campo + '"]').is(':checked')) {
             $("#glypcn" + campo).remove();
             $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
-            $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+            $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='form controlglyphicon glyphicon-ok form-control-feedback'></span>");
             return true;
         } else {
             $("#glypcn" + campo).remove();
