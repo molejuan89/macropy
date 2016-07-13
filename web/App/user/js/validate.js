@@ -16,7 +16,7 @@ $(document).ready(function() {
 
 });
 
-function validarFormRegistro() {
+function ValidarFormUser() {
     validacion("txt_Nombres");
     validacion("txt_Apellido1");
     validacion("txt_Apellido2");
@@ -187,6 +187,21 @@ function validacion(campo) {
             $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-remove form-control-feedback'></span>");
             return false;
         }
+    }
+    
+    if (campo === 'txt_FechaExpiracion') {
+        var valor = $('#' + campo).val();
+            if (valor !== null && valor.length > 0 && !(/^\s+$/.test(valor))) {
+                $("#glypcn" + campo).remove();
+                $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
+                $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+                return true;
+            } else {
+                $("#glypcn" + campo).remove();
+                $('#' + campo).parent().parent().attr("class", "has-error has-feedback");
+                $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+                return false;
+            }
     }
 
     

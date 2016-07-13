@@ -94,6 +94,9 @@ public class StringsSql {
             case "profil-sel-all":
                 tmpSql = SELECT_ALL_PERFIL;
                 break;
+            case "profiles-app":
+                tmpSql = SELECT_ALL_PERFIL;
+                break;
             case "profil-x":
                 tmpSql = SELECT_PERFIL_X;
                 break;
