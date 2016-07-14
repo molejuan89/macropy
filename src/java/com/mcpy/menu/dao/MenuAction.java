@@ -44,8 +44,8 @@ public class MenuAction extends Controller {
 
         NodoMenu nodo = new NodoMenu(codigo, nivel, padre, orden, mensaje, link, tipo);
 
-        System.out.println(StringsSql.Menu(action));
-        System.out.println("ac:" + action);
+        //System.out.println(StringsSql.Menu(action));
+        //System.out.println("ac:" + action);
 
         pstm = conn.getConexion().prepareStatement(StringsSql.Menu(action));
         if (action.equals("menu-add")) {

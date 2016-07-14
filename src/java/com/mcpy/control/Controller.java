@@ -50,7 +50,7 @@ public abstract class Controller extends HttpServlet {
     protected void gotoURL(String address, HttpServletRequest request,
             HttpServletResponse response) throws ServletException,
             IOException {
-        System.out.println("gotoURL:" + address);
+        System.out.println("Class:Controller gotoURL:" + address);
         RequestDispatcher dispatcher
                 = getServletContext().getRequestDispatcher(address);
         dispatcher.forward(request, response);

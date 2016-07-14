@@ -225,4 +225,36 @@ public class util {
 
     }
 
+    public static void imprimir(String[][] imp) {
+        for (String[] imp1 : imp) {
+            imprimir(imp1);
+        }
+    }
+
+    public static void imprimir(String[] imp) {
+        String str = "";
+        for (String imp1 : imp) {
+            str += imp1 + ";";
+        }
+        System.out.println("Class:Util.imprimir(String[] imp) " + str);
+    }
+
+    public static String arrayToTableHtml(String[][] imp) {
+        String str = "";
+        for (String[] imp1 : imp) {
+            str += "\n<tr>\n" + arrayToTableHtml(imp1) + "\n</tr>";
+        }
+        return str;
+    }
+
+    public static String arrayToTableHtml(String[] imp) {
+        String str = "";
+        for (String imp1 : imp) {
+            if (imp1 == null) {
+                imp1 = "";
+            }
+            str += "<td>" + imp1 + "</td>\n";
+        }
+        return str;
+    }
 }

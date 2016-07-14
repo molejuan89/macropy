@@ -23,7 +23,7 @@ public class Process extends Controller {
             HttpServletResponse response) throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        System.out.println("proxy-action:" + action);
+        System.out.println("Class:Process proxy-action:" + action);
 
         if (action == null) {
             gotoURL(initForm, request, response);

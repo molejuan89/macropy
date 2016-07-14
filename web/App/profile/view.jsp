@@ -69,13 +69,13 @@
                                         if (a != null && a.length > 0) {
                                             for (int i = 0; i < a.length; i++) {
                                                 Profile p = new Profile(a[i]);
-                                    %><%=p.href("actionProfile", "assign")%><%
+                                    %><%=p.href("actionProfile", "assign") + p.hrefEdit("actionProfile", "maintenance", "&action=profile-upd") + "<br>"%><%
                                             }
                                         }
                                     %>                                        
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>

@@ -45,7 +45,7 @@ public class Access extends HttpServlet {
                     ipAddress = request.getRemoteAddr();
                 }
 
-                System.out.println("login accept");
+                //System.out.println("login accept");
 //                PreparedStatement pstm = conex.getConexion().prepareStatement("INSERT INTO TQXC_SESION_LOG (USERNAME, FECHA_SISTEMA, IP_CLIENTE) VALUES ( USER,SYSDATE,? )");
 //                pstm.setString(1, ipAddress);
 //                pstm.executeUpdate();

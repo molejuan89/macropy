@@ -4,6 +4,13 @@
     Author     : Andres
 --%>
 
+<%@page import="com.mcpy.control.util"%>
+<%@page import="com.mcpy.profile.dao.ProfileNodesDao"%>
+<%@page import="com.mcpy.menu.dao.MenuDao"%>
+<%@page import="com.mcpy.control.database.Database"%>
+<%@page import="com.mcpy.menu.model.Menu"%>
+<%@page import="com.mcpy.profile.model.ProfileNodes"%>
+<%@page import="com.mcpy.profile.model.Profile"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,6 +39,14 @@
 
     <!-- Font style -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- Funcionalidad jeasyui table-->
+    <script type="text/javascript" src="<%=request.getContextPath()%>/App/menu/js/jsMenus.js"></script> 
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/libs/com.jeasyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/libs/com.jeasyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/libs/com.jeasyui/demo/demo.css">
+    <script type="text/javascript" src="<%=request.getContextPath()%>/libs/com.jeasyui/jquery.easyui.min.js"></script>
+
 </head>
 <body>
     <%
@@ -40,9 +55,28 @@
         String descripcion = request.getParameter("descripcion");
         String admin = request.getParameter("admin");
         String rol = request.getParameter("rol");
+        Profile profile = new Profile(new String[]{"" + codigo, descripcion, rol});
+        Database conex = (Database) request.getSession().getAttribute("conex");
+        ProfileNodes pnodes = ProfileNodesDao.ProfileNodesDao(conex, profile);
     %>
     <div class="container">
-        <div class="h5"><u><a href="#"><%=descripcion%></a></u></div>
+        <div class="h5">
+            <u>
+                <a href="#"><%=codigo + ". " + descripcion%></a>
+            </u>
+            <br><hr>
+            <div class="container-fluid">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-3">
+                    <button type="submit" class="btn btn-default center-block" id="btn_Asignar" name="btn_AsignarNodo">Asignar</button>
+                </div>
+                <div class="col-xs-3">
+                    <button type="submit" class="btn btn-default center-block" id="btn_Desasignar" name="btn_DesasignarNodo">Desasignar</button>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+        </div>
+
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#Nodos">Nodos</a></li>
             <li><a data-toggle="tab" href="#Objetos">Objetos</a></li>
@@ -51,91 +85,67 @@
             <div id="Nodos" class="tab-pane fade in active">
                 <div class="container-fluid ">
                     <div class="row">
-                        <div class="col-xs-4"></div>
-                        <div class="col-xs-4">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Perfil</th>
-                                        <th>Nodo</th>
-                                        <th>Admin Option</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>APL</td>
-                                        <td><input id="NodoCheck" type="checkbox" value="S"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-xs-4"></div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Menu</th>
+                                    <th>Codigo</th>
+                                    <th>Autorizado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%=util.arrayToTableHtml(pnodes.toArray())%>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
             </div>
             <div id="Objetos" class="tab-pane fade">
                 <div class="container-fluid ">
                     <div class="row">
-                        <div class="col-xs-1"></div>
-                        <div class="col-xs-10">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Schema</th>
-                                        <th>Objeto</th>
-                                        <th>Select</th>
-                                        <th>Insert</th>
-                                        <th>Delete</th>
-                                        <th>Update</th>
-                                        <th>execute</th>
-                                        <th>All permissions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td>Ciudad</td>
-                                        <td class="center">
-                                            <input id="objetoscheck" type="checkbox" value="S">
-                                        </td>
-                                        <td>
-                                            <input id="objetoscheck" type="checkbox" value="I">
-                                        </td>
-                                        <td>
-                                            <input id="objetoscheck" type="checkbox" value="D">
-                                        </td>
-                                        <td>
-                                            <input id="objetoscheck" type="checkbox" value="U">
-                                        </td>
-                                        <td>
-                                            <input id="objetoscheck" type="checkbox" value="E">
-                                        </td>
-                                        <td>
-                                            <input id="objetoscheck" type="checkbox" value="AP">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-xs-1"></div>
-                    </div>
 
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Schema</th>
+                                    <th>Objeto</th>
+                                    <th>Select</th>
+                                    <th>Insert</th>
+                                    <th>Delete</th>
+                                    <th>Update</th>
+                                    <th>execute</th>
+                                    <th>All permissions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>mcpy</td>
+                                    <td>Ciudad</td>
+                                    <td class="center">
+                                        <input id="objetoscheck" type="checkbox" value="S">
+                                    </td>
+                                    <td>
+                                        <input id="objetoscheck" type="checkbox" value="I">
+                                    </td>
+                                    <td>
+                                        <input id="objetoscheck" type="checkbox" value="D">
+                                    </td>
+                                    <td>
+                                        <input id="objetoscheck" type="checkbox" value="U">
+                                    </td>
+                                    <td>
+                                        <input id="objetoscheck" type="checkbox" value="E">
+                                    </td>
+                                    <td>
+                                        <input id="objetoscheck" type="checkbox" value="AP">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>  
             </div>
         </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="col-xs-3"></div>
-        <div class="col-xs-3">
-            <button type="submit" class="btn btn-default center-block" id="btn_Asignar" name="btn_AsignarNodo">Asignar</button>
-        </div>
-        <div class="col-xs-3">
-            <button type="submit" class="btn btn-default center-block" id="btn_Desasignar" name="btn_DesasignarNodo">Desasignar</button>
-        </div>
-        <div class="col-xs-3"></div>
     </div>
 </body>
 </html>

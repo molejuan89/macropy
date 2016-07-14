@@ -12,6 +12,8 @@
 
     if (action.equals("profile-add")) {
         nTitle = "Agregar perfil";
+    } else if (action.equals("profile-upd")) {
+        nTitle = "Actualizar perfil";
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -38,19 +40,21 @@
 
         <!-- Font style -->
         <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">
+        
+        <script src="<%=request.getContextPath()%>/js/util.js"></script>
     </head>
     <body>
         <form id="menu" name="menu" role="form" method="post" action="<%=request.getContextPath() + "/process"%>" onsubmit="return validarFormPerfil()">
             <input type="text" name="action" id="action" value="<%=action%>" hidden>
             <input type="text" name="codigo" id="codigo" value="<%=codigo%>" hidden>
             <div class="container-fluid well">
-                <div class="h5" align="center"><%=nTitle %></div>
+                <div class="h5" align="center"><%=nTitle%></div>
                 <div class="row">
                     <div class="form-group">
                         <label for="descripcion"  class="control-label">Descripción:</label>
                         <div class="input-group" >
                             <span class="input-group-addon"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i></span>
-                            <input type="text" name="descripcion" class="form-control" id="descripcion" onkeyup="validacion('txt_descripcion')">
+                            <input type="text" name="descripcion" class="form-control" id="descripcion" value="<%=descripcion%>" onkeyup="validacion('txt_descripcion')">
                         </div>
                     </div>
 
@@ -70,5 +74,8 @@
                 <button id="btn_CrearPerfil" type="submit" class="btn btn-default center-block ">Aceptar</button>
             </div>
         </form>
+        <script>
+            setValue("admin", "<%=admin%>");
+        </script>
     </body>
 </html>

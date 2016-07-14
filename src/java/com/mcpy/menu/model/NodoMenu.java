@@ -115,4 +115,8 @@ public class NodoMenu {
         a += message;
     }
 
+    public String[] toArray_mclfout() {
+        return new String[]{message, code, "" + level, father, "" + order, url, tipo};
+    }
+
 }
