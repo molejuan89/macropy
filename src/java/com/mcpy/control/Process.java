@@ -39,6 +39,12 @@ public class Process extends Controller {
             gotoURL(menuAction, request, response);
         } else if (action.equals("menu-upd")) {
             gotoURL(menuAction, request, response);
+        } else if (action.equals("profile-add")) {
+            gotoURL(profileAction, request, response);
+        } else if (action.equals("profile-del")) {
+            gotoURL(profileAction, request, response);
+        } else if (action.equals("profile-upd")) {
+            gotoURL(profileAction, request, response);
         } else {
             gotoURL(errorForm, request, response);
         }

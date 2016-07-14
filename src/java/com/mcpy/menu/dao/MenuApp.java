@@ -36,7 +36,7 @@ public class MenuApp extends HttpServlet {
         String[][] a = null;
 
         try {
-            try (PreparedStatement pstm = conex.getConexion().prepareStatement(StringsSql.SqlMenu("menu-app"), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+            try (PreparedStatement pstm = conex.getConexion().prepareStatement(StringsSql.Menu("menu-app"), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
                 a = util.toMatriz(pstm.executeQuery());
             }
 

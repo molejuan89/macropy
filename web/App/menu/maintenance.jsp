@@ -92,7 +92,7 @@
             <div class="col-xs-4">&nbsp;</div>
             <div class="col-xs-4">&nbsp;</div>
         </div>
-        <form id="login" name="login" role="form" method="post" action="<%=request.getContextPath() + "/process"%>" onsubmit="return validarFormMenu()">
+        <form id="menu" name="menu" role="form" method="post" action="<%=request.getContextPath() + "/process"%>" onsubmit="return validarFormPerfil()">
             <input type="text" name="action" id="action" value="<%=action%>" hidden>
             <input type="text" name="father" id="father" value="<%=nFather%>" hidden>
             <input type="text" name="level" id="level" value="<%=nLevel%>" hidden>
@@ -118,7 +118,7 @@
                                     <label for="code" class="control-label">Codigo:</label>
                                     <div class="input-group" >
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control solo-numero" id="code" name="code" value="<%=nId%>" <%=nStateCode%> onkeyup="validacion('code')" data-toggle="tooltip" data-placement="top" title="Seleccione el Lugar de Expedicion de la Cedula">
+                                        <input type="text" class="form-control" id="code" name="code" value="<%=nId%>" <%=nStateCode%> onkeyup="validacion('code')" data-toggle="tooltip" data-placement="top" title="Seleccione el Lugar de Expedicion de la Cedula">
                                     </div>
                                 </div>
                             </div>

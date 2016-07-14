@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="refresh" content="45">
+        <!--<meta http-equiv="refresh" content="45">-->
         <!--JQuery v1.12.2 -->
         <script src="<%=request.getContextPath()%>/libs/com.jquery.code/1.12.2/jquery.min.js"></script>
 
@@ -82,7 +82,7 @@
                                 <div onclick="collapse()">Collapse</div>
                                 <div onclick="expand()">Expand</div>
                             </div>
-                            <div id="alerta-no" class="easyui-window" title="Error agregando ítem" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
+                            <div id="alerta-no" class="easyui-window" title="Error agregando ítem" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:300px;height:200px;padding:10px;">
                                 No puede agregar hijos aquí. El ítem no es un nodo de menú.
                             </div> 
                         </td>

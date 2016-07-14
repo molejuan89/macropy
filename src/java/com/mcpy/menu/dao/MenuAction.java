@@ -10,14 +10,12 @@ import com.mcpy.control.StringsSql;
 import com.mcpy.control.database.Database;
 import com.mcpy.menu.model.NodoMenu;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -46,10 +44,10 @@ public class MenuAction extends Controller {
 
         NodoMenu nodo = new NodoMenu(codigo, nivel, padre, orden, mensaje, link, tipo);
 
-        System.out.println(StringsSql.SqlMenu(action));
+        System.out.println(StringsSql.Menu(action));
         System.out.println("ac:" + action);
 
-        pstm = conn.getConexion().prepareStatement(StringsSql.SqlMenu(action));
+        pstm = conn.getConexion().prepareStatement(StringsSql.Menu(action));
         if (action.equals("menu-add")) {
             pstm.setString(1, nodo.getCode());
             pstm.setInt(2, nodo.getLevel());
