@@ -99,7 +99,7 @@ public class ProfileNodes {
 
             b[i][0] = util.SearchMariz(spaces, util.SearchMariz(a, "LEVEL", 0, i)) + " " + util.SearchMariz(a, "MESSAGE", 0, i);
             b[i][1] = util.SearchMariz(a, "CODE", 0, i);
-            b[i][2] = " <input type=\"checkbox\" " + checked + " >";
+            b[i][2] = " <input id=\"" + b[i][1] + "\" name=\"" + b[i][1] + "\" type=\"checkbox\" " + checked + " >";
         }
 
         return b;
