@@ -128,8 +128,8 @@
                                 <div class="form-group">
                                     <label for="Tipo"  class="control-label" data-toggle="tooltip" data-placement="top" title="Seleccione el Lugar de Expedicion de la Cedula">Tipo:</label>
                                     <div class="input-group-group">                                            
-                                        <input type="radio"  name="Tipo" id="Tipo" value="M">&nbsp;Menu &nbsp;&nbsp;
-                                        <input type="radio" name="Tipo" id="Tipo" value="V">&nbsp;Vista 
+                                        <input type="radio"  name="type" id="type" value="M">&nbsp;Menu &nbsp;&nbsp;
+                                        <input type="radio" name="type" id="type" value="V">&nbsp;Vista 
                                     </div>
                                 </div>
                             </div>

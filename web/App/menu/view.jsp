@@ -25,7 +25,6 @@
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/libs/com.jeasyui/themes/default/easyui.css">
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/libs/com.jeasyui/themes/icon.css">
         <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/libs/com.jeasyui/demo/demo.css">
-        <!--<script type="text/javascript" src="/macropy/libs/com.jeasyui/jquery.min.js"></script>-->
         <script type="text/javascript" src="<%=request.getContextPath()%>/libs/com.jeasyui/jquery.easyui.min.js"></script>
         
         <script src="<%=request.getContextPath()%>/js/util.js"></script>
@@ -44,18 +43,18 @@
                 <table>
                     <tr>
                         <td width="100%" align="center">
-                            <div style="margin:20px 0;"></div>
+                            <!--<div style="margin:20px 0;"></div>
                             <div style="margin:20px 0;">
                                 <a href="javascript:void(0)" class="easyui-linkbutton" onclick="collapseAll()">CollapseAll</a>
                                 <a href="javascript:void(0)" class="easyui-linkbutton" onclick="expandAll()">ExpandAll</a>
-                            </div>
+                            </div>-->
                             <table id="tg" title="Menú de la Aplicación" class="easyui-treegrid" style="width:800px;height:200px"
                                    data-options="
                                    iconCls: 'icon-ok',
                                    rownumbers: true,
                                    collapsible: true,
                                    fitColumns: true,
-                                   url: '/macropy/MenuApp',
+                                   url: '<%=request.getContextPath()%>/MenuApp',
                                    method: 'get',
                                    lines: 'true',
                                    idField: 'id',

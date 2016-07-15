@@ -94,6 +94,9 @@ public class StringsSql {
             case "profil-sel-all":
                 tmpSql = SELECT_ALL_PERFIL;
                 break;
+            case "profiles-app":
+                tmpSql = SELECT_ALL_PERFIL;
+                break;
             case "profil-x":
                 tmpSql = SELECT_PERFIL_X;
                 break;
@@ -175,4 +178,29 @@ public class StringsSql {
         return OutSql;
     }
 
+    public static String ProfileNodes(String searchSql) {
+
+        String tmpSql = "";
+        String OutSql = "";
+
+        /*############################################
+         # Aquí todos los SQL's
+         #############################################*/
+        String PROFILE_NODES = "select nodo_cod, 'Y'\n"
+                + "from mcpy.perfil_nodos\n"
+                + "where perfil=?\n"
+                + "order by 1";
+
+        /*############################################
+         # Aquí todos las acciones para buscar SQL's
+         #############################################*/
+        switch (searchSql) {
+            case "profil-nodes":
+                tmpSql = PROFILE_NODES;
+                break;
+        }
+
+        OutSql = tmpSql.replace("{schema}", SCHEMA);
+        return OutSql;
+    }
 }

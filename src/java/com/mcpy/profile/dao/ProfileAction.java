@@ -61,8 +61,8 @@ public class ProfileAction extends Controller {
         pstm2 = conex.getConexion().prepareStatement(StringsSql.Profile("next"), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         int next = Integer.parseInt(util.toArray(pstm2.executeQuery())[0]);
         pstm2.close();
-        System.out.println("next:" + StringsSql.Profile("next"));
-        System.out.println("next=" + next);
+        //System.out.println("next:" + StringsSql.Profile("next"));
+        //System.out.println("next=" + next);
 
         Profile perfil = new Profile(codigo, descripcion, admin);
         pstm = conex.getConexion().prepareStatement(StringsSql.Profile(action));

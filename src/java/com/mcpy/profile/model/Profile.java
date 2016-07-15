@@ -83,10 +83,25 @@ public final class Profile {
                 + "&admin=" + admin
                 + "&rol=" + name_rol;
 
-        String ref = "<a href=\"javascript:modiframe('" + iframe + "','" + page + ".jsp<param>');void 0\">" + codigo + ". " + descripcion + "</a><br>";
+        String ref = "<a href=\"javascript:modiframe('" + iframe + "','" + page + ".jsp<param>');void 0\">" + codigo + ". " + descripcion + "</a>";
 
         String href = ref.replace("<param>", param);
-        System.out.println("href:" + href);
+        System.out.println("Class:Profile.href(String iframe, String page) " + href);
+        return href;
+    }
+
+    public String hrefEdit(String iframe, String page, String otherParam) {
+        String param
+                = "?codigo=" + codigo
+                + "&descripcion=" + descripcion
+                + "&admin=" + admin
+                + "&rol=" + name_rol
+                + otherParam;
+
+        String ref = "<a href=\"javascript:modiframe('" + iframe + "','" + page + ".jsp<param>');void 0\"> <span class=\"glyphicon glyphicon-pencil\"></span> </a>";
+
+        String href = ref.replace("<param>", param);
+        System.out.println("Class:Profile.hrefEdit(String iframe, String page, String otherParam) :" + href);
         return href;
     }
 }

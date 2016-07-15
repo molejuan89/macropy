@@ -50,26 +50,32 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"  >
                         <h4 class="panel-title" >
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"  style="color: blue"><strong>Perfiles</strong></a>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="color: blue"><strong>Perfiles</strong></a>
+                            <a href="javascript:modiframe('actionProfile','maintenance.jsp?action=profile-add');void 0">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                            </a>
                         </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse collapse in">
                         <div class="panel-body">
-                            <form id="InformacionPersonal" method="post"  action="#">
-                                <div class="container-fluid">
-                                    <div class="row">
-                                        <%
-                                            if (a != null && a.length > 0) {
-                                                for (int i = 0; i < a.length; i++) {
-                                                    Profile p = new Profile(a[i]);
-                                        %><%=p.href("actionProfile", "assign")%><%
-                                                }
-                                            }
-                                        %>                                        
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div align='right'>
+
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                                <div class="row">
+                                    <%
+                                        if (a != null && a.length > 0) {
+                                            for (int i = 0; i < a.length; i++) {
+                                                Profile p = new Profile(a[i]);
+                                    %><%=p.href("actionProfile", "assign") + p.hrefEdit("actionProfile", "maintenance", "&action=profile-upd") + "<br>"%><%
+                                            }
+                                        }
+                                    %>                                        
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
             </div>

@@ -55,7 +55,7 @@ function validacion(campo) {
 
     if (campo === 'code') {
         var valor = $('#' + campo).val();
-        if (valor !== null && valor.length > 0 && valor.length <=6 && !(/^\s+$/.test(valor))) {
+        if (valor !== null && valor.length > 0 && valor.length <=10 && !(/^\s+$/.test(valor))) {
             $("#glypcn" + campo).remove();
             $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
             $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok  form-control-feedback'></span>");
