@@ -48,34 +48,64 @@
                 <div class="col-xs-7">
                     <div class="container-fluid well">
                         <div class="row">
+                                <div class="col-xs-6" >
+                                    <div class="form-group">
+                                        <label for="txt_ref1" class="cols-xs-2 control-label">Referencia 1:</label>
+                                        <div class="input-group-group">
+                                            <input class="form-control datepicker" id="txt_ref1"  name="txt_ref1" type="text" placeholder="EJ: 1993-12-22" onkeyup="validacion('txt_FechaExpedicion');">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6" >
+                                    <div class="form-group">
+                                        <label for="txt_ref2" class="cols-xs-2 control-label">Referencia 2:</label>
+                                        <div class="input-group-group">
+                                            <input class="form-control datepicker" id="txt_ref2"  name="txt_ref2" type="text" placeholder="EJ: 1993-12-22" onkeyup="validacion('txt_FechaExpedicion');">
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6" >
+                                <div class="form-group">
+                                    <label for="cbx_Lugar" class="cols-xs-2 control-label">Lugar:</label>
+                                    <div class="input-group-group">
+                                        <select name="cbx_Lugar" id="cbx_Lugar" class="form-control select2" onkeyup="validacion('cbx_Lugar');" data-toggle="tooltip" data-placement="top" title="Seleccione el Lugar">
+                                            <option value=''>Seleccione..</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="txt_fecha" class="cols-xs-2 control-label">Fecha:</label>
+                                        <div class="input-group-group">
+                                            <input class="form-control datepicker" id="txt_fecha"  name="txt_fecha" type="text" placeholder="EJ: 1993-12-22" onkeyup="validacion('txt_FechaExpedicion');">
+                                        </div>
+                                    </div>
+                            </div> 
+                        </div>
+                        <div class="row">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <label for="txt_pagado" class="cols-xs-2 control-label">Pagado a:</label>
+                                        <div class="input-group-group">
+                                            <input class="form-control datepicker" id="txt_pagado"  name="txt_pagado" type="text" placeholder="EJ: 1993-12-22" onkeyup="validacion('txt_FechaExpedicion');">
+                                        </div>
+                                    </div>
+                                </div>
                             <div class="col-xs-6" >
                                     <div class="form-group">
-                                        <label for="txt_LugarExp" class="cols-xs-2 control-label">Lugar de Expedición:</label>
+                                        <label for="cbx_tercero" class="cols-xs-2 control-label">Tercero:</label>
                                         <div class="input-group-group">
-                                            <select name="cbo_LugarExp" id="cbo_LugarExp" class="form-control select2" >
+                                            <select name="cbx_tercero" id="cbx_tercero" class="form-control select2" >
                                                 <option value=''>Seleccione..</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-6">
-                                    <div class="form-group">
-                                        <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Fecha de Expedicion:</label>
-                                        <div class="input-group-group">
-                                            <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: 1993-12-22" onkeyup="validacion('txt_FechaExpedicion');">
-                                        </div>
-                                    </div>
-                                </div>
                         </div>
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                    <div class="form-group">
-                                        <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Pagado a:</label>
-                                        <div class="input-group-group">
-                                            <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: 1993-12-22" onkeyup="validacion('txt_FechaExpedicion');">
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group">
                                         <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Dirección:</label>
@@ -84,9 +114,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-xs-6">
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
                                     <div class="form-group">
                                         <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Concepto:</label>
                                         <div class="input-group-group">
@@ -94,6 +124,9 @@
                                         </div>
                                     </div>
                                 </div>
+                        </div>
+                                <div class="row">
+                                
                                     <div class="col-xs-6">
                                             <label for="txt_FechaRetiro">Fecha:</label><br>
                                             <input id ="txt_FechaRetiro"  class="form-control"  name="txt_FechaRetiro" type="text" placeholder="EJ: 2016-06-24">
