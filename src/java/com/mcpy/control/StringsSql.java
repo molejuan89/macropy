@@ -203,4 +203,29 @@ public class StringsSql {
         OutSql = tmpSql.replace("{schema}", SCHEMA);
         return OutSql;
     }
+
+    public static String Lists(String searchSql) {
+        String tmpSql = "";
+        String OutSql = "";
+
+        /*############################################
+         # Aquí todos los SQL's
+         #############################################*/
+        String CITIES = "Select * \n"
+                + "from {schema}.tabla_ciudad \n"
+                + "order by codigo";
+
+
+        /*############################################
+         # Aquí todos las acciones para buscar SQL's
+         #############################################*/
+        switch (searchSql) {
+            case "cities":
+                tmpSql = CITIES;
+                break;
+        }
+
+        OutSql = tmpSql.replace("{schema}", SCHEMA);
+        return OutSql;
+    }
 }
