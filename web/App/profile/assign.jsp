@@ -4,8 +4,6 @@
     Author     : Andres
 --%>
 
-<%@page import="com.mcpy.profile.dao.ProfileObjectsDao"%>
-<%@page import="com.mcpy.profile.model.ProfileObjects"%>
 <%@page import="com.mcpy.control.util"%>
 <%@page import="com.mcpy.profile.dao.ProfileNodesDao"%>
 <%@page import="com.mcpy.menu.dao.MenuDao"%>
@@ -60,29 +58,8 @@
         Profile profile = new Profile(new String[]{"" + codigo, descripcion, rol});
         Database conex = (Database) request.getSession().getAttribute("conex");
         ProfileNodes pnodes = ProfileNodesDao.ProfileNodesDao(conex, profile);
-
-        ProfileObjects pobjects = ProfileObjectsDao.ProfileObjectsDao(conex, profile);
-
     %>
-    <div class="h5">
-        <u>
-            <a href="#"><%=codigo + ". " + descripcion%></a>
-        </u>
-    </div>
-    <div class="row">
-        <div class="col-xs-3"></div>
-        <div class="col-xs-3">
-            <button type="submit" class="btn btn-success center-block " id="btn_Asignar" name="btn_AsignarNodo">Asignar</button>
-        </div>
-        <div class="col-xs-3">
-            <button type="submit" class="btn btn-danger center-block " id="btn_Desasignar" name="btn_DesasignarNodo">Desasignar</button>
-        </div>
-        <div class="col-xs-3"></div>
-    </div>
-    <hr>
-
     <div class="container">
-
         <div class="h5">
             <u>
                 <a href="#"><%=codigo + ". " + descripcion%></a>
@@ -99,7 +76,6 @@
                 <div class="col-xs-3"></div>
             </div>
         </div>
-
 
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#Nodos">Nodos</a></li>
@@ -133,7 +109,6 @@
                                 <tr>
                                     <th>Schema</th>
                                     <th>Objeto</th>
-
                                     <th>Select</th>
                                     <th>Insert</th>
                                     <th>Delete</th>
@@ -165,18 +140,6 @@
                                         <input id="objetoscheck" type="checkbox" value="AP">
                                     </td>
                                 </tr>
-
-                                    <th>Type</th>
-                                    <th>Sel</th>
-                                    <th>Ins</th>
-                                    <th>Del</th>
-                                    <th>Upd</th>
-                                    <th>Exe</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%=util.arrayToTableHtml(pobjects.toArray())%>
-
                             </tbody>
                         </table>
                     </div>
