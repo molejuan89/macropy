@@ -46,15 +46,19 @@ public class ObjetDB {
         this.shema = shema;
         this.name = name;
         this.type = type;
-        this.isSelect = "S".equals(Sel);
-        this.isInsert = "S".equals(Ins);
-        this.isUpdate = "S".equals(Upd);
-        this.isDelete = "S".equals(Del);
-        this.isExecute = "S".equals(Exe);
+        this.isSelect = "Y".equals(Sel);
+        this.isInsert = "Y".equals(Ins);
+        this.isUpdate = "Y".equals(Upd);
+        this.isDelete = "Y".equals(Del);
+        this.isExecute = "Y".equals(Exe);
     }
 
     public String grant() {
-        return "GRANT " + grants() + " ON " + this.shema + "." + this.name;
+        String g = "";
+        if (grants().length() > 0) {
+            g = "GRANT " + grants() + " ON " + this.shema + "." + this.name;
+        }
+        return g;
     }
 
     public String revoke() {
@@ -71,7 +75,7 @@ public class ObjetDB {
         String[] grants = new String[5];
 
         if (isSelect) {
-            grants[k] = "SELECT";
+            grants[k] = "SELECT, REFERENCES";
             k++;
         }
         if (isInsert) {
@@ -87,7 +91,7 @@ public class ObjetDB {
             k++;
         }
         if (isExecute) {
-            grants[k] = "EXECUTE";
+            grants[k] = "SELECT, UPDATE";
             k++;
         }
 

@@ -17,27 +17,27 @@ $(document).ready(function() {
 });
 
 function ValidarFormUser() {
-    validacion("txt_Nombres");
-    validacion("txt_Apellido1");
-    validacion("txt_Apellido2");
-    validacion("txt_NumeroId");
-    validacion("txt_User");
-    validacion("txt_FechaExpiracion");
-    validacion("txt_telefono");
-    validacion("txt_Email");
-    validacion("txt_contrasena");
-    validacion("txt_contrasena2");
+    validacion("nombre");
+    validacion("apellido1");
+    validacion("apellido2");
+    validacion("cedula");
+    validacion("username");
+    validacion("expira_pass");
+    validacion("telefono");
+    validacion("email");
+    validacion("password");
+    validacion("password2");
     if (
-            validacion("txt_Nombres") &&
-            validacion("txt_Apellido1") &&
-            validacion("txt_Apellido2") &&
-            validacion("txt_NumeroId") &&
-            validacion("txt_User") &&
-            validacion("txt_FechaExpiracion") &&
-            validacion("txt_telefono") &&
-            validacion("txt_Email") &&
-            validacion("txt_contrasena") &&
-            validacion("txt_contrasena2")) {
+            validacion("nombre") &&
+            validacion("apellido1") &&
+            validacion("apellido2") &&
+            validacion("cedula") &&
+            validacion("username") &&
+            validacion("expira_pass") &&
+            validacion("telefono") &&
+            validacion("email") &&
+            validacion("password") &&
+            validacion("password2")) {
         return true;
     } else {
         return false;
@@ -47,9 +47,9 @@ function ValidarFormUser() {
 function validacion(campo) {
     /*
      * Validaciones Forma Registro Usuario
-     */  
-    
-     if (campo === 'txt_Nombres') {
+     */
+
+    if (campo === 'nombre') {
         var valor = $('#' + campo).val();
         if (valor !== null && valor.length > 2 && valor.length < 60 && !(/^\s+$/.test(valor))) {
             $("#glypcn" + campo).remove();
@@ -64,7 +64,7 @@ function validacion(campo) {
         }
     }
 
-    if (campo === 'txt_Apellido1') {
+    if (campo === 'apellido1') {
         var valor = $('#' + campo).val();
         if (valor !== null && valor.length > 2 && valor.length < 40 && !(/^\s+$/.test(valor))) {
             $("#glypcn" + campo).remove();
@@ -79,9 +79,9 @@ function validacion(campo) {
         }
     }
 
-    if (campo === 'txt_Apellido2') {
+    if (campo === 'apellido2') {
         var valor = $('#' + campo).val();
-        if (((valor === null || valor.length === 0) || (valor !== null && valor.length > 2 && valor.length < 40 && !(/^\s+$/.test(valor)))) && validacion("txt_Apellido1")) {
+        if (((valor === null || valor.length === 0) || (valor !== null && valor.length > 2 && valor.length < 40 && !(/^\s+$/.test(valor)))) && validacion("apellido1")) {
             $("#glypcn" + campo).remove();
             $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
             $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
@@ -93,8 +93,8 @@ function validacion(campo) {
             return false;
         }
     }
-    
-     if (campo === 'txt_User') {
+
+    if (campo === 'username') {
         var valor = $('#' + campo).val();
         if (valor !== null && valor.length > 3 && !(/^\s+$/.test(valor))) {
             $("#glypcn" + campo).remove();
@@ -109,22 +109,7 @@ function validacion(campo) {
         }
     }
 
-    if (campo === 'txt_NumeroId') {
-        var valor = $('#' + campo).val();
-        if (valor !== null && valor.length > 5 && valor.length <= 15 && !(/^\s+$/.test(valor))) {
-            $("#glypcn" + campo).remove();
-            $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
-            $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-            return true;
-        } else {
-            $("#glypcn" + campo).remove();
-            $('#' + campo).parent().parent().attr("class", "has-error has-feedback");
-            $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-            return false;
-        }
-    }
-    
-    if (campo === 'txt_telefono') {
+    if (campo === 'cedula') {
         var valor = $('#' + campo).val();
         if (valor !== null && valor.length > 5 && valor.length <= 15 && !(/^\s+$/.test(valor))) {
             $("#glypcn" + campo).remove();
@@ -139,7 +124,22 @@ function validacion(campo) {
         }
     }
 
-    if (campo === 'txt_Email') {
+    if (campo === 'telefono') {
+        var valor = $('#' + campo).val();
+        if (valor !== null && valor.length > 5 && valor.length <= 15 && !(/^\s+$/.test(valor))) {
+            $("#glypcn" + campo).remove();
+            $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
+            $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+            return true;
+        } else {
+            $("#glypcn" + campo).remove();
+            $('#' + campo).parent().parent().attr("class", "has-error has-feedback");
+            $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+            return false;
+        }
+    }
+
+    if (campo === 'email') {
         var valor = $('#' + campo).val();
 
         //var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
@@ -157,9 +157,9 @@ function validacion(campo) {
             return false;
         }
     }
-  
 
-    if (campo === 'txt_contrasena') {
+
+    if (campo === 'password') {
         var valor = $('#' + campo).val();
         if (valor !== null && valor.length >= 6 && !(/^\s+$/.test(valor))) {
             $("#glypcn" + campo).remove();
@@ -174,9 +174,9 @@ function validacion(campo) {
         }
     }
 
-    if (campo === 'txt_contrasena2') {
+    if (campo === 'password2') {
         var valor = $('#' + campo).val();
-        if (valor === $('#txt_contrasena').val() && validacion("txt_contrasena")) {
+        if (valor === $('#password').val() && validacion("password")) {
             $("#glypcn" + campo).remove();
             $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
             $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
@@ -188,24 +188,24 @@ function validacion(campo) {
             return false;
         }
     }
-    
-    if (campo === 'txt_FechaExpiracion') {
+
+    if (campo === 'expira_pass') {
         var valor = $('#' + campo).val();
-            if (valor !== null && valor.length > 0 && !(/^\s+$/.test(valor))) {
-                $("#glypcn" + campo).remove();
-                $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
-                $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-                return true;
-            } else {
-                $("#glypcn" + campo).remove();
-                $('#' + campo).parent().parent().attr("class", "has-error has-feedback");
-                $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-remove form-control-feedback'></span>");
-                return false;
-            }
+        if (valor !== null && valor.length > 0 && !(/^\s+$/.test(valor))) {
+            $("#glypcn" + campo).remove();
+            $('#' + campo).parent().parent().attr("class", "has-success has-feedback");
+            $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+            return true;
+        } else {
+            $("#glypcn" + campo).remove();
+            $('#' + campo).parent().parent().attr("class", "has-error has-feedback");
+            $('#' + campo).parent().append("<span id='glypcn" + campo + "' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+            return false;
+        }
     }
 
-    
-    
-    
-    }
+
+
+
+}
 

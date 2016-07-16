@@ -45,6 +45,8 @@ public class Process extends Controller {
             gotoURL(profileAction, request, response);
         } else if (action.equals("profile-upd")) {
             gotoURL(profileAction, request, response);
+        } else if (action.equals("profile-assign")) {
+            gotoURL(profileAssign, request, response);
         } else {
             gotoURL(errorForm, request, response);
         }

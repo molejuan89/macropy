@@ -87,6 +87,10 @@ public class StringsSql {
 
         String NEXT = "select nullif(max(codigo),0)+1 from {schema}.perfiles";
 
+        String CREATE_ROLE = "CREATE ROLE ? NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION";
+
+        String USAGE_SCHEMA = "GRANT USAGE ON SCHEMA {schema} TO ?";
+
         /*############################################
          # Aquí todos las acciones para buscar SQL's
          #############################################*/
@@ -111,6 +115,12 @@ public class StringsSql {
                 break;
             case "next":
                 tmpSql = NEXT;
+                break;
+            case "create-role":
+                tmpSql = CREATE_ROLE;
+                break;
+            case "usage-schema":
+                tmpSql = USAGE_SCHEMA;
                 break;
         }
 
@@ -162,6 +172,13 @@ public class StringsSql {
                 + "and po.objeto=ao.name\n"
                 + "and perfil=?";
 
+        String PROFILE_OBJECTS_DEL_ALL
+                = "delete from mcpy.perfil_objetos\n"
+                + "where perfil=?";
+
+        String PROFILE_OBJECTS_INS = "insert into mcpy.perfil_objetos (perfil,name_schema,objeto,sel,ins,del,upd,exc)\n"
+                + "values (?,?,?,?,?,?,?,?)";
+
         /*############################################
          # Aquí todos las acciones para buscar SQL's
          #############################################*/
@@ -171,6 +188,12 @@ public class StringsSql {
                 break;
             case "profil-obj":
                 tmpSql = PROFILE_OBJECTS;
+                break;
+            case "profil-objects-del-all":
+                tmpSql = PROFILE_OBJECTS_DEL_ALL;
+                break;
+            case "profil-objects-ins":
+                tmpSql = PROFILE_OBJECTS_INS;
                 break;
         }
 
@@ -187,9 +210,13 @@ public class StringsSql {
          # Aquí todos los SQL's
          #############################################*/
         String PROFILE_NODES = "select nodo_cod, 'Y'\n"
-                + "from mcpy.perfil_nodos\n"
+                + "from {schema}.perfil_nodos\n"
                 + "where perfil=?\n"
                 + "order by 1";
+
+        String PROFILE_NODES_DEL_ALL = "delete from {schema}.perfil_nodos where perfil=?";
+
+        String PROFILE_NODES_INS = "insert into {schema}.perfil_nodos (perfil,nodo_cod) values (?,?)";
 
         /*############################################
          # Aquí todos las acciones para buscar SQL's
@@ -197,6 +224,12 @@ public class StringsSql {
         switch (searchSql) {
             case "profil-nodes":
                 tmpSql = PROFILE_NODES;
+                break;
+            case "profil-nodes-del-all":
+                tmpSql = PROFILE_NODES_DEL_ALL;
+                break;
+            case "profil-nodes-ins":
+                tmpSql = PROFILE_NODES_INS;
                 break;
         }
 
@@ -222,6 +255,44 @@ public class StringsSql {
         switch (searchSql) {
             case "cities":
                 tmpSql = CITIES;
+                break;
+        }
+
+        OutSql = tmpSql.replace("{schema}", SCHEMA);
+        return OutSql;
+    }
+    
+    public static String User(String searchSql) {
+        String tmpSql = "";
+        String OutSql = "";
+
+        /*############################################
+         # Aquí todos los SQL's
+         #############################################*/
+        String SELECT_ALL_USER = "select * \n"
+                + "from {schema}.usuario\n"
+                + "order by username";
+
+        String SELECT_PERFIL_X = "select * from {schema}.perfiles where codigo=?";
+
+        String CREATE_PROFILE = "insert into {schema}.perfiles (codigo,descripcion,admin_opcion) values (?,?,?)";
+
+        String DELETE_PERFIL = "delete {schema}.perfiles where codigo = ?";
+
+        String UPDATE_PERFIL = "update {schema}.perfiles set descripcion=?,admin_opcion=? where codigo=?";
+
+        String NEXT = "select nullif(max(codigo),0)+1 from {schema}.perfiles";
+
+        String CREATE_ROLE = "CREATE ROLE ? NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION";
+
+        String USAGE_SCHEMA = "GRANT USAGE ON SCHEMA {schema} TO ?";
+
+        /*############################################
+         # Aquí todos las acciones para buscar SQL's
+         #############################################*/
+        switch (searchSql) {
+            case "user-sel-all":
+                tmpSql = SELECT_ALL_USER;
                 break;
         }
 
