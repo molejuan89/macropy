@@ -24,7 +24,7 @@
         <script src="<%=request.getContextPath()%>/libs/com.jquery.code/1.12.2/jquery.min.js"></script>
 
         <!-- Validar antes de Activar Boton Registro-->
-        <script src="js/validate.js"></script>  
+        <script src="js/validateC.js"></script>  
 
         <!--Bootstrap v3.3.6 -->
         <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -34,17 +34,13 @@
         <!--Bootstrap-datepicker https://github.com/eternicode/bootstrap-datepicker -->        
         <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.github/eternicode/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
         <script src="<%=request.getContextPath()%>/libs/com.github/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-
-        <!-- Campos de fecha -->
-        <script src="js/date-fields.js"></script> 
-        
-        <script src="js/validate.js"></script>  
+       
         
 
     </head>
     <body>
-       <%-- <form id="menu" name="menu" role="form" method="post" action="<%=request.getContextPath() + "/process"%>" onsubmit="return validarFormPerfil()">
-            <input type="text" name="action" id="action" value="<%=action%>" hidden>--%>
+        <form id="comprobante" name="comprobante" role="form" method="post" action="" onsubmit="return validarFormDatosBasicos()">
+         <%--   <input type="text" name="action" id="action" value="<%=action%>" hidden>--%>
             <div class="row">
                 <div class="col-xs-1"></div>
                 <div class="col-xs-5">
@@ -88,7 +84,7 @@
                                 </div>
                                 <div class="col-xs-6" >
                                     <div class="form-group">
-                                        <label for="txt_ref2" class="cols-xs-2 control-label">Consecutivo</label>
+                                        <label for="" id="consecutivo" class="cols-xs-2 control-label">Consecutivo</label>
                                     </div>
                                 </div>
                         </div>
@@ -97,7 +93,7 @@
                                 <div class="form-group">
                                     <label for="cbx_Lugar" class="cols-xs-2 control-label">Lugar:</label>
                                     <div class="input-group-group">
-                                        <select name="cbx_Lugar" id="cbx_Lugar" class="form-control select2" onkeyup="validacion('cbx_Lugar');" data-toggle="tooltip" data-placement="top" title="Seleccione el Lugar">
+                                        <select name="cbx_Lugar" id="cbx_Lugar" class="form-control select2"  data-toggle="tooltip" data-placement="top" title="Seleccione el Lugar">
                                             <option value=''>Seleccione..</option>
                                         </select>
                                     </div>
@@ -117,17 +113,17 @@
                         <div class="row">
                                 <div class="col-xs-12">
                                     <div class="form-group">
-                                        <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Dirección:</label>
+                                        <label for="txt_direccion" class="cols-xs-2 control-label">Dirección:</label>
                                         <div class="input-group-group">
-                                            <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
+                                            <input class="form-control datepicker" id="txt_direccion"  name="txt_direccion" type="text" placeholder="EJ: ">
                                         </div>
                                     </div>
                                 </div>
-                        </div>
+                        </div>&nbsp;
                         <div class="row">
                             <iv class="col-xs-4"></iv>
                             <iv class="col-xs-4">
-                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Agregar Concepto</button>
+                                <button type="button" class="btn btn-default" id="btn_agregarConcepto"data-toggle="modal" data-target="#myModal">Agregar Concepto</button>
                             </iv>
                             <iv class="col-xs-4"></iv>
                         </div>
@@ -135,6 +131,7 @@
                 </div>
                 <div class="col-xs-2"></div>  
             </div>
+        
                 <div class="row">
                     <div class="col-xs-2"></div>
                     <div class="col-xs-8">
@@ -177,17 +174,17 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Valor Total:</label>
+                                    <label for="txt_valorTotal" class="cols-xs-2 control-label">Valor Total:</label>
                                     <div class="input-group-group">
-                                        <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
+                                        <input class="form-control solo-numero" id="txt_valorTotal"  name="txt_valorTotal" type="text" placeholder="EJ: ">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Contabilizado por:</label>
+                                    <label for="txt_ContablizadoPor" class="cols-xs-2 control-label">Contabilizado por:</label>
                                     <div class="input-group-group">
-                                        <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
+                                        <input class="form-control solo-letras" id="txt_ContablizadoPor"  name="txt_ContablizadoPor" type="text" placeholder="EJ: ">
                                     </div>
                                 </div>
                             </div>
@@ -195,22 +192,19 @@
                     </div>
                 </div>
                 <div class="col-xs-2"></div>
-            </div>
-                    <div class="row">
+            </div>&nbsp;
+                        <div class="row">
                         <div class="col-xs-3"></div>
                         <div class="col-xs-3">
-                            <button id="Aceptar" type="button" class="btn btn-default ">Aceptar</button>
+                            <button id="btn_Aceptar" type="submit" class="btn btn-default ">Aceptar</button>
                         </div>
                         <div class="col-xs-3">
-                            <button id="Imprimir" type="button" class="btn btn-default ">Imprimir</button>
+                            <button id="btn_Imprimir" type="button" class="btn btn-default ">Imprimir</button>
                         </div>
                         <div class="col-xs-3"></div>
                     </div>
-                        </div>
-                        </div>
-
+    </form>
                     
-            
         <div class="container">
             <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -221,21 +215,22 @@
                   <h4 class="modal-title">Datos Concepto</h4>
                 </div>
                 <div class="modal-body">
+                    <form id="menu" name="menu" role="form" method="post" action="" onsubmit="return validarFormConceptos()">
                     <div class="container-fluid">
                         <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group">
-                                        <label for="cbx_concepto" class="cols-xs-2 control-label">Concepto:</label>
+                                        <label for="txt_concepto" class="cols-xs-2 control-label">Concepto:</label>
                                         <div class="input-group-group">
-                                            <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
+                                            <input class="form-control" id="txt_concepto"  name="txt_concepto" type="text" placeholder="EJ: ">
                                         </div>
                                     </div>
                                 </div>  
                                 <div class="col-xs-6">
                                     <div class="form-group">
-                                        <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Cuenta:</label>
+                                        <label for="cbx_cuenta" class="cols-xs-2 control-label">Cuenta:</label>
                                         <div class="input-group-group">
-                                            <select name="cbx_concepto" id="cbx_concepto" class="form-control select2" >
+                                            <select name="cbx_cuenta" id="cbx_cuenta" class="form-control select2" >
                                                     <option value=''>Seleccione..</option>
                                                 </select>
                                         </div>
@@ -245,17 +240,17 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Efectivo:</label>
+                                    <label for="txt_efectivo" class="cols-xs-2 control-label">Efectivo:</label>
                                     <div class="input-group-group">
-                                        <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
+                                        <input class="form-control solo-numero" id="txt_efectivo"  name="txt_efectivo" type="text" placeholder="EJ: ">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Cheque:</label>
+                                    <label for="txt_cheque" class="cols-xs-2 control-label">Cheque:</label>
                                     <div class="input-group-group">
-                                        <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
+                                        <input class="form-control solo-numero" id="txt_cheque"  name="txt_cheque" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
                                     </div>
                                 </div>
                             </div>
@@ -263,31 +258,31 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Transferencia:</label>
+                                    <label for="txt_transferencia" class="cols-xs-2 control-label">Transferencia:</label>
                                     <div class="input-group-group">
-                                        <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
+                                        <input class="form-control solo-numero " id="txt_transferencia"  name="txt_transferencia" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_FechaExpedicion" class="cols-xs-2 control-label">Consignacion:</label>
+                                    <label for="txt_consignacion" class="cols-xs-2 control-label">Consignacion:</label>
                                     <div class="input-group-group">
-                                        <input class="form-control datepicker" id="txt_FechaExpedicion"  name="txt_FechaExpedicion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
+                                        <input class="form-control solo-numero" id="txt_consignacion"  name="txt_consignacion" type="text" placeholder="EJ: " onkeyup="validacion('txt_FechaExpedicion');">
                                     </div>
                                 </div>
                             </div>
                         </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default center-block" data-dismiss="modal">Agregar</button>
+                    <button type="submit" id="btn_GuargarConcepto" class="btn btn-default center-block" >Agregar</button>
                 </div>
+                    </form>
               </div>
 
             </div>
           </div>
         </div>
         </div>
-</form>
     </body>
 </html>

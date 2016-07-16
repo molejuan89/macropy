@@ -28,7 +28,7 @@
         <script src="<%=request.getContextPath()%>/libs/com.github/eternicode/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
         <!-- Campos de fecha -->
-        <script src="js/date-fields.js"></script> 
+        <script src="<%=request.getContextPath()%>/js/date-fields.js"></script> 
 
         <!-- Font style -->
         <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Control Consecutive - MCPY</title>
+        <title>Control Consecutivo - MCPY</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <label for=  "txt_CodigoCC" class="cols-xs-6 control-label">Codigo:</label> 
                                         <div class="input-group-group" >
-                                            <input class=  "form-control" id =  "txt_CodigoCC"  name =  "txt_CodigoCC" onkeyup="validacion('txt_CodigoCC');"   type =  "text  " placeholder=  "EJ:   " data-toggle="tooltip" data-placement="top" title="Ingrese el Codigo">  
+                                            <input class=  "form-control" id =  "txt_CodigoCC"  name =  "txt_CodigoCC"   type =  "text  " placeholder=  "EJ: CIxxx   " data-toggle="tooltip" data-placement="top" title="Ingrese el Codigo">  
                                         </div>
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                     <div class="form-group"> 
                                         <label for=  "txt_descripcionCC" class="cols-xs-6 control-label">Descripcion:</label>  
                                         <div class="input-group-group" >
-                                            <input class=  "form-control" id =  "txt_descripcionCC"  name =  "txt_descripcionCC" onkeyup="validacion('txt_descripcionCC');"   type =  "text  " placeholder=  "EJ:   " data-toggle="tooltip" data-placement="top" title="Ingrese la Descripcion"> 
+                                            <input class=  "form-control" id =  "txt_descripcionCC"  name =  "txt_descripcionCC"    type =  "text  " placeholder=  "EJ: Comprobante Ingreso  " data-toggle="tooltip" data-placement="top" title="Ingrese la Descripcion"> 
                                         </div> 
                                     </div>
                                 </div>
@@ -59,11 +59,11 @@
                                         <div class="form-group">
                                             <label for=  "txt_NombreCortoCC" class="cols-xs-6 control-label">Nombre Corto:</label>
                                             <div class="input-group-group" >
-                                                <input class=  "form-control" id =  "txt_NombreCortoCC"  name =  "txt_NombreCortoCC" onkeyup="validacion('txt_NombreCortoCC');"   type =  "text  " placeholder=  "EJ:   " data-toggle="tooltip" data-placement="top" title="Ingrese el Nombre Corto">  
+                                                <input class=  "form-control" id =  "txt_NombreCortoCC"  name =  "txt_NombreCortoCC"    type =  "text  " placeholder=  "EJ:  CI " data-toggle="tooltip" data-placement="top" title="Ingrese el Nombre Corto">  
                                             </div>
                                         </div>
                                     </div>
-                                    <div class=  "col-xs-6  ">
+                                    <!--<div class=  "col-xs-6  ">
                                         <div class="form-group">
                                             <label for=  "rd_EstadoCC" class="cols-xs-6 control-label" data-toggle="tooltip" data-placement="top" title="Seleccione Para Activar o Desactivar">Estado:</label>
                                             <div class="input-group-group" >
@@ -71,12 +71,12 @@
                                                         <input type="radio" name="rd_EstadoCC" id="rd_EstadoCC" value="INA">&nbsp;Inactivo 
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>&nbsp;
                                 <div class=  "row  ">  
                                     <div class=  "col-xs-4  "></div> 
                                     <div class=  "col-xs-3  ">  
-                                       <button type="button" id="btn_AceptarCC" class="btn btn-default form-control">Aceptar</button>&nbsp;&nbsp; 
+                                       <button type="submit" id="btn_AceptarCC" class="btn btn-default form-control">Aceptar</button>&nbsp;&nbsp; 
                                     </div>  
                                     <div class=  "col-xs-4  "></div>   
                                 </div> 

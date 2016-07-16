@@ -1,25 +1,64 @@
 
+Forma Comprobantes
+
+    validarFormDatosBasicos
+
+        cbx_Lugar
+        cbx_tercero
+        txt_direccion
+        txt_valorTotal
+        txt_ContablizadoPor
+        btn_agregarConcepto
+        btn_Aceptar
+        btn_Imprimir
+
+    validarFormDatosBasicos
+
+        txt_concepto
+        cbx_cuenta
+        txt_efectivo
+        txt_cheque
+        txt_transferencia
+        txt_consignacion
+        btn_GuargarConcepto
 
 
 Forma Tercero
+    validarForm
+        txt_Nombre
+        txt_RazonSocial
+        txt_NumeroId
+        cbx_TipoID
+        cbx_Lugar
+        cbx_Tipo
+        txt_Direccion
+        txt_telefono
+        txt_Email
+        rd_Estado
+        cbx_Dian
+        cbx_Ica
+        txt_Observacion
+        btn_agregarConcepto
+        btn_GuargarConcepto
+        btn_Aceptar
+        btn_Imprimir
 
-form id=regTercero
-cbx_TipoID
-txt_NumeroId
-txt_Nombre
-txt_RazonSocial
-txt_Direccion
-txt_telefono
-txt_Email
-cbx_Lugar
-cbx_Tipo
-rd_Estado
-cbx_Dian
-cbx_Ica
-txt_Observacion
-btn_AceptarTer
+    validarFormActualizar
+        txt_NombreAct
+        txt_RazonSocialAct
+        cbx_LugarAct
+        cbx_TipoAct
+        txt_DireccionAct
+        txt_telefonoAct
+        txt_EmailAct
+        cbx_DianAct
+        cbx_IcaAct
+        txt_ObservacionAct
+
+
 
 Forma Tipo Tercero
+    validarFormCC
 
 txt_CodigoTT
 txt_descripcionTT
@@ -45,8 +84,10 @@ btn_AceptarFP
 
 Forma Control Consecutivo
 
-txt_CodigoCC
-txt_descripcionCC
-txt_NombreCortoCC
-rd_EstadoCC
-btn_AceptarCC
+    validarFormCC
+
+        txt_CodigoCC
+        txt_descripcionCC
+        txt_NombreCortoCC
+        rd_EstadoCC
+        btn_AceptarCC
