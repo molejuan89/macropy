@@ -6,7 +6,6 @@
 package com.mcpy.profile.dao;
 
 import com.mcpy.control.StringsSql;
-import static com.mcpy.control.StringsSql.ProfileNodes;
 import com.mcpy.control.database.Database;
 import com.mcpy.control.util;
 import com.mcpy.menu.model.Menu;

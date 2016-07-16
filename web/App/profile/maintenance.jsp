@@ -9,11 +9,14 @@
     String descripcion = request.getParameter("descripcion");
     String admin = request.getParameter("admin");
     String nTitle = "";
+    String nDescripcion = "";
 
     if (action.equals("profile-add")) {
         nTitle = "Agregar perfil";
+        nDescripcion = "";
     } else if (action.equals("profile-upd")) {
         nTitle = "Actualizar perfil";
+        nDescripcion = descripcion;
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,7 +43,7 @@
 
         <!-- Font style -->
         <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/font-awesome/4.6.3/css/font-awesome.min.css">
-        
+
         <script src="<%=request.getContextPath()%>/js/util.js"></script>
     </head>
     <body>
@@ -54,7 +57,7 @@
                         <label for="descripcion"  class="control-label">Descripción:</label>
                         <div class="input-group" >
                             <span class="input-group-addon"><i class="glyphicon glyphicon-th-large" aria-hidden="true"></i></span>
-                            <input type="text" name="descripcion" class="form-control" id="descripcion" value="<%=descripcion%>" onkeyup="validacion('txt_descripcion')">
+                            <input type="text" name="descripcion" class="form-control" id="descripcion" value="<%=nDescripcion%>" onkeyup="validacion('txt_descripcion')">
                         </div>
                     </div>
 

@@ -10,8 +10,8 @@ import com.mcpy.control.util;
 import com.mcpy.profile.core.Grantee;
 import com.mcpy.profile.core.Revoke;
 import com.mcpy.control.StringsSql;
-import com.mcpy.profile.objects.model.Objeto;
-import com.mcpy.profile.model.Profile_objec;
+import com.mcpy.profile.objects.model.ObjetDB;
+import com.mcpy.profile.model.Profile_objec_OLD;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +28,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author AGiraldo
  */
-public class Perfil_objeto_DAO extends HttpServlet {
+public class Perfil_objeto_DAO_OLD extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
@@ -42,7 +42,7 @@ public class Perfil_objeto_DAO extends HttpServlet {
         pstm.setInt(1, p);
         String[] a = util.toArray(pstm.executeQuery());
         pstm.close();
-        Profile_objec perfil = new Profile_objec();
+        Profile_objec_OLD perfil = new Profile_objec_OLD();
         perfil.getPerfil().setCodigo(Integer.parseInt(a[0]));
         perfil.getPerfil().setDescripcion(a[1]);
         perfil.getPerfil().builNameRol();
@@ -52,9 +52,9 @@ public class Perfil_objeto_DAO extends HttpServlet {
         String[][] b = util.toMatriz(pstm.executeQuery());
         pstm.close();
         
-        ArrayList<Objeto> obs = new ArrayList<Objeto>();
+        ArrayList<ObjetDB> obs = new ArrayList<ObjetDB>();
         for (int i = 0; i < b.length; i++) {
-            Objeto obj = new Objeto(b[i][0], b[i][1], b[i][2], b[i][3], b[i][4], b[i][5], b[i][6], b[i][7]);
+            ObjetDB obj = new ObjetDB(b[i][0], b[i][1], b[i][2], b[i][3], b[i][4], b[i][5], b[i][6], b[i][7]);
             obs.add(obj);
         }
         
@@ -75,7 +75,7 @@ public class Perfil_objeto_DAO extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(Perfil_objeto_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Perfil_objeto_DAO_OLD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -85,7 +85,7 @@ public class Perfil_objeto_DAO extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(Perfil_objeto_DAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Perfil_objeto_DAO_OLD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

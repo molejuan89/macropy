@@ -139,15 +139,6 @@
                                     </div>
                                 </div>
                             </div>
-                        <div class= "col-xs-6">
-                            <div class="form-group">
-                                <label for= "rd_Estado " class="control-label" data-toggle="tooltip" data-placement="top" title="Seleccione para Activar o Inhabilitar">Estado:</label>
-                                <div class="input-group-group">
-                                    <input type="radio" id= "rd_Estado " name= "rd_Estado ">&nbsp;Activo&nbsp;&nbsp;
-                                    <input type="radio" id= "rd_Estado " name= "rd_Estado ">&nbsp;Inactivo&nbsp;&nbsp;
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class= "row ">
                         <div class="col-xs-6">
@@ -176,7 +167,7 @@
                             <div class="form-group">
                                 <label for="txt_Observacion" class="cols-xs-2 control-label">Observacion:</label>	
                                 <div class="input-group-group">
-                                    <input type="email" class="form-control" name="txt_Observacion" id="txt_Observacion" onkeyup="validacion('txt_Observacion');"  placeholder="Ej: " onkeyup="validacion('txt_Email');" data-toggle="tooltip" data-placement="top" title="Ingrese las Observaciones que tenga Sobre el Tercero"/>
+                                    <input type="email" class="form-control" name="txt_Observacion" id="txt_Observacion" onkeyup="validacion('txt_Observacion');"  placeholder="Ej: " data-toggle="tooltip" data-placement="top" title="Ingrese las Observaciones que tenga Sobre el Tercero"/>
                                 </div>  
                             </div>
                         </div>

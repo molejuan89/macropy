@@ -9,22 +9,21 @@ package com.mcpy.profile.objects.model;
  *
  * @author AGiraldo
  */
-public class Objeto {
+public class ObjetDB {
 
     String shema, name, type;
     boolean isSelect, isInsert, isUpdate, isDelete, isExecute;
 
-    public Objeto() {
-
+    public ObjetDB() {
     }
 
-    public Objeto(String shema, String name, String type) {
+    public ObjetDB(String shema, String name, String type) {
         this.shema = shema;
         this.name = name;
         this.type = type;
     }
 
-    public Objeto(String shema, String name, String type, boolean isSelect, boolean isInsert, boolean isUpdate, boolean isDelete, boolean isExecute) {
+    public ObjetDB(String shema, String name, String type, boolean isSelect, boolean isInsert, boolean isUpdate, boolean isDelete, boolean isExecute) {
         this.shema = shema;
         this.name = name;
         this.type = type;
@@ -35,7 +34,15 @@ public class Objeto {
         this.isExecute = isExecute;
     }
 
-    public Objeto(String shema, String name, String type, String Sel, String Ins, String Upd, String Del, String Exe) {
+    public ObjetDB(String[] obj) {
+        ObjetDB(obj[0], obj[1], obj[2], obj[3], obj[4], obj[5], obj[6], obj[7]);
+    }
+
+    public ObjetDB(String shema, String name, String type, String Sel, String Ins, String Upd, String Del, String Exe) {
+        ObjetDB(shema, name, type, Sel, Ins, Upd, Del, Exe);
+    }
+
+    public void ObjetDB(String shema, String name, String type, String Sel, String Ins, String Upd, String Del, String Exe) {
         this.shema = shema;
         this.name = name;
         this.type = type;
@@ -47,18 +54,16 @@ public class Objeto {
     }
 
     public String grant() {
-       return "GRANT " + grants() + " ON " + this.shema + "." + this.name;
+        return "GRANT " + grants() + " ON " + this.shema + "." + this.name;
     }
-    
-    public String revoke(){
+
+    public String revoke() {
         return "REVOKE ALL ON " + this.shema + "." + this.name;
     }
 
     public String getShema() {
         return shema;
     }
-    
-    
 
     private String grants() {
         int k = 0;

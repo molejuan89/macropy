@@ -129,28 +129,28 @@ public class StringsSql {
                 = "SELECT AO.SCHEMA,\n"
                 + "	AO.NAME,\n"
                 + "	AO.TYPE,\n"
-                + "	(CASE TYPE \n"
-                + "		WHEN 'TABLE' THEN (CASE SEL WHEN 'S' THEN SEL ELSE 'N' END) \n"
-                + "		WHEN 'VIEW' THEN (CASE SEL WHEN 'S' THEN SEL ELSE 'N' END) \n"
+                + "	(CASE Upper(TYPE) \n"
+                + "		WHEN 'TABLE' THEN (CASE SEL WHEN 'Y' THEN SEL ELSE 'N' END) \n"
+                + "		WHEN 'VIEW' THEN (CASE SEL WHEN 'Y' THEN SEL ELSE 'N' END) \n"
                 + "		ELSE 'X' END) AS SEL,\n"
-                + "	(CASE TYPE \n"
-                + "		WHEN 'TABLE' THEN (CASE INS WHEN 'S' THEN INS ELSE 'N' END) \n"
-                + "		WHEN 'VIEW' THEN (CASE INS WHEN 'S' THEN INS ELSE 'N' END) \n"
+                + "	(CASE Upper(TYPE) \n"
+                + "		WHEN 'TABLE' THEN (CASE INS WHEN 'Y' THEN INS ELSE 'N' END) \n"
+                + "		WHEN 'VIEW' THEN (CASE INS WHEN 'Y' THEN INS ELSE 'N' END) \n"
                 + "		ELSE 'X' END) AS INS,\n"
-                + "	(CASE TYPE \n"
-                + "		WHEN 'TABLE' THEN (CASE DEL WHEN 'S' THEN DEL ELSE 'N' END) \n"
-                + "		WHEN 'VIEW' THEN (CASE DEL WHEN 'S' THEN DEL ELSE 'N' END) \n"
+                + "	(CASE Upper(TYPE) \n"
+                + "		WHEN 'TABLE' THEN (CASE DEL WHEN 'Y' THEN DEL ELSE 'N' END) \n"
+                + "		WHEN 'VIEW' THEN (CASE DEL WHEN 'Y' THEN DEL ELSE 'N' END) \n"
                 + "		ELSE 'X' END) AS DEL,\n"
-                + "	(CASE TYPE \n"
-                + "		WHEN 'TABLE' THEN (CASE UPD WHEN 'S' THEN UPD ELSE 'N' END) \n"
-                + "		WHEN 'VIEW' THEN (CASE UPD WHEN 'S' THEN UPD ELSE 'N' END) \n"
+                + "	(CASE Upper(TYPE) \n"
+                + "		WHEN 'TABLE' THEN (CASE UPD WHEN 'Y' THEN UPD ELSE 'N' END) \n"
+                + "		WHEN 'VIEW' THEN (CASE UPD WHEN 'Y' THEN UPD ELSE 'N' END) \n"
                 + "		ELSE 'X' END) AS UPD,\n"
-                + "	(CASE TYPE \n"
+                + "	(CASE Upper(TYPE) \n"
                 + "		WHEN 'TABLE' THEN 'X' \n"
                 + "		WHEN 'VIEW' THEN 'X'\n"
-                + "		ELSE (CASE EXC WHEN 'S' THEN EXC ELSE 'N' END) END) AS EXC\n"
+                + "		ELSE (CASE EXC WHEN 'Y' THEN EXC ELSE 'N' END) END) AS EXC\n"
                 + "FROM {schema}.perfil_objetos PO\n"
-                + "RIGHT JOIN {schema}.all_objects AO\n"
+                + "	RIGHT JOIN {schema}.all_objects AO\n"
                 + "	ON PO.name_schema = AO.schema\n"
                 + "	AND PO.objeto=AO.name\n"
                 + "	AND PO.PERFIL=?\n"
@@ -197,6 +197,44 @@ public class StringsSql {
         switch (searchSql) {
             case "profil-nodes":
                 tmpSql = PROFILE_NODES;
+                break;
+        }
+
+        OutSql = tmpSql.replace("{schema}", SCHEMA);
+        return OutSql;
+    }
+
+    public static String Lists(String searchSql) {
+        String tmpSql = "";
+        String OutSql = "";
+
+        /*############################################
+         # Aquí todos los SQL's
+         #############################################*/
+        String CITIES = "SELECT  lpad(CAST(codigo_depto AS TEXT), 3, '0')||lpad(CAST(codigo_ciudad AS TEXT), 3, '0')  AS Codigo, desc_ciudad ||'('|| desc_depto ||')' AS Nombre\n"
+                        +"FROM mcpy.tabla_ciudad C, mcpy.tabla_departamento D\n"
+                        +"where D.codigo_dpto=codigo_depto\n"
+                        +"order by Nombre";
+        
+        String TIPO_DOCUMENTO="select nombre_corto ||'('|| descripcion ||')' AS Nombre\n" 
+                             +"FROM mcpy.tipo_de_documento;";
+        
+        String TIPO_TERCERO="select nombre_corto ||'('|| descripcion ||')' AS Nombre\n" 
+                            +"FROM mcpy.tipo_de_tercero;";
+
+
+        /*############################################
+         # Aquí todos las acciones para buscar SQL's
+         #############################################*/
+        switch (searchSql) {
+            case "cities":
+                tmpSql = CITIES;
+                break;
+            case "tipo_doc":
+                tmpSql = TIPO_DOCUMENTO;
+                break;
+            case "tipo_terc":
+                tmpSql = TIPO_TERCERO;
                 break;
         }
 

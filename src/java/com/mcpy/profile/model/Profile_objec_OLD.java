@@ -5,7 +5,7 @@
  */
 package com.mcpy.profile.model;
 
-import com.mcpy.profile.objects.model.Objeto;
+import com.mcpy.profile.objects.model.ObjetDB;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -13,17 +13,17 @@ import java.util.Iterator;
  *
  * @author AGiraldo
  */
-public class Profile_objec {
+public class Profile_objec_OLD {
 
     Profile perfil;
-    ArrayList<Objeto> objetos;
+    ArrayList<ObjetDB> objetos;
 
-    public Profile_objec() {
+    public Profile_objec_OLD() {
         this.perfil = new Profile();
-        ArrayList<Objeto> objetos = new ArrayList<Objeto>();
+        ArrayList<ObjetDB> objetos = new ArrayList<ObjetDB>();
     }
 
-    public Profile_objec(Profile perfil, ArrayList<Objeto> objetos) {
+    public Profile_objec_OLD(Profile perfil, ArrayList<ObjetDB> objetos) {
         this.perfil = perfil;
         this.objetos = objetos;
     }
@@ -36,11 +36,11 @@ public class Profile_objec {
         this.perfil = perfil;
     }
 
-    public ArrayList<Objeto> getObjetos() {
+    public ArrayList<ObjetDB> getObjetos() {
         return objetos;
     }
 
-    public void setObjetos(ArrayList<Objeto> objetos) {
+    public void setObjetos(ArrayList<ObjetDB> objetos) {
         this.objetos = objetos;
     }
 

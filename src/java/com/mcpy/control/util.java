@@ -6,6 +6,8 @@
 package com.mcpy.control;
 
 import java.sql.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *
@@ -257,4 +259,14 @@ public class util {
         }
         return str;
     }
+
+    public static Map<String, String> arrayToMap(String[][] datos) {
+
+        Map<String, String> options = new LinkedHashMap<String, String>();
+        for (int i = 0; i < datos.length; i++) {
+            options.put(datos[i][0], datos[i][1]);
+        }
+        return options;
+    }
+    
 }

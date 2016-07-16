@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-xs-5"></div>
             </div>
-            <form id="regTercero" name="regTercero" role="form" method="post" action="" onsubmit="return validarFormCC()">
+            <form id="controlCons" name="controlCons" role="form" method="post" action="" onsubmit="return validarFormCC()">
         <div class="row">
             <div class="col-xs-3"></div>
             <div class="col-xs-6">
@@ -72,11 +72,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>&nbsp;
                                 <div class=  "row  ">  
                                     <div class=  "col-xs-4  "></div> 
                                     <div class=  "col-xs-3  ">  
-                                       <button type=  "button" id="btn_AceptarCC" class=  "btn btn-default form-control  ">Aceptar</button>&nbsp;&nbsp; 
+                                       <button type="button" id="btn_AceptarCC" class="btn btn-default form-control">Aceptar</button>&nbsp;&nbsp; 
                                     </div>  
                                     <div class=  "col-xs-4  "></div>   
                                 </div> 
