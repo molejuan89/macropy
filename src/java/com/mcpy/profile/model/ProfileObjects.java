@@ -21,42 +21,14 @@ public class ProfileObjects {
     public ProfileObjects(Profile perfil, String[][] obj) {
         this.profile = perfil;
         this.objects = obj;
-        objectsArrayList(obj);
+        objectsArrayList();
     }
 
-    protected void objectsArrayList(String[][] obj) {
-        for (String[] object : obj) {
+    protected void objectsArrayList() {
+        for (String[] object : objects) {
             ObjetDB o = new ObjetDB(object);
             objectsAL.add(o);
         }
-    }
-
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
-
-    public ArrayList<ObjetDB> getObjects() {
-        return objectsAL;
-    }
-
-    public void setObjects(ArrayList<ObjetDB> objects) {
-        this.objectsAL = objects;
-    }
-
-    public void setObjects(String[][] objects) {
-        this.objects = objects;
-    }
-
-    public ArrayList<ObjetDB> getObjectsAL() {
-        return objectsAL;
-    }
-
-    public void setObjectsAL(ArrayList<ObjetDB> objectsAL) {
-        this.objectsAL = objectsAL;
     }
 
     public String[][] toArray() {
@@ -74,7 +46,7 @@ public class ProfileObjects {
                     if (objects[i][j].equals("X")) {
                         disabled = "disabled";
                     }
-                    b[i][j] = " <input id=\"" + b[i][0] + "-" + b[i][1] + "-col" + j + "\" name=\"" + b[i][0] + "-" + b[i][1] + "-col" + j + "\" type=\"checkbox\" " + checked + " " + disabled + " >";
+                    b[i][j] = " <input id=\"" + b[i][0] + "-" + b[i][1] + "-col" + j + "\" name=\"" + b[i][0] + "-" + b[i][1] + "-col" + j + "\" value=\"Y\" type=\"checkbox\" " + checked + " " + disabled + " >";
                 }
             }
         }
@@ -82,4 +54,36 @@ public class ProfileObjects {
         return b;
     }
 
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    public String[][] getObjects() {
+        return objects;
+    }
+
+    public void setObjects(String[][] objects) {
+        this.objects = objects;
+        objectsArrayList();
+    }
+
+    public ArrayList<ObjetDB> getObjectsAL() {
+        return objectsAL;
+    }
+
+    public void setObjectsAL(ArrayList<ObjetDB> objectsAL) {
+        this.objectsAL = objectsAL;
+    }
+
+    public String toGrant() {
+        return "TO " + profile.getName_rol();
+    }
+
+    public String toRevoke() {
+        return "FROM " + profile.getName_rol();
+    }
 }

@@ -84,7 +84,7 @@ public class ProfileNodes {
             }
         }
 
-        b[0] = new String[]{menu.getMenu().getMessage(), menu.getMenu().getCode(), " <input type=\"checkbox\" " + checkedApl + " >"};
+        b[0] = new String[]{menu.getMenu().getMessage(), menu.getMenu().getCode(), " <input id=\"" + menu.getMenu().getCode() + "\" name=\"" + menu.getMenu().getCode() + "\" value=\"Y\" type=\"checkbox\" " + checkedApl + " >"};
 
         for (int i = 1; i < a.length; i++) {
 
@@ -99,7 +99,7 @@ public class ProfileNodes {
 
             b[i][0] = util.SearchMariz(spaces, util.SearchMariz(a, "LEVEL", 0, i)) + " " + util.SearchMariz(a, "MESSAGE", 0, i);
             b[i][1] = util.SearchMariz(a, "CODE", 0, i);
-            b[i][2] = " <input id=\"" + b[i][1] + "\" name=\"" + b[i][1] + "\" type=\"checkbox\" " + checked + " >";
+            b[i][2] = " <input id=\"" + b[i][1] + "\" name=\"" + b[i][1] + "\" value=\"Y\" type=\"checkbox\" " + checked + " >";
         }
 
         return b;

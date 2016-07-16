@@ -5,9 +5,9 @@
  */
 package com.mcpy.profile.core;
 
-import com.mcpy.profile.model.Profile_objec_OLD;
 import com.mcpy.profile.objects.model.ObjetDB;
 import com.mcpy.control.database.Database;
+import com.mcpy.profile.model.ProfileObjects;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -18,10 +18,10 @@ import java.util.Iterator;
  */
 public class Revoke {
 
-    public static void Revoke(Profile_objec_OLD perfil_objeto, Database conn) throws SQLException {
+    public static void Revoke(ProfileObjects perfil_objeto, Database conn) throws SQLException {
 
         PreparedStatement pstm;
-        Iterator<ObjetDB> itr = perfil_objeto.getObjetos().iterator();
+        Iterator<ObjetDB> itr = perfil_objeto.getObjectsAL().iterator();
         while (itr.hasNext()) {
             com.mcpy.profile.objects.model.ObjetDB obj = itr.next();
             pstm = conn.getConexion().prepareStatement(obj.revoke() + " " + perfil_objeto.toRevoke());

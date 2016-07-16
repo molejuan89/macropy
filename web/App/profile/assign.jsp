@@ -55,97 +55,86 @@
         String descripcion = request.getParameter("descripcion");
         String admin = request.getParameter("admin");
         String rol = request.getParameter("rol");
-        Profile profile = new Profile(new String[]{"" + codigo, descripcion, rol});
         Database conex = (Database) request.getSession().getAttribute("conex");
+
+        Profile profile = new Profile(new String[]{"" + codigo, descripcion, rol});
         ProfileNodes pnodes = ProfileNodesDao.ProfileNodesDao(conex, profile);
+        ProfileObjects pobjects = ProfileObjectsDao.ProfileObjectsDao(conex, profile);
+
+        request.getSession().setAttribute("profile", profile);
+        request.getSession().setAttribute("pnodes", pnodes);
+        request.getSession().setAttribute("pobjects", pobjects);
+
     %>
-    <div class="container">
-        <div class="h5">
-            <u>
-                <a href="#"><%=codigo + ". " + descripcion%></a>
-            </u>
-            <br><hr>
-            <div class="container-fluid">
-                <div class="col-xs-3"></div>
-                <div class="col-xs-3">
-                    <button type="submit" class="btn btn-default center-block" id="btn_Asignar" name="btn_AsignarNodo">Asignar</button>
-                </div>
-                <div class="col-xs-3">
-                    <button type="submit" class="btn btn-default center-block" id="btn_Desasignar" name="btn_DesasignarNodo">Desasignar</button>
-                </div>
-                <div class="col-xs-3"></div>
-            </div>
-        </div>
-
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#Nodos">Nodos</a></li>
-            <li><a data-toggle="tab" href="#Objetos">Objetos</a></li>
-        </ul>
-        <div class="tab-content">
-            <div id="Nodos" class="tab-pane fade in active">
-                <div class="container-fluid ">
-                    <div class="row">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Menu</th>
-                                    <th>Codigo</th>
-                                    <th>Autorizado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%=util.arrayToTableHtml(pnodes.toArray())%>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div id="Objetos" class="tab-pane fade">
-                <div class="container-fluid ">
-                    <div class="row">
-
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Schema</th>
-                                    <th>Objeto</th>
-                                    <th>Select</th>
-                                    <th>Insert</th>
-                                    <th>Delete</th>
-                                    <th>Update</th>
-                                    <th>execute</th>
-                                    <th>All permissions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>mcpy</td>
-                                    <td>Ciudad</td>
-                                    <td class="center">
-                                        <input id="objetoscheck" type="checkbox" value="S">
-                                    </td>
-                                    <td>
-                                        <input id="objetoscheck" type="checkbox" value="I">
-                                    </td>
-                                    <td>
-                                        <input id="objetoscheck" type="checkbox" value="D">
-                                    </td>
-                                    <td>
-                                        <input id="objetoscheck" type="checkbox" value="U">
-                                    </td>
-                                    <td>
-                                        <input id="objetoscheck" type="checkbox" value="E">
-                                    </td>
-                                    <td>
-                                        <input id="objetoscheck" type="checkbox" value="AP">
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>  
-            </div>
-        </div>
+    <div class="h5">
+        <u>
+            <a href="#"><%=codigo + ". " + descripcion%></a>
+        </u>
     </div>
+    <form id="menu" name="menu" role="form" method="post" action="<%=request.getContextPath() + "/process"%>">
+        <input type="text" name="action" id="action" value="profile-assign" hidden>
+        <div class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-6">
+                <button type="submit" class="btn btn-success center-block " id="btn_Asignar" name="btn_AsignarNodo">Aplicar</button>
+            </div>
+            <!--<div class="col-xs-3">
+                <button type="submit" class="btn btn-danger center-block " id="btn_Desasignar" name="btn_DesasignarNodo">Desasignar</button>
+            </div>-->
+            <div class="col-xs-3"></div>
+        </div>
+        <hr>
+
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#Nodos">Nodos</a></li>
+                <li><a data-toggle="tab" href="#Objetos">Objetos</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="Nodos" class="tab-pane fade in active">
+                    <div class="container-fluid ">
+                        <div class="row">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Menu</th>
+                                        <th>Codigo</th>
+                                        <th>Autorizado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%=util.arrayToTableHtml(pnodes.toArray())%>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div id="Objetos" class="tab-pane fade">
+                    <div class="container-fluid ">
+                        <div class="row">
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Schema</th>
+                                        <th>Objeto</th>
+                                        <th>Type</th>
+                                        <th>Sel</th>
+                                        <th>Ins</th>
+                                        <th>Del</th>
+                                        <th>Upd</th>
+                                        <th>Exe</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%=util.arrayToTableHtml(pobjects.toArray())%>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
 </html>

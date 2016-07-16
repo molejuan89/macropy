@@ -10,6 +10,7 @@ import com.mcpy.control.StringsSql;
 import com.mcpy.profile.model.Profile;
 import com.mcpy.control.database.*;
 import com.mcpy.control.util;
+import com.mcpy.profile.core.Grantee;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,7 +19,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,8 +44,12 @@ public class ProfileAction extends Controller {
             throws ServletException, IOException, SQLException {
 
         Database conex = (Database) request.getSession().getAttribute("conex");
+        conex.getConexion().setAutoCommit(false);
+
         PreparedStatement pstm = null;
         PreparedStatement pstm2 = null;
+        PreparedStatement pstm_createRol = null;
+        PreparedStatement pstm_usage = null;
 
         String action = request.getParameter("action");
         String descripcion = request.getParameter("descripcion");
@@ -66,21 +70,37 @@ public class ProfileAction extends Controller {
 
         Profile perfil = new Profile(codigo, descripcion, admin);
         pstm = conex.getConexion().prepareStatement(StringsSql.Profile(action));
+        try {
+            if (action.equalsIgnoreCase("profile-add")) {
+                perfil.setCodigo(next);
+                pstm.setInt(1, perfil.getCodigo());
+                pstm.setString(2, perfil.getDescripcion());
+                pstm.setString(3, perfil.getAdmin());
+                pstm.execute();
 
-        if (action.equalsIgnoreCase("profile-add")) {
-            perfil.setCodigo(next);
-            pstm.setInt(1, perfil.getCodigo());
-            pstm.setString(2, perfil.getDescripcion());
-            pstm.setString(3, perfil.getAdmin());
-            pstm.execute();
-        } else if (action.equalsIgnoreCase("profile-upd")) {
-            pstm.setString(1, perfil.getDescripcion());
-            pstm.setString(2, perfil.getAdmin());
-            pstm.setInt(3, perfil.getCodigo());
-            pstm.execute();
-        } else if (action.equalsIgnoreCase("profile-del")) {
-            pstm.setString(1, perfil.getDescripcion());
-            pstm.execute();
+                System.out.println("nameroper: " + perfil.getCodigo());
+                System.out.println("namerol: " + perfil.getName_rol());
+                System.out.println("createrol: " + perfil.createRol());
+                pstm_createRol = conex.getConexion().prepareStatement(perfil.createRol());
+                pstm_createRol.execute();
+
+                pstm_usage = conex.getConexion().prepareStatement(perfil.usageSchema());
+                pstm_usage.execute();
+
+            } else if (action.equalsIgnoreCase("profile-upd")) {
+                pstm.setString(1, perfil.getDescripcion());
+                pstm.setString(2, perfil.getAdmin());
+                pstm.setInt(3, perfil.getCodigo());
+                pstm.execute();
+
+            } else if (action.equalsIgnoreCase("profile-del")) {
+                pstm.setString(1, perfil.getDescripcion());
+                pstm.execute();
+            }
+
+            conex.getConexion().commit();
+        } catch (SQLException e) {
+            conex.getConexion().rollback();
         }
 
     }

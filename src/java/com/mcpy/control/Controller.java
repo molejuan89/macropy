@@ -35,6 +35,7 @@ public abstract class Controller extends HttpServlet {
 
     protected String menuAction = null;
     protected String profileAction = null;
+    protected String profileAssign = null;
 
     protected abstract void processRequest(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException, SQLException, MessagingException;
@@ -70,6 +71,7 @@ public abstract class Controller extends HttpServlet {
 
         menuAction = "/MenuAction";
         profileAction = "/ProfileAction";
+        profileAssign = "/ProfileAssign";
 
     }
 

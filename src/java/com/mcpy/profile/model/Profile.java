@@ -5,6 +5,7 @@
  */
 package com.mcpy.profile.model;
 
+import com.mcpy.control.database.ParamDB;
 import com.mcpy.control.util;
 
 /**
@@ -65,6 +66,7 @@ public final class Profile {
     }
 
     public String getName_rol() {
+        builNameRol();
         return name_rol;
     }
 
@@ -74,6 +76,14 @@ public final class Profile {
 
     public void builNameRol() {
         this.name_rol = "rol_" + String.format("%04d", Integer.parseInt("" + codigo));
+    }
+
+    public String createRol() {
+        return "CREATE ROLE " + name_rol + " NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION";
+    }
+
+    public String usageSchema() {
+        return "GRANT USAGE ON SCHEMA " + ParamDB.SCHEMA + " TO " + name_rol;
     }
 
     public String href(String iframe, String page) {
@@ -98,7 +108,7 @@ public final class Profile {
                 + "&rol=" + name_rol
                 + otherParam;
 
-        String ref = "<a href=\"javascript:modiframe('" + iframe + "','" + page + ".jsp<param>');void 0\"> <span class=\"glyphicon glyphicon-pencil\"></span> </a>";
+        String ref = "<a href=\"javascript:modiframe('" + iframe + "','" + page + ".jsp<param>');void 0\">  <span class=\"glyphicon glyphicon-pencil\"></span></a>";
 
         String href = ref.replace("<param>", param);
         System.out.println("Class:Profile.hrefEdit(String iframe, String page, String otherParam) :" + href);
