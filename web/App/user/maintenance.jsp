@@ -73,27 +73,23 @@
     <body>
         <form id="menu" name="menu" role="form" method="post" action="<%=request.getContextPath() + "/process"%>" onsubmit="return ValidarFormUser()">
             <input type="text" name="action" id="action" value="<%=action%>" hidden>
-            <div class="col-xs-2"></div>
-            <div class="col-xs-8">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
                 <div class="row">
-                    <div class="container-fluid well">
-                        <div class="h5" align="center"><%=nTitle%></div>
+                    <div class="container-fluid">
+                        <div class="h5" align="center"><%=nTitle%></div>&nbsp;
                         <div class="row">
                             <div class="col-xs-4">
                                 <div class="form-group">
-                                    <label for="txt_Nombres" class="cols-xs-6 control-label">Nombres:</label>
-                                    <div class="input-group" >
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control solo-letras" name="nombre" id="nombre"  value="<%=nNombre%>" placeholder="EJ: JUAN " onkeyup="validacion('txt_Nombres')" data-toggle="tooltip" data-placement="top" title="Ingrese el Nombre (s) del Usuario">   
+                                    <div class="input-group-group" >
+                                        <input type="text" class="form-control solo-letras" name="nombre" id="nombre"  value="<%=nNombre%>" placeholder="NOMBRE(S) " onkeyup="validacion('txt_Nombres')" data-toggle="tooltip" data-placement="top" title="Ingrese el Nombre (s) del Usuario">   
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-4">
                                 <div class="form-group">
-                                    <label for="txt_Apellido1" class="cols-xs-2 control-label">Apellido No. 1:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control solo-letras" name="apellido1" id="apellido1" value="<%=nApellido1%>" placeholder="EJ:PEREZ" onkeyup="validacion('txt_Apellido1')" data-toggle="tooltip" data-placement="top" title="Ingrese el Primer Apellido">
+                                    <div class="input-group-group">
+                                        <input type="text" class="form-control solo-letras" name="apellido1" id="apellido1" value="<%=nApellido1%>" placeholder="PRIMER APELLIDO" onkeyup="validacion('txt_Apellido1')" data-toggle="tooltip" data-placement="top" title="Ingrese el Primer Apellido">
                                     </div>
                                 </div>
                             </div>
@@ -101,10 +97,8 @@
 
                             <div class="col-xs-4">
                                 <div class="form-group">
-                                    <label for="txt_Apellido2" class="cols-xs-2 control-label">Apellido No. 2:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control solo-letras" name="apellido2" id="apellido2" value="<%=nApellido2%>" placeholder="EJ: RUIZ" onkeyup="validacion('txt_Apellido2')" data-toggle="tooltip" data-placement="top" title="Ingrese el Segundo Apellido">
+                                    <div class="input-group-group">
+                                        <input type="text" class="form-control solo-letras" name="apellido2" id="apellido2" value="<%=nApellido2%>" placeholder="SEGUNDO APELLIDO" onkeyup="validacion('txt_Apellido2')" data-toggle="tooltip" data-placement="top" title="Ingrese el Segundo Apellido">
                                     </div>
                                 </div>
                             </div>
@@ -112,28 +106,22 @@
                         <div class="row">
                             <div class="col-xs-4">
                                 <div class="form-group">
-                                    <label for="txt_User" class="cols-xs-2 control-label">User-Name:</label>	
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control solo-letras" name="username" id="username"  value="<%=nUsername%>" placeholder="EJ:JPEREZ" onkeyup="validacion('txt_User')" data-toggle="tooltip" data-placement="top" title="Ingrese Primera Letra del Nombre + Primer Apellido">
+                                    <div class="input-group-group">
+                                        <input type="text" class="form-control solo-letras" name="username" id="username"  value="<%=nUsername%>" placeholder="USUARIO" onkeyup="validacion('txt_User')" data-toggle="tooltip" data-placement="top" title="Ingrese Primera Letra del Nombre + Primer Apellido">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-4">
                                 <div class="form-group">
-                                    <label for="txt_NumeroId" class="cols-xs-2 control-label">Número de Identificación:</label>	
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control solo-numero" name="cedula" id="cedula" value="<%=nCedula%>" placeholder="EJ: 1144148015" onkeyup="validacion('txt_NumeroId')" data-toggle="tooltip" data-placement="top" title="Ingrese el Numero de Cedula">
+                                    <div class="input-group-group">
+                                        <input type="text" class="form-control solo-numero" name="cedula" id="cedula" value="<%=nCedula%>" placeholder="CEDULA" onkeyup="validacion('txt_NumeroId')" data-toggle="tooltip" data-placement="top" title="Ingrese el Numero de Cedula">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xs-4">
                                 <div class="form-group">
-                                    <label for="txt_FechaExpiracion" class="cols-xs-2 control-label">Fecha de Expiracion:</label>	
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control datepicker" name="expira_pass" id="expira_pass" value="<%=nExpira_pass%>" placeholder="1999-01-01" onkeyup="validacion('txt_FechaExpiracion');" data-toggle="tooltip" data-placement="top" title="Seleccione Hasta Cuando  ">
+                                    <div class="input-group-group">
+                                        <input type="text" class="form-control datepicker" name="expira_account" id="expira_account" value="<%=nExpira_pass%>" placeholder="FECHA EXPIRA CUENTA" onkeyup="validacion('txt_FechaExpiracion');" data-toggle="tooltip" data-placement="top" title="Seleccione Hasta Cuando  ">
                                     </div>
                                 </div>
                             </div>
@@ -141,48 +129,47 @@
                         <div class="row">
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_telefono" class="cols-xs-2 control-label">Teléfono:</label>	
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                        <input type="text" class="form-control solo-numero" name="telefono" id="telefono" value="<%=nTelefono%>"  placeholder="Ej: 380 86 66" onkeyup="validacion('txt_telefono')" data-toggle="tooltip" data-placement="top" title="Ingrese el Numero de Telefono" >
+                                    <div class="input-group-group">
+                                        <input type="text" class="form-control solo-numero" name="telefono" id="telefono" value="<%=nTelefono%>"  placeholder="TELEFONO" onkeyup="validacion('txt_telefono')" data-toggle="tooltip" data-placement="top" title="Ingrese el Numero de Telefono" >
                                     </div>   
                                 </div>
                             </div>
                             <div class="col-xs-6">
                                 <div class="form-group">
-                                    <label for="txt_Email" class="cols-xs-2 control-label">Correo Electrónico:</label>	
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                        <input type="email" class="form-control" name="email" id="email" value="<%=nEmail%>" placeholder="Ej: andres@hotmail.com" onkeyup="validacion('txt_Email')" data-toggle="tooltip" data-placement="top" title="Ingrese el Correo Electronico">
+                                    <div class="input-group-group">
+                                        <input type="email" class="form-control" name="email" id="email" value="<%=nEmail%>" placeholder="E-MAIL" onkeyup="validacion('txt_Email')" data-toggle="tooltip" data-placement="top" title="Correo Electronico">
                                     </div>   
                                 </div>
                             </div>
                         </div>&nbsp;
                         <div class="row">
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <div class="form-group">
-                                    <label for="txt_contrasenaReg" class="cols-xs-2 control-label">Contraseña:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="password" id="password"  placeholder="***********" onkeyup="validacion('txt_contrasena')" data-toggle="tooltip" data-placement="top" title="Ingrese la Contraseña no Menos de 6 Digitos">
+                                    <div class="input-group-group">
+                                        <input type="password" class="form-control" name="password" id="password"  placeholder="CONTRASEÑA" onkeyup="validacion('txt_contrasena')" data-toggle="tooltip" data-placement="top" title="Ingrese la Contraseña no Menos de 6 Digitos">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-4">
                                 <div class="form-group">
-                                    <label for="txt_contrasena2" class="cols-xs-2 control-label">Confirmar Contraseña:</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                        <input type="password" class="form-control" name="password2" id="password2"  placeholder="***********" onkeyup="validacion('txt_contrasena2')" data-toggle="tooltip" data-placement="top" title="Ingrese la Contraseña no Menos de 6 Digitos">
+                                    <div class="input-group-group">
+                                        <input type="password" class="form-control" name="password2" id="password2"  placeholder="CONFIRMAR CONTRASEÑA" onkeyup="validacion('txt_contrasena2')" data-toggle="tooltip" data-placement="top" title="Ingrese la Contraseña no Menos de 6 Digitos">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <div class="input-group-group">
+                                        <input type="text" class="form-control datepicker" name="expira_pass" id="expira_pass" value="<%=nExpira_pass%>" placeholder="FECHA EXPIRA PASS" onkeyup="validacion('txt_FechaExpiracion');" data-toggle="tooltip" data-placement="top" title="Seleccione Hasta Cuando  ">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-default center-block" id="btn_Registrarse" name="btn_Registrarse">Registrarse</button>
+                        <button type="submit" class="btn btn-default center-block" id="btn_Registrarse" name="btn_Registrarse">Registrar</button>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-2"></div>
+            <div class="col-xs-1"></div>
         </form>
     </body>
 </html>

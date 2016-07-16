@@ -244,9 +244,16 @@ public class StringsSql {
         /*############################################
          # Aquí todos los SQL's
          #############################################*/
-        String CITIES = "Select * \n"
-                + "from {schema}.tabla_ciudad \n"
-                + "order by codigo";
+        String CITIES = "SELECT  lpad(CAST(codigo_depto AS TEXT), 3, '0')||lpad(CAST(codigo_ciudad AS TEXT), 3, '0')  AS Codigo, desc_ciudad ||'('|| desc_depto ||')' AS Nombre\n"
+                        +"FROM mcpy.tabla_ciudad C, mcpy.tabla_departamento D\n"
+                        +"where D.codigo_dpto=codigo_depto\n"
+                        +"order by Nombre";
+        
+        String TIPO_DOCUMENTO="select nombre_corto ||'('|| descripcion ||')' AS Nombre\n" 
+                             +"FROM mcpy.tipo_de_documento;";
+        
+        String TIPO_TERCERO="select nombre_corto ||'('|| descripcion ||')' AS Nombre\n" 
+                            +"FROM mcpy.tipo_de_tercero;";
 
 
         /*############################################
@@ -255,6 +262,12 @@ public class StringsSql {
         switch (searchSql) {
             case "cities":
                 tmpSql = CITIES;
+                break;
+            case "tipo_doc":
+                tmpSql = TIPO_DOCUMENTO;
+                break;
+            case "tipo_terc":
+                tmpSql = TIPO_TERCERO;
                 break;
         }
 

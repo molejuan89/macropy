@@ -4,8 +4,6 @@
     Author     : Andres
 --%>
 
-<%@page import="com.mcpy.profile.dao.ProfileObjectsDao"%>
-<%@page import="com.mcpy.profile.model.ProfileObjects"%>
 <%@page import="com.mcpy.control.util"%>
 <%@page import="com.mcpy.profile.dao.ProfileNodesDao"%>
 <%@page import="com.mcpy.menu.dao.MenuDao"%>

@@ -39,6 +39,16 @@ btn_Registrarse
 
     Profile
 
+        -assign
+            btn_Asignar
+            btn_Desasignar
+            Nodos (tab)
+            Objetos (tab)
+
+        -maintenance
+
+        -view
+
         -Assign profile
             collapse1
             btn_Asignar

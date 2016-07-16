@@ -1,0 +1,52 @@
+
+
+
+Forma Tercero
+
+form id=regTercero
+cbx_TipoID
+txt_NumeroId
+txt_Nombre
+txt_RazonSocial
+txt_Direccion
+txt_telefono
+txt_Email
+cbx_Lugar
+cbx_Tipo
+rd_Estado
+cbx_Dian
+cbx_Ica
+txt_Observacion
+btn_AceptarTer
+
+Forma Tipo Tercero
+
+txt_CodigoTT
+txt_descripcionTT
+txt_NombreCortoTT
+rd_EstadoTT
+btn_AceptarTT
+
+Forma Tipo Documento
+
+txt_CodigoTD
+txt_descripcionTD
+txt_NombreCortoTD
+rd_EstadoTD
+btn_AceptarTD
+
+Forma Forma Pago
+
+txt_CodigoFP
+txt_descripcionFP
+txt_NombreCortoFP
+rd_EstadoFP
+btn_AceptarFP
+
+Forma Control Consecutivo
+
+txt_CodigoCC
+txt_descripcionCC
+txt_NombreCortoCC
+rd_EstadoCC
+btn_AceptarCC
