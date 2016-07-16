@@ -261,7 +261,7 @@ public class StringsSql {
         OutSql = tmpSql.replace("{schema}", SCHEMA);
         return OutSql;
     }
-    
+
     public static String User(String searchSql) {
         String tmpSql = "";
         String OutSql = "";
@@ -269,30 +269,27 @@ public class StringsSql {
         /*############################################
          # Aquí todos los SQL's
          #############################################*/
-        String SELECT_ALL_USER = "select * \n"
+        String SELECT_ALL_USER = "select username, cedula, nombres, apellido1, apellido2, telefono, email, expira_pass, '', expira_account \n"
                 + "from {schema}.usuario\n"
                 + "order by username";
 
-        String SELECT_PERFIL_X = "select * from {schema}.perfiles where codigo=?";
+        String USER_INS = "INSERT INTO {schema}.usuario(username, cedula, nombres, apellido1, apellido2, telefono, email, expira_pass, expira_account) \n"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        String CREATE_PROFILE = "insert into {schema}.perfiles (codigo,descripcion,admin_opcion) values (?,?,?)";
-
-        String DELETE_PERFIL = "delete {schema}.perfiles where codigo = ?";
-
-        String UPDATE_PERFIL = "update {schema}.perfiles set descripcion=?,admin_opcion=? where codigo=?";
-
-        String NEXT = "select nullif(max(codigo),0)+1 from {schema}.perfiles";
-
-        String CREATE_ROLE = "CREATE ROLE ? NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION";
-
-        String USAGE_SCHEMA = "GRANT USAGE ON SCHEMA {schema} TO ?";
-
+        String CREATE_USER_DB = "";
+        
         /*############################################
          # Aquí todos las acciones para buscar SQL's
          #############################################*/
         switch (searchSql) {
             case "user-sel-all":
                 tmpSql = SELECT_ALL_USER;
+                break;
+            case "user-add":
+                tmpSql = USER_INS;
+                break;
+            case "user-add-db":
+                tmpSql = CREATE_USER_DB;
                 break;
         }
 

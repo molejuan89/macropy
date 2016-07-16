@@ -22,6 +22,7 @@ public final class User {
     String email;
     String expira_pass;
     String password;
+    String expira_account;
 
     protected void User(String username, int cedula, String nombre, String apellido1, String apellido2, String telefono, String email, String expira_pass) {
         this.username = username;
@@ -46,6 +47,19 @@ public final class User {
         this.password = password;
     }
 
+    protected void User(String username, int cedula, String nombre, String apellido1, String apellido2, String telefono, String email, String expira_pass, String password, String expira_account) {
+        this.username = username;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.telefono = telefono;
+        this.email = email;
+        this.expira_pass = expira_pass;
+        this.password = password;
+        this.expira_account = expira_account;
+    }
+
     public User(String[] a) {
         int c = 0;
         try {
@@ -57,6 +71,8 @@ public final class User {
             User(a[0], c, a[2], a[3], a[4], a[5], a[6], a[7]);
         } else if (a.length == 9) {
             User(a[0], c, a[2], a[3], a[4], a[5], a[6], a[7], a[8]);
+        } else if (a.length == 10) {
+            User(a[0], c, a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9]);
         }
     }
 
@@ -66,6 +82,10 @@ public final class User {
 
     public User(String username, int cedula, String nombre, String apellido1, String apellido2, String telefono, String email, String expira_pass, String password) {
         User(username, cedula, nombre, apellido1, apellido2, telefono, email, expira_pass, password);
+    }
+
+    public User(String username, int cedula, String nombre, String apellido1, String apellido2, String telefono, String email, String expira_pass, String password, String expira_account) {
+        User(username, cedula, nombre, apellido1, apellido2, telefono, email, expira_pass, password, expira_account);
     }
 
     public String getUsername() {
@@ -140,8 +160,16 @@ public final class User {
         this.password = password;
     }
 
+    public String getExpira_account() {
+        return expira_account;
+    }
+
+    public void setExpira_account(String expira_account) {
+        this.expira_account = expira_account;
+    }
+
     public String createUser() {
-        return "CREATE USER " + username + " LOGIN PASSWORD '" + password + "' VALID UNTIL '" + expira_pass + "'";
+        return "CREATE USER " + username + " LOGIN PASSWORD '" + password + "' VALID UNTIL '" + expira_account + "'";
     }
 
     public String href(String iframe, String page) {
@@ -153,7 +181,8 @@ public final class User {
                 + "&apellido2=" + apellido2
                 + "&telefono=" + telefono
                 + "&email=" + email
-                + "&expira_pass=" + expira_pass;
+                + "&expira_pass=" + expira_pass
+                + "&expira_account=" + expira_account;
 
         String ref = "<a href=\"javascript:modiframe('" + iframe + "','" + page + ".jsp<param>');void 0\">" + username + "</a>";
 
@@ -171,6 +200,7 @@ public final class User {
                 + "&telefono=" + telefono
                 + "&email=" + email
                 + "&expira_pass=" + expira_pass
+                + "&expira_account=" + expira_account
                 + otherParam;
 
         String ref = "<a href=\"javascript:modiframe('" + iframe + "','" + page + ".jsp<param>');void 0\"> <span class=\"glyphicon glyphicon-pencil\">  </span>Editar</a>";
