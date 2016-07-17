@@ -26,6 +26,8 @@
     <!--Bootstrap v3.3.6 -->
     <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- Campos de fecha -->
+        <script src="<%=request.getContextPath()%>/js/date-fields.js"></script> 
 
 
     <!--Bootstrap-datepicker https://github.com/eternicode/bootstrap-datepicker -->        

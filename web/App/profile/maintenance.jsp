@@ -62,13 +62,13 @@
                     </div>
 
                 </div>
-                <div class="row">
+                        <div class="row" hidden="">
                     <div class="form-group">
                         <div class="form-group">
                             <label for="admin">Admin Option:</label>
                             <div class="input-group-group">
-                                <input type="radio"  name="admin" id="admin" value="Y">&nbsp;Si &nbsp;&nbsp;
-                                <input type="radio" name="admin" id="admin" value="N" checked>&nbsp;No 
+                                <input type="radio"  name="admin" id="admin" value="">&nbsp;Si &nbsp;&nbsp;
+                                <input type="radio" name="admin" id="admin" value="" checked>&nbsp;No 
                             </div>
                         </div>
                     </div>

@@ -1,23 +1,14 @@
 <%-- 
-    Document   : assign_profile
-    Created on : 8/07/2016, 08:30:49 PM
+    Document   : viewCC
+    Created on : 16/07/2016, 11:40:01 AM
     Author     : Andres
 --%>
-<%@page import="com.mcpy.user.model.User"%>
-<%@page import="com.mcpy.control.util"%>
-<%@page import="com.mcpy.user.dao.UserDao"%>
-<%@page import="com.mcpy.control.database.Database"%>
-<%
-    Database conex = (Database) request.getSession().getAttribute("conex");
 
-    String[][] a = UserDao.AllUser(conex);
-    util.imprimir(a);
-%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
     <head> 
-        <title>Assign User - MCPY</title>
+        <title>Tipo Tercero - MCPY</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,19 +33,19 @@
         <!-- Util Javascript -->
         <script src="<%=request.getContextPath()%>/js/util.js"></script>
     </head>
-    <body>
+<body>
         <br>
         <br>
         <div class="col-xs-1"></div>
         <div class="col-xs-3">
-            <div><h1>Asignar Usuario</h1></div>
+            <div><h1>Tipo Tercero</h1></div>
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading"  >
                         <h4 class="panel-title" >
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="color: blue"><strong>Usuarios</strong></a>
-                            <a href="javascript:modiframe('actionUser','maintenance.jsp?action=user-add');void 0">
-                                <span class="glyphicon glyphicon-plus-sign"></span>
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" style="color: black"><strong>Consecutivos</strong></a>
+                            <a href="javascript:modiframe('actionProfile','maintenance.jsp?action=profile-add');void 0">
+                                &nbsp;<span class="glyphicon glyphicon-plus" style="color: blue"></span>
                             </a>
                         </h4>
                     </div>
@@ -62,18 +53,22 @@
                         <div class="panel-body">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div align='right'>
-
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            <a href="#">
+                                        &nbsp;<span>Proveedor</span>
+                                    </a> 
+                                        </div>
+                                        <div class="col-xs-4"></div>
+                                        <div class="col-xs-4">
+                                            <div align='right'>
+                                     <a href="#">
+                                        &nbsp;<span class="glyphicon glyphicon-pencil" style="color: green"></span>
+                                    </a>  
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <%if (a != null && a.length > 0) {
-                                            for (int i = 0; i < a.length; i++) {
-                                                User u = new User(a[i]);
-                                    %><%=u.href("actionUser", "assign") + u.hrefEdit("actionUser", "maintenance", "&action=user-upd") + "<br>"%><%
-                                            }
-                                        }
-                                    %>                                        
+                                        </div>
+                                    
+                                    </div>
                                 </div>
                             </div>
                         </div> 
@@ -81,12 +76,16 @@
                 </div>
             </div>
         </div><br><br><br><br>
+        <div class="row">
+            <div class="col-xs-2"></div>
         <div class="col-xs-7" id="contenido">
             <div>
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe  src="..." id="actionUser" name="actionUser"></iframe>
+                    <iframe  src="http://localhost:8080/macropy/App/sales/General_maintenance/tipo_tercero.jsp"></iframe>
                 </div>
             </div>
+        </div>
+            <div class="col-xs-2"></div>
         </div>
     </body>
 </html>
