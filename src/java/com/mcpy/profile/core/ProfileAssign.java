@@ -31,15 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ProfileAssign", urlPatterns = {"/ProfileAssign"})
 public class ProfileAssign extends Controller {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
@@ -51,13 +43,13 @@ public class ProfileAssign extends Controller {
 
         ProfileNodes pnodes = (ProfileNodes) request.getSession().getAttribute("pnodes");
         
-        String[][] mpnodes_request = pnodes.getMenu().to_ArrayToPermissions();
-        for (int i = 0; i < mpnodes_request.length; i++) {
-            String val = request.getParameter(mpnodes_request[i][0]);
+        String[][] mpnodes = pnodes.getMenu().to_ArrayToPermissions();
+        for (int i = 0; i < mpnodes.length; i++) {
+            String val = request.getParameter(mpnodes[i][0]);
             if (val != null) {
-                mpnodes_request[i][1] = val;
+                mpnodes[i][1] = val;
             } else {
-                mpnodes_request[i][1] = "N";
+                mpnodes[i][1] = "N";
             }
         }
 
@@ -66,11 +58,11 @@ public class ProfileAssign extends Controller {
         pstm.execute();
 
         pstm = conex.getConexion().prepareStatement(StringsSql.ProfileNodes("profil-nodes-ins"));
-        for (int i = 0; i < mpnodes_request.length; i++) {
-            String val = mpnodes_request[i][1];
+        for (int i = 0; i < mpnodes.length; i++) {
+            String val = mpnodes[i][1];
             if (val.equals("Y")) {
                 pstm.setInt(1, profile.getCodigo());
-                pstm.setString(2, mpnodes_request[i][0]);
+                pstm.setString(2, mpnodes[i][0]);
                 pstm.execute();
             }
         }
@@ -78,16 +70,16 @@ public class ProfileAssign extends Controller {
         ProfileObjects pobjects = (ProfileObjects) request.getSession().getAttribute("pobjects");
         System.out.println("pobjects:");
         util.imprimir(pobjects.getObjects());
-        String[][] mpobjects_request = pobjects.getObjects();
+        String[][] mpobjects = pobjects.getObjects();
 
-        for (int i = 0; i < mpobjects_request.length; i++) {
-            for (int j = 3; j < mpobjects_request[i].length; j++) {
-                String val = request.getParameter(mpobjects_request[i][0] + "-" + mpobjects_request[i][1] + "-col" + j);
+        for (int i = 0; i < mpobjects.length; i++) {
+            for (int j = 3; j < mpobjects[i].length; j++) {
+                String val = request.getParameter(mpobjects[i][0] + "-" + mpobjects[i][1] + "-col" + j);
 
                 if (val != null) {
-                    mpobjects_request[i][j] = val;
+                    mpobjects[i][j] = val;
                 } else {
-                    mpobjects_request[i][j] = "N";
+                    mpobjects[i][j] = "N";
                 }
             }
         }
@@ -97,19 +89,19 @@ public class ProfileAssign extends Controller {
         pstm.execute();
 
         pstm = conex.getConexion().prepareStatement(StringsSql.ProfilObjects("profil-objects-ins"));
-        for (int i = 0; i < mpobjects_request.length; i++) {
+        for (int i = 0; i < mpobjects.length; i++) {
             pstm.setInt(1, profile.getCodigo());
-            pstm.setString(2, mpobjects_request[i][0]);
-            pstm.setString(3, mpobjects_request[i][1]);
-            pstm.setString(4, mpobjects_request[i][3]);
-            pstm.setString(5, mpobjects_request[i][4]);
-            pstm.setString(6, mpobjects_request[i][5]);
-            pstm.setString(7, mpobjects_request[i][6]);
-            pstm.setString(8, mpobjects_request[i][7]);
+            pstm.setString(2, mpobjects[i][0]);
+            pstm.setString(3, mpobjects[i][1]);
+            pstm.setString(4, mpobjects[i][3]);
+            pstm.setString(5, mpobjects[i][4]);
+            pstm.setString(6, mpobjects[i][5]);
+            pstm.setString(7, mpobjects[i][6]);
+            pstm.setString(8, mpobjects[i][7]);
             pstm.execute();
         }
-        pobjects.setObjects(mpobjects_request);
-        Grantee.GranteeProfile(pobjects, conex);
+        pobjects.setObjects(mpobjects);
+        Grantee.Profile(pobjects, conex);
 
     }
 

@@ -43,6 +43,10 @@ public class UserProfiles {
         this.permissions = permissions;
     }
 
+    public void setPermissions(String[][] permissions) {
+        this.permissions = ArrayUtils.toMap(permissions);
+    }
+
     public String[][] getPerfiles() {
         return perfiles;
     }
@@ -95,6 +99,8 @@ public class UserProfiles {
                 if (permissions.get(util.SearchMariz(a, "codigo", 0, i)).equals("Y")) {
                     b[i - 1][1] = "Y";
                 }
+            } else {
+                b[i - 1][1] = "N";
             }
         }
 

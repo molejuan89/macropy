@@ -42,9 +42,9 @@ public class UserAssign extends Controller {
         UserProfiles pview = (UserProfiles) request.getSession().getAttribute("pview");
         UserProfiles pacces = (UserProfiles) request.getSession().getAttribute("pacces");
 
-        asignarUsuario(pview, request, response);
-        asignarUsuario(pacces, request, response);
-        Grantee.GranteeUser(pacces, conex);
+        pview = asignarUsuario(pview, request, response);
+        pacces = asignarUsuario(pacces, request, response);
+        Grantee.User(pacces, conex);
 
     }
 
@@ -68,7 +68,7 @@ public class UserAssign extends Controller {
         }
     }
 
-    protected void asignarUsuario(UserProfiles uPerfiles, HttpServletRequest request, HttpServletResponse response)
+    protected UserProfiles asignarUsuario(UserProfiles uPerfiles, HttpServletRequest request, HttpServletResponse response)
             throws SQLException {
 
         PreparedStatement pstm = null;
@@ -104,5 +104,9 @@ public class UserAssign extends Controller {
             }
 
         }
+
+        uPerfiles.setPermissions(muPerfiles_request);
+
+        return uPerfiles;
     }
 }
