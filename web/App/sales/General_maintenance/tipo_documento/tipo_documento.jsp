@@ -1,6 +1,6 @@
 <%-- 
-    Document   : third_tipe
-    Created on : 11/07/2016, 11:39:17 PM
+    Document   : document_type
+    Created on : 12/07/2016, 12:41:46 AM
     Author     : Andres
 --%>
 
@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Create Third - MCPY</title>
+        <title>Tipo Documento - MCPY</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,16 +21,17 @@
         <!--Bootstrap v3.3.6 -->
         <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     </head>
         <body>
         <div class="row">
                 <div class="col-xs-1"></div>
                 <div class="col-xs-6">
-                    <div><h1>Tipo Tercero</h1></div>
+                    <div><h1>Tipo Documento</h1></div>
                 </div>
                 <div class="col-xs-5"></div>
             </div>
-            <form id="tipoTer" name="tipoTer" role="form" method="post" action="" onsubmit="return validarFormTT()">
+            <form id="tipoDoc" name="tipoDoc" role="form" method="post" action="" onsubmit="return validarFormTD()">
         <div class="row">
             <div class="col-xs-3"></div>
             <div class="col-xs-6">
@@ -38,17 +39,17 @@
                             <div class=  "row  "> 
                                 <div class=  "col-xs-6  "> 
                                     <div class="form-group">
-                                        <label for=  "txt_CodigoTT" class="cols-xs-6 control-label">Codigo:</label> 
+                                        <label for=  "txt_CodigoTD" class="cols-xs-6 control-label">Codigo:</label> 
                                         <div class="input-group-group" >
-                                            <input class=  "form-control" id =  "txt_CodigoTT"  name =  "txt_CodigoTT"   type =  "text  " placeholder=  "EJ: PRxxx   " data-toggle="tooltip" data-placement="top" title="Ingrese el Codigo">  
+                                            <input class=  "form-control" id =  "txt_CodigoTD"  name =  "txt_CodigoTD"  type =  "text  " placeholder=  "EJ: CCxxx  " data-toggle="tooltip" data-placement="top" title="Ingrese el Codigo">  
                                         </div>
                                     </div>
                                 </div>
                                 <div class=  "col-xs-6  "> 
                                     <div class="form-group"> 
-                                        <label for=  "txt_descripcionTT" class="cols-xs-6 control-label">Descripcion:</label>  
+                                        <label for=  "txt_descripcionTD" class="cols-xs-6 control-label">Descripcion:</label>  
                                         <div class="input-group-group" >
-                                            <input class=  "form-control" id =  "txt_descripcionTT"  name =  "txt_descripcionTT"   type =  "text  " placeholder=  "EJ: PROVEEDOR   " data-toggle="tooltip" data-placement="top" title="Ingrese la Descripcion"> 
+                                            <input class=  "form-control" id =  "txt_descripcionTD"  name =  "txt_descripcionTD"   type =  "text  " placeholder=  "EJ: CEDULA DE CIUDADANIA  " data-toggle="tooltip" data-placement="top" title="Ingrese la Descripcion"> 
                                         </div> 
                                     </div>
                                 </div>
@@ -56,18 +57,18 @@
                                 <div class=  "row  ">  
                                     <div class=  "col-xs-6  ">
                                         <div class="form-group">
-                                            <label for=  "txt_NombreCortoTT" class="cols-xs-6 control-label">Nombre Corto:</label>
+                                            <label for=  "txt_NombreCortoTD" class="cols-xs-6 control-label">Nombre Corto:</label>
                                             <div class="input-group-group" >
-                                                <input class=  "form-control" id =  "txt_NombreCortoTT"  name =  "txt_NombreCortoTT"   type =  "text  " placeholder=  "EJ: PR  " data-toggle="tooltip" data-placement="top" title="Ingrese el Nombre Corto">  
+                                                <input class=  "form-control" id =  "txt_NombreCortoTD"  name =  "txt_NombreCortoTD"  type =  "text  " placeholder=  "EJ: CC  " data-toggle="tooltip" data-placement="top" title="Ingrese el Nombre Corto">  
                                             </div>
                                         </div>
                                     </div>
                                     <!--<div class=  "col-xs-6  ">
                                         <div class="form-group">
-                                            <label for=  "rd_EstadoTT" class="cols-xs-6 control-label" data-toggle="tooltip" data-placement="top" title="Seleccione Para Activar o Desactivar">Estado:</label>
+                                            <label for=  "rd_EstadoTD" class="cols-xs-6 control-label" onkeyup="validacion('rd_EstadoTD');" data-toggle="tooltip" data-placement="top" title="Seleccione Para Activar o Desactivar">Estado:</label>
                                             <div class="input-group-group" >
-                                                <input type="radio"  name="rd_EstadoTT" id="rd_EstadoTT" value="ACT">&nbsp;Activo &nbsp;&nbsp;
-                                                <input type="radio" name="rd_EstadoTT" id="rd_EstadoTT" value="INA">&nbsp;Inactivo 
+                                                <input type="radio"  name="rd_EstadoTD" id="rd_EstadoTD" value="ACT">&nbsp;Activo &nbsp;&nbsp;
+                                                <input type="radio" name="rd_EstadoTD" id="rd_EstadoTD" value="INA">&nbsp;Inactivo 
                                             </div>
                                         </div>
                                     </div>-->
@@ -75,10 +76,10 @@
                                 <div class=  "row  ">  
                                     <div class=  "col-xs-4  "></div> 
                                     <div class=  "col-xs-3  ">  
-                                       <button type=  "submit" id="btn_AceptarTT" class=  "btn btn-default form-control  ">Aceptar</button>&nbsp;&nbsp; 
+                                       <button type=  "submit" id="btn_AceptarTD" class=  "btn btn-default form-control  ">Aceptar</button>&nbsp;&nbsp; 
                                     </div>  
-                                    <div class=  "col-xs-3  "></div>   
-                                </div>
+                                    <div class=  "col-xs-4  "></div>   
+                                </div> 
                             </div>
                         </div>
                         <div class="col-xs-3"></div>

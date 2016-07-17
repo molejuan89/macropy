@@ -2,21 +2,12 @@
     Document   : CreateCE
     Created on : 11/07/2016, 11:35:43 PM
     Author     : Andres
---%><%--
-<%
-    String action = request.getParameter("action");
-    String nTitle = "";
-    
-
-    if (action.equals("menu-add")) {
-        nTitle = "Agregar Nodo";
-        }
-%>--%>
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
 <head> 
-        <title>Create CE - MCPY</title>
+        <title>Create CI - MCPY</title>
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,7 +36,7 @@
                 <div class="col-xs-1"></div>
                 <div class="col-xs-5">
                 <%--   <div class="h4 col-xs-12" align='center'><%=nTitle%></div>--%>
-                    <div><h1>Crear Comprobante Egreso</h1></div>
+                    <div><h1>Crear Comprobante Ingreso</h1></div>
                 </div>
                 <div class="col-xs-6"></div>
             </div>
@@ -109,16 +100,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <label for="txt_direccion" class="cols-xs-2 control-label">Dirección:</label>
-                                        <div class="input-group-group">
-                                            <input class="form-control datepicker" id="txt_direccion"  name="txt_direccion" type="text" placeholder="EJ: ">
-                                        </div>
-                                    </div>
-                                </div>
                         </div>&nbsp;
                         <div class="row">
                             <iv class="col-xs-4"></iv>

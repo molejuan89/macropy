@@ -58,29 +58,34 @@ Forma Tercero
 
 
 Forma Tipo Tercero
+
     validarFormCC
 
-txt_CodigoTT
-txt_descripcionTT
-txt_NombreCortoTT
-rd_EstadoTT
-btn_AceptarTT
+        txt_CodigoTT
+        txt_descripcionTT
+        txt_NombreCortoTT
+        rd_EstadoTT
+        btn_AceptarTT
 
 Forma Tipo Documento
 
-txt_CodigoTD
-txt_descripcionTD
-txt_NombreCortoTD
-rd_EstadoTD
-btn_AceptarTD
+    validarFormTD
+
+        txt_CodigoTD
+        txt_descripcionTD
+        txt_NombreCortoTD
+        rd_EstadoTD
+        btn_AceptarTD
 
 Forma Forma Pago
 
-txt_CodigoFP
-txt_descripcionFP
-txt_NombreCortoFP
-rd_EstadoFP
-btn_AceptarFP
+    validarFormFP
+
+        txt_CodigoFP
+        txt_descripcionFP
+        txt_NombreCortoFP
+        rd_EstadoFP
+        btn_AceptarFP
 
 Forma Control Consecutivo
 
