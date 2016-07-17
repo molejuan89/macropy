@@ -65,8 +65,12 @@ public class UserAction extends Controller {
 
         User user = new User(username, cedula, nombre, apellido1, apellido2, telefono, email, expira_pass, password, expira_account);
         pstm = conex.getConexion().prepareStatement(StringsSql.User(action));
+        System.out.println("pstm:\n" + StringsSql.User(action));
+        System.out.println(user.getUsername());
+
         try {
             if (action.equalsIgnoreCase("user-add")) {
+                System.out.println("entro en user-add");
                 pstm.setString(1, user.getUsername());
                 pstm.setInt(2, user.getCedula());
                 pstm.setString(3, user.getNombre());
@@ -75,10 +79,23 @@ public class UserAction extends Controller {
                 pstm.setString(6, user.getTelefono());
                 pstm.setString(7, user.getEmail());
                 pstm.setString(8, user.getExpira_pass());
-                pstm.execute();
+                pstm.setString(9, user.getExpira_account());
 
+                pstm.execute();
                 pstm = conex.getConexion().prepareStatement(user.createUser());
                 pstm.execute();
+               
+                /*boolean b1 = pstm.execute();
+                if (b1) {
+                    System.out.println("ejecuto pstm user table");
+
+                    pstm = conex.getConexion().prepareStatement(user.createUser());
+                    System.out.println("create user:" + user.createUser());
+                    boolean b2 = pstm.execute();
+                    if (b2) {
+                        System.out.println("ejecuto pstm user db");
+                    }
+                }*/
 
             } else if (action.equalsIgnoreCase("user-upd")) {
 
@@ -91,6 +108,7 @@ public class UserAction extends Controller {
 
             conex.getConexion().commit();
         } catch (SQLException e) {
+            System.out.println("error:" + e.getMessage());
             conex.getConexion().rollback();
         }
 

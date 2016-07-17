@@ -49,6 +49,8 @@ public class Process extends Controller {
             gotoURL(profileAssign, request, response);
         } else if (action.equals("user-add")) {
             gotoURL(userAction, request, response);
+        } else if (action.equals("user-assign")) {
+            gotoURL(userAssign, request, response);
         } else {
             gotoURL(errorForm, request, response);
         }

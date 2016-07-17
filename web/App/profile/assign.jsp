@@ -4,6 +4,8 @@
     Author     : Andres
 --%>
 
+<%@page import="com.mcpy.profile.dao.ProfileObjectsDao"%>
+<%@page import="com.mcpy.profile.model.ProfileObjects"%>
 <%@page import="com.mcpy.control.util"%>
 <%@page import="com.mcpy.profile.dao.ProfileNodesDao"%>
 <%@page import="com.mcpy.menu.dao.MenuDao"%>
@@ -50,7 +52,6 @@
 </head>
 <body>
     <%
-        /*<a href="javascript:modiframe('actionProfile','maintenance.jsp?codigo=0&descripcion=objetos minimos de conexion&admin=N&rol=rol_0000');void 0">0. objetos minimos de conexion</a><br>*/
         int codigo = Integer.parseInt(request.getParameter("codigo"));
         String descripcion = request.getParameter("descripcion");
         String admin = request.getParameter("admin");
@@ -74,14 +75,9 @@
     <form id="menu" name="menu" role="form" method="post" action="<%=request.getContextPath() + "/process"%>">
         <input type="text" name="action" id="action" value="profile-assign" hidden>
         <div class="row">
-            <div class="col-xs-3"></div>
-            <div class="col-xs-6">
+            <div>
                 <button type="submit" class="btn btn-success center-block " id="btn_Asignar" name="btn_AsignarNodo">Aplicar</button>
             </div>
-            <!--<div class="col-xs-3">
-                <button type="submit" class="btn btn-danger center-block " id="btn_Desasignar" name="btn_DesasignarNodo">Desasignar</button>
-            </div>-->
-            <div class="col-xs-3"></div>
         </div>
         <hr>
 

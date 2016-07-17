@@ -25,13 +25,13 @@ public final class User {
     String expira_account;
 
     protected void User(String username, int cedula, String nombre, String apellido1, String apellido2, String telefono, String email, String expira_pass) {
-        this.username = username;
+        this.username = username.toLowerCase();
         this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
+        this.nombre = nombre.toLowerCase();
+        this.apellido1 = apellido1.toUpperCase();
+        this.apellido2 = apellido2.toUpperCase();
         this.telefono = telefono;
-        this.email = email;
+        this.email = email.toLowerCase();
         this.expira_pass = expira_pass;
     }
 

@@ -245,15 +245,15 @@ public class StringsSql {
          # Aquí todos los SQL's
          #############################################*/
         String CITIES = "SELECT  lpad(CAST(codigo_depto AS TEXT), 3, '0')||lpad(CAST(codigo_ciudad AS TEXT), 3, '0')  AS Codigo, desc_ciudad ||'('|| desc_depto ||')' AS Nombre\n"
-                        +"FROM mcpy.tabla_ciudad C, mcpy.tabla_departamento D\n"
-                        +"where D.codigo_dpto=codigo_depto\n"
-                        +"order by Nombre";
-        
-        String TIPO_DOCUMENTO="select nombre_corto ||'('|| descripcion ||')' AS Nombre\n" 
-                             +"FROM mcpy.tipo_de_documento;";
-        
-        String TIPO_TERCERO="select nombre_corto ||'('|| descripcion ||')' AS Nombre\n" 
-                            +"FROM mcpy.tipo_de_tercero;";
+                + "FROM mcpy.tabla_ciudad C, mcpy.tabla_departamento D\n"
+                + "where D.codigo_dpto=codigo_depto\n"
+                + "order by Nombre";
+
+        String TIPO_DOCUMENTO = "select nombre_corto ||'('|| descripcion ||')' AS Nombre\n"
+                + "FROM mcpy.tipo_de_documento;";
+
+        String TIPO_TERCERO = "select nombre_corto ||'('|| descripcion ||')' AS Nombre\n"
+                + "FROM mcpy.tipo_de_tercero;";
 
 
         /*############################################
@@ -287,10 +287,8 @@ public class StringsSql {
                 + "order by username";
 
         String USER_INS = "INSERT INTO {schema}.usuario(username, cedula, nombres, apellido1, apellido2, telefono, email, expira_pass, expira_account) \n"
-                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, to_date(?,'yyyy-mm-dd'), to_date(?,'yyyy-mm-dd'))";
 
-        String CREATE_USER_DB = "";
-        
         /*############################################
          # Aquí todos las acciones para buscar SQL's
          #############################################*/
@@ -301,8 +299,44 @@ public class StringsSql {
             case "user-add":
                 tmpSql = USER_INS;
                 break;
-            case "user-add-db":
-                tmpSql = CREATE_USER_DB;
+        }
+
+        OutSql = tmpSql.replace("{schema}", SCHEMA);
+        return OutSql;
+    }
+
+    public static String UserProfile(String searchSql) {
+        String tmpSql = "";
+        String OutSql = "";
+
+        /*############################################
+         # Aquí todos los SQL's
+         #############################################*/
+        String USER_PROFILES_TYPE = "SELECT perfil as CODE, 'Y'\n"
+                + "FROM {schema}.usuario_perfiles\n"
+                + "WHERE username= ?\n"
+                + "AND tipo = ?";
+
+        String USER_PROFILES_DEL_TYPE = "DELETE FROM mcpy.usuario_perfiles\n"
+                + "WHERE username= ?\n"
+                + "AND tipo = ?";
+
+        String USER_PROFILE_INS = "insert into mcpy.usuario_perfiles (username,perfil,tipo)\n"
+                + "values (?,?,?)";
+
+
+        /*############################################
+         # Aquí todos las acciones para buscar SQL's
+         #############################################*/
+        switch (searchSql) {
+            case "user-profile-type":
+                tmpSql = USER_PROFILES_TYPE;
+                break;
+            case "user-profile-del-all-type":
+                tmpSql = USER_PROFILES_DEL_TYPE;
+                break;
+            case "user-profile-ins":
+                tmpSql = USER_PROFILE_INS;
                 break;
         }
 
