@@ -7,7 +7,6 @@ package com.mcpy.profile.core;
 
 import com.mcpy.control.Controller;
 import com.mcpy.control.StringsSql;
-import static com.mcpy.control.StringsSql.ProfileNodes;
 import com.mcpy.profile.model.Profile;
 import com.mcpy.control.database.*;
 import com.mcpy.control.util;
@@ -15,7 +14,6 @@ import com.mcpy.profile.model.ProfileNodes;
 import com.mcpy.profile.model.ProfileObjects;
 import java.io.IOException;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,15 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ProfileAssign", urlPatterns = {"/ProfileAssign"})
 public class ProfileAssign extends Controller {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
 
@@ -52,6 +42,7 @@ public class ProfileAssign extends Controller {
         Profile profile = (Profile) request.getSession().getAttribute("profile");
 
         ProfileNodes pnodes = (ProfileNodes) request.getSession().getAttribute("pnodes");
+        
         String[][] mpnodes = pnodes.getMenu().to_ArrayToPermissions();
         for (int i = 0; i < mpnodes.length; i++) {
             String val = request.getParameter(mpnodes[i][0]);
@@ -110,7 +101,7 @@ public class ProfileAssign extends Controller {
             pstm.execute();
         }
         pobjects.setObjects(mpobjects);
-        Grantee.Grantee(pobjects, conex);
+        Grantee.Profile(pobjects, conex);
 
     }
 

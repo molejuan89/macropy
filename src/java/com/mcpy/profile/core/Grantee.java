@@ -8,7 +8,10 @@ package com.mcpy.profile.core;
 import com.mcpy.profile.objects.model.ObjetDB;
 import com.mcpy.control.database.Database;
 import com.mcpy.control.database.ParamDB;
+import com.mcpy.control.util;
+import com.mcpy.profile.model.Profile;
 import com.mcpy.profile.model.ProfileObjects;
+import com.mcpy.user.model.UserProfiles;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Iterator;
@@ -19,7 +22,7 @@ import java.util.Iterator;
  */
 public class Grantee {
 
-    public static void Grantee(ProfileObjects perfil_objeto, Database conn) throws SQLException {
+    public static void Profile(ProfileObjects perfil_objeto, Database conn) throws SQLException {
 
         PreparedStatement pstm;
 
@@ -50,6 +53,34 @@ public class Grantee {
             }
         }
 
+    }
+
+    public static void User(UserProfiles user_p, Database conn) throws SQLException {
+
+        PreparedStatement pstm;
+
+        System.out.println("grantee:\n");
+        util.imprimir(user_p.getPerfiles());
+
+        System.out.println("permissions:\n");
+        util.imprimir(user_p.toArrayToPermissions());
+
+        for (int i = 1; i < user_p.getPerfiles().length; i++) {
+            System.out.println("ciclo: " + i);
+            Profile p = new Profile(Integer.parseInt(user_p.getPerfiles()[i][0]), "temp");
+            pstm = conn.getConexion().prepareStatement("REVOKE " + p.getName_rol() + " FROM " + user_p.getUser().getUsername());
+            pstm.execute();
+            System.out.println("execute:" + pstm.toString());
+
+            String val = val = user_p.toArrayToPermissions()[i - 1][1];
+            if (val != null) {
+                if (val.equals("Y")) {
+                    pstm = conn.getConexion().prepareStatement("GRANT " + p.getName_rol() + " TO " + user_p.getUser().getUsername());
+                    pstm.execute();
+                    System.out.println("execute:" + pstm.toString());
+                }
+            }
+        }
     }
 
 }

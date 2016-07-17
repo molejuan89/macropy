@@ -34,8 +34,12 @@ public abstract class Controller extends HttpServlet {
     protected String dashboard = null;
 
     protected String menuAction = null;
+
     protected String profileAction = null;
     protected String profileAssign = null;
+
+    protected String userAction = null;
+    protected String userAssign = null;
 
     protected abstract void processRequest(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException, SQLException, MessagingException;
@@ -70,8 +74,12 @@ public abstract class Controller extends HttpServlet {
         dashboard = "/dashboard.jsp";
 
         menuAction = "/MenuAction";
+
         profileAction = "/ProfileAction";
         profileAssign = "/ProfileAssign";
+
+        userAction = "/UserAction";
+        userAssign = "/UserAssign";
 
     }
 

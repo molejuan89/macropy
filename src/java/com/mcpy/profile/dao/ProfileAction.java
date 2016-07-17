@@ -10,7 +10,6 @@ import com.mcpy.control.StringsSql;
 import com.mcpy.profile.model.Profile;
 import com.mcpy.control.database.*;
 import com.mcpy.control.util;
-import com.mcpy.profile.core.Grantee;
 import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
