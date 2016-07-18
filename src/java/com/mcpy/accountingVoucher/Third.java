@@ -60,31 +60,64 @@ public class Third {
         int tipo_tercero_temp = -1;
         int actividad_economica_dian_temp = -1;
         int actividad_economica_ica_temp = -1;
+        
         try {
             codigo_temp = Integer.parseInt(a[0]);
-            tipo_documento_temp= Integer.parseInt(a[1]);
-            numero_documento_temp= Integer.parseInt(a[2]);
-            telefono_temp= Integer.parseInt(a[6]);
-            pais_temp= Integer.parseInt(a[8]);
-            departamento_temp= Integer.parseInt(a[9]);
-            ciudad_temp= Integer.parseInt(a[10]);
-            tipo_tercero_temp= Integer.parseInt(a[11]);
-            actividad_economica_dian_temp= Integer.parseInt(a[12]);
-            actividad_economica_ica_temp= Integer.parseInt(a[13]);
+
         } catch (NumberFormatException e) {
             codigo_temp = -1;
-            tipo_documento_temp = -1;
-            numero_documento_temp = -1;
-            telefono_temp = -1;
+        }
+        try {
+            tipo_documento_temp= Integer.parseInt(a[1]);
+        } catch (NumberFormatException e) {
+            tipo_documento_temp = -1;           
+        }
+        try {
+            numero_documento_temp= Integer.parseInt(a[2]);
+        } catch (NumberFormatException e) {
+            numero_documento_temp = -1;           
+        }
+        try {
+            telefono_temp= Integer.parseInt(a[6]);
+        } catch (NumberFormatException e) {
+            telefono_temp = -1;           
+        }
+        try {
+            pais_temp= Integer.parseInt(a[8]);
+        } catch (NumberFormatException e) {
             pais_temp = -1;
-            departamento_temp = -1;
-            ciudad_temp = -1;
-            tipo_tercero_temp = -1;
-            actividad_economica_dian_temp = -1;
-            actividad_economica_ica_temp = -1;
             
         }
+        try {
+            departamento_temp= Integer.parseInt(a[9]);
+        } catch (NumberFormatException e) {
+            departamento_temp = -1;           
+        }
+        try {
+            ciudad_temp= Integer.parseInt(a[10]);
+        } catch (NumberFormatException e) {
+            ciudad_temp = -1;
 
+        }
+        try {
+            tipo_tercero_temp= Integer.parseInt(a[11]);
+        } catch (NumberFormatException e) {
+            tipo_tercero_temp = -1;
+            
+        }
+        try {
+            actividad_economica_dian_temp= Integer.parseInt(a[12]);
+        } catch (NumberFormatException e) {
+            actividad_economica_dian_temp = -1;
+            
+        }
+        try {
+            actividad_economica_ica_temp= Integer.parseInt(a[13]);
+        } catch (NumberFormatException e) {
+
+            actividad_economica_ica_temp = -1;           
+        }
+        
         Third(ciudad_temp, tipo_documento_temp, numero_documento_temp,a[3],a[4],a[5],telefono_temp,a[7],pais_temp,departamento_temp,ciudad_temp,tipo_tercero_temp,actividad_economica_dian_temp,actividad_economica_ica_temp,a[14]);
     }
 

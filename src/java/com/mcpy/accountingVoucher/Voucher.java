@@ -46,20 +46,35 @@ public class Voucher {
         int ciudad_temp = -1;
         try {
             tipo_documento_temp= Integer.parseInt(a[0]);
+        } catch (NumberFormatException e) {
+            tipo_documento_temp = -1;          
+        }
+        try {
             tercero_temp= Integer.parseInt(a[2]);
+
+        } catch (NumberFormatException e) {
+            tercero_temp= -1;           
+        }
+        try {
             valor_total_temp= Integer.parseInt(a[4]);
+        } catch (NumberFormatException e) {
+            valor_total_temp= -1;          
+        }
+        try {
             pais_temp= Integer.parseInt(a[6]);
+        } catch (NumberFormatException e) {
+            pais_temp = -1;          
+        }
+        try {
             depto_temp= Integer.parseInt(a[7]);
+        } catch (NumberFormatException e) {
+            depto_temp = -1;
+            
+        }
+        try {
             ciudad_temp= Integer.parseInt(a[8]);
         } catch (NumberFormatException e) {
-
-            tipo_documento_temp = -1;
-            tercero_temp= -1;
-            valor_total_temp= -1;
-            pais_temp = -1;
-            depto_temp = -1;
-            ciudad_temp = -1;
-            
+            ciudad_temp = -1;      
         }
         voucher(tipo_documento_temp, a[1], tercero_temp, a[3],valor_total_temp, a[5], pais_temp, depto_temp, ciudad_temp);
 

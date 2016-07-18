@@ -28,18 +28,21 @@ public class Consecutive_doc {
     }
     
     public Consecutive_doc(String[] a) {
-        int n = -1;
-        int m = -1;
+        int tipo_documento_ctb_temp = -1;
+        int ultimo_temp = -1;
         
         try {
-            n = Integer.parseInt(a[0]);
-            m = Integer.parseInt(a[2]);
+            tipo_documento_ctb_temp = Integer.parseInt(a[0]);
         } catch (NumberFormatException e) {
-            n = -1;
-            m = -1;
+            tipo_documento_ctb_temp = -1;
+        }
+        try {
+            ultimo_temp = Integer.parseInt(a[2]);
+        } catch (NumberFormatException e) {
+            ultimo_temp = -1;
         }
 
-        Consecutive_doc(n, a[1],m,a[3]);
+        Consecutive_doc(tipo_documento_ctb_temp, a[1],ultimo_temp,a[3]);
     }
     
     
