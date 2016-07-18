@@ -16,7 +16,7 @@
         <script src="<%=request.getContextPath()%>/libs/com.jquery.code/1.12.2/jquery.min.js"></script>
 
         <!-- Validar antes de Activar Boton Registro-->
-        <script src="js/validate.js"></script>  
+        <script src="../js/validate.js"></script>  
 
         <!--Bootstrap v3.3.6 -->
         <link rel="stylesheet" href="<%=request.getContextPath()%>/libs/com.bootstrapcdn.maxcdn/bootstrap/3.3.6/css/bootstrap.min.css">

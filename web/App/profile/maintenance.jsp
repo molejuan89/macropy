@@ -62,7 +62,7 @@
                     </div>
 
                 </div>
-                        <div class="row" hidden="">
+                     <!--  <div class="row" hidden="">
                     <div class="form-group">
                         <div class="form-group">
                             <label for="admin">Admin Option:</label>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div>-->
                 <button id="btn_CrearPerfil" type="submit" class="btn btn-default center-block ">Aceptar</button>
             </div>
         </form>

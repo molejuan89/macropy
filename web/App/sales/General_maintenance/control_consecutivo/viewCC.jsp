@@ -81,7 +81,7 @@
         <div class="col-xs-7" id="contenido">
             <div>
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe  src="http://localhost:8080/macropy/App/sales/General_maintenance/control_consecutivo.jsp"></iframe>
+                    <iframe  src="http://localhost:8080/macropy/App/sales/General_maintenance/control_consecutivo/control_consecutivo.jsp"></iframe>
                 </div>
             </div>
         </div>

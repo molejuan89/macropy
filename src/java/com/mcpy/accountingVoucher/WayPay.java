@@ -7,34 +7,35 @@ package com.mcpy.accountingVoucher;
 
 /**
  *
- * @author AGiraldo
+ * @author JuanDavid
  */
-public class puc {
-
+public class WayPay {
+    
     int codigo;
     String descripcion;
+    String nombre_corto;
 
-    public void TypeDocumentCtb(int codigo, String descripcion) {
+    public void WayPay(int codigo, String descripcion, String nombre_corto) {
         this.codigo = codigo;
         this.descripcion = descripcion;
-        
+        this.nombre_corto = nombre_corto;
     }
 
-    public puc(int codigo, String descripcion) {
-        TypeDocumentCtb(codigo, descripcion);
+    public WayPay(int codigo, String descripcion, String nombre_corto) {
+        WayPay(codigo,descripcion, nombre_corto);
     }
-
-    public puc(String[] a) {
-        int n = -1;
+    
+    public WayPay(String[] a) {
+        int codigo_tmp = -1;
         try {
-            n = Integer.parseInt(a[0]);
+            codigo_tmp = Integer.parseInt(a[0]);
         } catch (NumberFormatException e) {
-            n = -1;
+            codigo_tmp = -1;
         }
 
-        TypeDocumentCtb(n, a[1]);
+        WayPay(codigo_tmp, descripcion, nombre_corto);
     }
-
+    
     public int getCodigo() {
         return codigo;
     }
@@ -51,4 +52,16 @@ public class puc {
         this.descripcion = descripcion;
     }
 
+    public String getNombre_corto() {
+        return nombre_corto;
+    }
+
+    public void setNombre_corto(String nombre_corto) {
+        this.nombre_corto = nombre_corto;
+    }
+    
+    
+
+    
+   
 }

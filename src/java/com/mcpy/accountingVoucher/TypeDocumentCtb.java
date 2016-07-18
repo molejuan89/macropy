@@ -26,14 +26,14 @@ public class TypeDocumentCtb {
     }
 
     public TypeDocumentCtb(String[] a) {
-        int n = -1;
+        int codigo_tmp = -1;
         try {
-            n = Integer.parseInt(a[0]);
+            codigo_tmp = Integer.parseInt(a[0]);
         } catch (NumberFormatException e) {
-            n = -1;
+            codigo_tmp = -1;
         }
 
-        TypeDocumentCtb(n, a[1], a[2]);
+        TypeDocumentCtb(codigo_tmp, descripcion, nombre_corto);
     }
 
     public int getCodigo() {
