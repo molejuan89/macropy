@@ -244,30 +244,65 @@ public class StringsSql {
         /*############################################
          # Aquí todos los SQL's
          #############################################*/
-        String CITIES = "SELECT  lpad(CAST(codigo_depto AS TEXT), 3, '0')||lpad(CAST(codigo_ciudad AS TEXT), 3, '0')  AS Codigo, desc_ciudad ||'('|| desc_depto ||')' AS Nombre\n"
-                + "FROM mcpy.tabla_ciudad C, mcpy.tabla_departamento D\n"
-                + "where D.codigo_dpto=codigo_depto\n"
-                + "order by Nombre";
+        String CITIES = "select lpad(CAST(pais AS TEXT), 3, '0') ||'.'||lpad(CAST(departamento AS TEXT), 3, '0')||'.'||lpad(CAST(codigo AS TEXT), 3, '0') as codigo, descripcion\n"
+                + "from {schema}.ciudad\n"
+                + "order by pais, departamento, codigo";
 
-        String TIPO_DOCUMENTO = "select nombre_corto ||'('|| descripcion ||')' AS Nombre\n"
-                + "FROM mcpy.tipo_de_documento;";
+        String TYPE_DOCUMENT_ID = "select codigo,descripcion \n"
+                + "from {schema}.tipo_documento_id";
 
-        String TIPO_TERCERO = "select nombre_corto ||'('|| descripcion ||')' AS Nombre\n"
-                + "FROM mcpy.tipo_de_tercero;";
+        String ACTIVITY_ICA = "select codigo,descripcion \n"
+                + "from {schema}.actividad_economica_ica\n"
+                + "order by descripcion";
+
+        String ACTIVITY_DIAN = "select codigo,descripcion \n"
+                + "from {schema}.actividad_economica_dian\n"
+                + "order by descripcion";
+
+        String TYPE_THIRD = "select codigo,descripcion \n"
+                + "from {schema}.tipo_tercero\n"
+                + "order by descripcion";
+
+        String PUC = "select codigo,codigo||'-'||descripcion \n"
+                + "from {schema}.puc\n"
+                + "order by to_char(codigo,'99999999')";
+
+        String TYPE_DOCUMENT_CTB = "select codigo,descripcion \n"
+                + "from {schema}.tipo_documento_ctb\n"
+                + "order by descripcion";
+
+        String WAY_PAY = "select codigo,descripcion \n"
+                + "from {schema}.forma_pago\n"
+                + "order by descripcion";
 
 
         /*############################################
          # Aquí todos las acciones para buscar SQL's
          #############################################*/
         switch (searchSql) {
-            case "cities":
+            case "city":
                 tmpSql = CITIES;
                 break;
-            case "tipo_doc":
-                tmpSql = TIPO_DOCUMENTO;
+            case "type-document-id":
+                tmpSql = TYPE_DOCUMENT_ID;
                 break;
-            case "tipo_terc":
-                tmpSql = TIPO_TERCERO;
+            case "activity-ica":
+                tmpSql = ACTIVITY_ICA;
+                break;
+            case "activity-dian":
+                tmpSql = ACTIVITY_DIAN;
+                break;
+            case "type-third":
+                tmpSql = TYPE_THIRD;
+                break;
+            case "puc":
+                tmpSql = PUC;
+                break;
+            case "type-document-ctb":
+                tmpSql = TYPE_DOCUMENT_CTB;
+                break;
+            case "way-pay":
+                tmpSql = WAY_PAY;
                 break;
         }
 

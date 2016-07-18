@@ -36,10 +36,11 @@ public class ListValue extends HttpServlet {
         Database conex = (Database) request.getSession().getAttribute("conex");
         PreparedStatement pstm = null;
 
-        System.out.println("param1:" + param1);
-        if (param1 != null && param1.length() > 0) {
-            pstm = conex.getConexion().prepareStatement(StringsSql.Lists(lista), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            pstm.setString(1, param1);
+        if (param1 != null) {
+            if (param1.length() > 0) {
+                pstm = conex.getConexion().prepareStatement(StringsSql.Lists(lista), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                pstm.setString(1, param1);
+            }
         } else {
             pstm = conex.getConexion().prepareStatement(StringsSql.Lists(lista), ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         }
